@@ -1,0 +1,23 @@
+# The container id file (for `make env`)
+.*container*
+# 3rd-party TeX files
+gnuplot-lua-tikz-common.tex
+gnuplot-lua-tikz.sty
+picins.sty
+
+# The final output
+*.pdf
+# build artifacts
+*.aux
+*.toc
+*.dvi
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.ps
+
+# Temporary files
+*~
+\#*
