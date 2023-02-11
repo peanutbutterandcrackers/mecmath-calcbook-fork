@@ -423,7 +423,7 @@ To find the critical points of $D$, solve the equation $D'(x)=0$:
 \[
 D'(x) ~=~ \frac{x}{\sqrt{x^2 + y_1^2}} ~-~ \frac{L-x}{\sqrt{(L-x)^2 + y_2^2}} ~=~ 0
 \quad\Rightarrow\quad \frac{x}{d_1} ~=~ \frac{L-x}{d_2}
-\quad\Rightarrow\quad \sin\,\theta_1 ~=~ \sin\,\theta_2
+\quad\Rightarrow\quad \cos\,\theta_1 ~=~ \cos\,\theta_2
 \quad\Rightarrow\quad \theta_1 ~=~ \theta_2
 \]
 since the sine function is one-to-one over the interval $\ival{0}{\frac{\pi}{2}}$.
@@ -444,15 +444,15 @@ D'(x) ~=~ 0 \quad&\Rightarrow\quad
 \quad\Rightarrow\quad x ~=~ \frac{Ly_1}{y_1 + y_2} \quad\text{is the only critical point,}
 \end{align*}
 and $x$ is between $0$ and $L$. Now compare the values
-of $D^2(x)$ at $x=0$, $x=L$, and $x=\frac{Ly_1}{y_1 + y_2}$:
+of $D''(x)$ at $x=0$, $x=L$, and $x=\frac{Ly_1}{y_1 + y_2}$:
 \begin{align*}
-D^2(0) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1\sqrt{L^2 + y_2^2}\\
-D^2(L) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_2\sqrt{L^2 + y_1^2}\\
-D^2\left(\tfrac{Ly_1}{y_1 + y_2}\right) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1y_2
+D''(0) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1\sqrt{L^2 + y_2^2}\\
+D''(L) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_2\sqrt{L^2 + y_1^2}\\
+D''\left(\tfrac{Ly_1}{y_1 + y_2}\right) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1y_2
 \end{align*}
 Since $y_2 < \sqrt{L^2 + y_2^2}$ and $y_1 < \sqrt{L^2 + y_1^2}$, then
-$D^2\left(\tfrac{Ly_1}{y_1 + y_2}\right)$ is the smallest of the three values
-above, so that $D^2(x)$ has its minimum value at $x=\frac{Ly_1}{y_1 + y_2}$,
+$D''\left(\tfrac{Ly_1}{y_1 + y_2}\right)$ is the smallest of the three values
+above, so that $D''(x)$ has its minimum value at $x=\frac{Ly_1}{y_1 + y_2}$,
 which means $D(x)$ has its minimum value there.$\quad\checkmark$
 \end{exmp}
 \divider

@@ -301,14 +301,14 @@ a(t) ~=~ -g \quad\Rightarrow\quad v(t) ~=~ \int a(t)~\dt ~=~ \int -g~\dt
 ~=~ -gt ~+~ C
 \]
 for some constant $C$:
-$v_0 = v(0) = -g(0) + C = C$. Thus, $v(t) = -gt + v_0$ for all $t \ge 0$,
+$v_0 = v(0) = -g \cdot 0 + C = C$. Thus, $v(t) = -gt + v_0$ for all $t \ge 0$,
 and so
 \[
 s(t) ~=~ \int v(t)~\dt ~=~ \int \left(-gt ~+~ v_0\right)~\dt ~=~
 -\tfrac{1}{2}gt^2 ~+~ v_0t ~+~ C
 \]
 for some constant $C$:
-$s_0 = s(0) = -\tfrac{1}{2}g(0)^2 + v_0(0) + C = C$. To summarize:
+$s_0 = s(0) = -\tfrac{1}{2}g \cdot 0^2 + v_0 \cdot 0 + C = C$. To summarize:
 
 \statethm{thm:gravity}{\textbf{Free fall motion:} At time $t \ge 0$:
 \begin{alignat*}{3}
@@ -1117,7 +1117,7 @@ which shows that $A(x)$ is differentiable and has derivative $f(x)$.
 This proves Part I of the Fundamental Theorem of Calculus.$\quad\checkmark$
 
 To prove Part II of the theorem, let $F(x)$ be an antiderivative of $f(x)$ over
-$\ival{a}{b}$. Since the are afunction $A(x) = \int_a^x f(x)\,\dx$ is also an
+$\ival{a}{b}$. Since the area function $A(x) = \int_a^x f(x)\,\dx$ is also an
 antiderivative of
 $f(x)$ over $\ival{a}{b}$ by Part I of the theorem, then $A(x)$ and $F(x)$
 differ by a constant $C$ over $\ival{a}{b}$. In other words:
@@ -1313,7 +1313,7 @@ then $F'(x) = f(g(x)) \cdot g'(x)$ for all $x$ in $I$.}
 \begin{exmp}\label{exmp:ftc4}
 \noindent Let $F(x) = \displaystyle\int_0^{x^2} e^{-t^2}~\dt$ for all $x > 0$.
 Find $F'(x)$.\vspace{1mm}
-\par\noindent\emph{Solution:} By the Chain Rule for integrals, with $f(t) = e^{t^2}$
+\par\noindent\emph{Solution:} By the Chain Rule for integrals, with $f(t) = e^{-t^2}$
 and $g(x) = x^2$:
 \[
 F'(x) ~=~ f(g(x))\cdot g'(x) ~=~ e^{-(x^2)^2} \cdot (2x) ~=~ 2x\,e^{-x^4}
@@ -1879,7 +1879,7 @@ improper integrals can be interpreted as representing the area under a curve.
 \int_1^{\infty}\,\dfrac{\dx}{x} ~&=~ \lim_{b \to \infty}~\int_{1}^{b} \dfrac{\dx}{x} ~=~
 \lim_{b \to \infty}~\left(\ln\,x~\Biggr|_1^{b}\right)\\[6pt]
 &=~ \lim_{b \to \infty}~ (\ln\,b ~-~ \ln\,1) ~=~
-    \lim_{b \to \infty}~ b ~=~ \infty
+    \lim_{b \to \infty}~ \ln\,b ~=~ \infty
 \end{align*}
 \picskip{1}
 \noindent and so the integral is divergent. This means that the area under the

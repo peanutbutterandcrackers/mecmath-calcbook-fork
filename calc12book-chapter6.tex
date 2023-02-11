@@ -197,14 +197,14 @@ arrows indicate multiplication):
  \node[right] at (2,-1.5) {(--)};
  \draw[->] (3,-1.5) -- (4,-1.5) node[right] {$~-~u_2\,v_2$};
 
- \node[left] at (0,-2) {$u_3$};
+ \node[left] at (0,-2) {$u_4$};
  \node[right] at (1,-2) {$v_3$};
  \draw[->] (0,-1.5) -- (1,-2);
  \node[right] at (2,-2) {(+)};
  \draw[->] (3,-2) -- (4,-2) node[right] {$~+~u_3\,v_3$};
 
 
- \node[left] at (0,-2.5) {$u_4$};
+ \node[left] at (0,-2.5) {$u_5$};
  \node[right] at (1,-2.5) {$v_4$};
  \draw[->] (0,-2) -- (1,-2.5);
  \node[right] at (2,-2.5) {(--)};
@@ -668,7 +668,7 @@ and $\cos\,x$:
 \begin{align*}
 \int \frac{\cot^4x}{\csc^5 x}\;\dx ~&=~ \int \frac{\cos^4x~\sin^5 x}{\sin^4 x}\;\dx\\[6pt]
 &=~ \int \cos^4 x~\sin\,x~\dx\quad\text{(now let $u=\cos\,x$, $\du=-\sin\,x~\dx$)}\\[6pt]
-&=~ -\int u^4~\dx ~=~ -\frac{1}{5}\,\cos^5 x ~+~ C
+&=~ -\int u^4~\du ~=~ -\frac{1}{5}\,\cos^5 x ~+~ C
 \end{align*}
 \end{exmp}
 \divider
@@ -912,7 +912,7 @@ the substitution $x=\tan\,\theta$. Then $\dx = \sec^2 \theta\,\dtheta$ and so
 \begin{align*}
 \int \frac{\dx}{(1 + x^2)^2} ~&=~ \int \frac{\sec^2 \theta~\dtheta}{(1 + \tan^2 \theta)^2}\\[6pt]
 &=~ \int \frac{\sec^2 \theta\,\dtheta}{(\sec^2 \theta)^2}\\[6pt]
-&=~ \int \frac{\dtheta}{\sec^2 \theta^2}\\[6pt]
+&=~ \int \frac{\dtheta}{\sec^2 \theta}\\[6pt]
 &=~ \int \cos^2 \theta~\dtheta\\[6pt]
 &=~ \int \frac{1 + \cos\,2\theta}{2}\,\dtheta\\[6pt]
 &=~ \frac{\theta}{2} ~+~ \frac{1}{4}\,\sin\,2\theta ~+~ C\\[6pt]
@@ -1339,7 +1339,7 @@ and $x^2 + 1$ is repeated, so by Case 4,
 \begin{align*}
 \frac{1}{(x^2+1)^2\,(x^2+4)} ~&=~ \frac{Ax+B}{x^2+1} ~+~ \frac{Cx+D}{(x^2+1)^2} ~+~
  \frac{Ex+F}{x^2+4}\\[4pt]
-&=~ \frac{(Ax+B)\,(x^2+1)\,(x^2+4) ~+~ (Cx+D)\,(x^2+4) ~+~ (Ex+F)\,(x^2+1)^2}{(x^2+1)\,(x^2+4)}
+&=~ \frac{(Ax+B)\,(x^2+1)\,(x^2+4) ~+~ (Cx+D)\,(x^2+4) ~+~ (Ex+F)\,(x^2+1)^2}{(x^2+1)^2\,(x^2+4)}
 \end{align*}
 with the right side of the equation expanded as
 \[
