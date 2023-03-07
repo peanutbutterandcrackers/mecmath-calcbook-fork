@@ -1087,7 +1087,7 @@ The number $a$ can be real, $\infty$, or $-\infty$.}
 \noindent Evaluate $\displaystyle\lim_{x \to \infty}~\dfrac{2x - 1}{e^x}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} This limit is of the form $\infty/\infty$:
 \begin{align*}
-\lim_{x \to \infty}~\dfrac{2x - 1}{e^x} ~&\to~ \frac{\infty}{\infty}\\
+&\lim_{x \to \infty}~\dfrac{2x - 1}{e^x} ~\to~ \frac{\infty}{\infty}\\
 &=~ \lim_{x \to \infty}~\dfrac{2}{e^x} \quad\text{by L'H\^{o}pital's Rule}\\
 &=~ 0
 \end{align*}
@@ -1103,7 +1103,7 @@ outstrips polynomial growth}.
 \noindent Evaluate $\displaystyle\lim_{x \to \infty}~\dfrac{x}{\ln\,x}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} This limit is of the form $\infty/\infty$:
 \begin{align*}
-\lim_{x \to \infty}~\dfrac{x}{\ln\,x} ~&\to~ \frac{\infty}{\infty}\\
+&\lim_{x \to \infty}~\dfrac{x}{\ln\,x} ~\to~ \frac{\infty}{\infty}\\
 &=~ \lim_{x \to \infty}~\dfrac{1}{\frac{1}{x}} \quad\text{by L'H\^{o}pital's Rule}\\[6pt]
 &=~ \lim_{x \to \infty}~x ~=~ \infty
 \end{align*}
@@ -1117,7 +1117,7 @@ growth outstrips logarithmic growth}.
 \par\noindent\emph{Solution:} This limit is of the form $\infty \cdot 0$, which
 can be converted to $\infty/\infty$:
 \begin{align*}
-\lim_{x \to \infty}~x e^{-2x} ~=~ \lim_{x \to \infty}~\frac{x}{e^{2x}} ~&\to~ \frac{\infty}{\infty}\\
+\lim_{x \to \infty}~x e^{-2x} ~&=~ \lim_{x \to \infty}~\frac{x}{e^{2x}} ~\to~ \frac{\infty}{\infty}\\
 &=~ \lim_{x \to \infty}~\dfrac{1}{2e^{2x}} \quad\text{by L'H\^{o}pital's Rule}\\
 &=~ 0
 \end{align*}
@@ -1128,10 +1128,11 @@ polynomial growth.
 \noindent Evaluate $\displaystyle\lim_{x \to \infty}~\dfrac{2x^2 ~-~ 7x ~-~ 5}{3x^2 ~+~ 2x ~-~ 1}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} This limit is of the form $\infty/\infty$:
 \begin{align*}
-\lim_{x \to \infty}~\dfrac{2x^2 ~-~ 7x ~-~ 5}{3x^2 ~+~ 2x ~-~ 1} ~&\to~ \frac{\infty}{\infty}\\[4pt]
-&=~ \lim_{x \to \infty}~\dfrac{4x ~-~ 7}{6x ~+~ 2} \quad\text{by L'H\^{o}pital's Rule}\\[6pt]
-~&\to~ \frac{\infty}{\infty} \quad\text{, so use L'H\^{o}pital's Rule again}\\[6pt]
-&=~ \frac{4}{6} ~=~ \frac{2}{3}
+&\lim_{x \to \infty}~\dfrac{2x^2 ~-~ 7x ~-~ 5}{3x^2 ~+~ 2x ~-~ 1} ~\to~ \frac{\infty}{\infty}\\[4pt]
+&=~ \lim_{x \to \infty}~\dfrac{4x ~-~ 7}{6x ~+~ 2} \quad\text{by L'H\^{o}pital's Rule}
+~\to~ \frac{\infty}{\infty} \\[6pt]
+&=~ \frac{4}{6} \quad\text{by L'H\^{o}pital's Rule, again}\\
+&=~ \frac{2}{3}
 \end{align*}
 Note that the limit ended up being the ratio of the leading coefficients of the
 polynomials in the numerator and denominator of the original limit. Note also
@@ -1146,7 +1147,7 @@ ratio of polynomials (i.e. a
 \noindent Evaluate $\displaystyle\lim_{x \to 0}~\dfrac{1 ~-~ \cos\,x}{x}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} This limit is of the form $0/0$:
 \begin{align*}
-\lim_{x \to 0}~\dfrac{1 ~-~ \cos\,x}{x} ~&\to~ \frac{0}{0}\\[4pt]
+&\lim_{x \to 0}~\dfrac{1 ~-~ \cos\,x}{x} ~\to~ \frac{0}{0}\\[4pt]
 &=~ \lim_{x \to 0}~\dfrac{\sin\,x}{1} \quad\text{by L'H\^{o}pital's Rule}\\[6pt]
 &=~ \frac{\sin 0}{1} ~=~ 0
 \end{align*}
