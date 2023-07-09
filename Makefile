@@ -1,21 +1,7 @@
-ElementaryCalculus.pdf: ad-hoc-patches manual_dependencies *.tex
+calc12book.pdf: *.tex
 	./calc12book.sh
 
-pdf: ElementaryCalculus.pdf
-
-### Ad-hoc patches
-ad-hoc-patches:
-	sed -i '/\usetkzobj{all}/d' calc12book.tex
-
-### Manual Dependencies
-manual_dependencies: gnuplot-lua-tikz.sty picins.sty
-
-gnuplot-lua-tikz.sty:
-	wget https://raw.githubusercontent.com/kpu/mtplz/master/paper/gnuplot-lua-tikz.sty
-	wget https://raw.githubusercontent.com/kpu/mtplz/master/paper/gnuplot-lua-tikz-common.tex
-
-picins.sty:
-	wget http://mirrors.ctan.org/macros/latex209/contrib/picins/picins.sty
+pdf: calc12book.pdf
 
 ### Environment (Uses Containers)
 env: container_env
