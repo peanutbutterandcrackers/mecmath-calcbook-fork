@@ -1503,7 +1503,7 @@ $y$:
 &=~ \lim_{x \to 0+}~\frac{1/x}{-1/x^2} \quad\text{by L'H\^{o}pital's Rule}\\[6pt]
 \ln\,y ~&=~ \lim_{x \to 0+}~(-x) ~=~ 0
 \end{align*}
-Thus, $\displaystyle\lim_{x \to 0+}~x^x ~=~ y ~=~ e^0 ~=~ 1$.
+Thus, $\displaystyle\lim_{x \to 0+}~x^x ~=~ y ~=~ e^{\ln\,y} ~=~ e^0 ~=~ 1$.
 \end{exmp}
 \divider
 \newpage
@@ -1532,10 +1532,20 @@ i.e. $f$ is continuous at $x = a\,.\quad\checkmark$
 \end{tikzpicture}}
 \par Note that the converse is not true. For example, the absolute value
 function $f(x) = \abs{x}$ is continuous everywhere---its graph is unbroken, as
-shown in the picture on the right---but recall from Example
-\ref{exmp:absnondiff} in Section 1.2 that it is not differentiable at $x = 0$.
+shown in the picture on the right---but---recall from Example
+\ref{exmp:absnondiff} in Section 1.2 that---it is not differentiable (at $x = 0$).
 Continuous curves can have sharp edges and cusps, but differentiable curves
-cannot.
+cannot -- they must be ``smooth''.
+
+This fact is worth restating in it's logically equivalent---and perhaps more illuminating---contrapositive form:
+\statecomment{\begin{center}
+    If a function is not continuous, then it is not differentiable.
+
+    \textsc{or}
+
+    No discontinuous function is differentiable.
+\end{center}}
+
 
 Two other important theorems\footnote{The full proofs require some advanced
 results. See pp.97-98 and p.558 in \textsc{Taylor, A.E. and W.R. Mann},
