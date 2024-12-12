@@ -147,7 +147,7 @@ written as follows:
   &=~~ \lim_{\Delta t \to 0} ~\frac{\Delta s}{\Delta t}
   ~~=~~ \lim_{\Delta t \to 0} ~(-32t ~-~ 16\Delta t) ~~=~~ -32t - 16(0) ~~=~~ -32t
 \end{align*}
-Notice that $\Delta t$ is not replaced by $0$ in the
+Notice that $\Delta t$ has not been shrunk all the way down to $0$ in the
 ratio $\frac{\Delta s}{\Delta t}$ until \emph{after} doing as much cancellation
 as possible. Notice also that the instantaneous velocity of the object
 varies with $t$, as it should (why?). In particular, at the instant when the
@@ -265,7 +265,7 @@ a rational number. In fact, if the square of a rational number $q$ were an
 integer, then $q$ itself would have to be an integer: write $q$ as $m/n$, where
 $m$ and $n$ are positive integers with no common positive integer divisors other
 than 1. Since $q^2 = m^2/n^2$ simply duplicates the integer divisors of $m$ and
-$n$, then $q^2$ can be an integer only if $n=1$, i.e. $q$ is an integer. Clearly
+$n$, then $q^2$ can be an integer only if $n=1$, i.e. $q=m/n=m/1=m$ is an integer. Clearly
 2 is not the square of an integer, and thus it cannot be the square of a
 rational number. This argument also shows that $\sqrt{3}$, $\sqrt{5}$,
 $\sqrt{6}$, $\sqrt{7}$, $\sqrt{8}$, $\sqrt{10}$, and so on, are
@@ -522,23 +522,23 @@ position as a function of time is only one physical application of derivatives.
 There are many other examples:
 
 \begin{center}
- \small{\begin{tabular}{|c|c|c|}
+ \small{\begin{tabular}{|>{\centering\arraybackslash}m{0.07\textwidth}|c|c|}
  \hline
  \rowcolor{fillcolor} Field & Function & Derivative\\
  \hline
- Physics & position & velocity\\
+ \multirow{4}{*}{Physics} & position & velocity\\
  {} & velocity & acceleration\\
  {} & momentum & force\\
  {} & work & power\\
  \hline
  \end{tabular}
- \begin{tabular}{|c|c|c|}
+ \begin{tabular}{|>{\centering\arraybackslash}m{0.12\textwidth}|c|c|}
  \hline
  \rowcolor{fillcolor} Field & Function & Derivative\\
  \hline
  Physics & angular momentum & torque\\
 \hline
- Engineering & electric charge & electric current\\
+ \multirow{2}{*}{Engineering} & electric charge & electric current\\
  {} & magnetic flux & induced voltage\\
  \hline
  Economics & profit & marginal profit\\
@@ -562,7 +562,7 @@ The limit definition can be used for finding the derivatives of simple functions
 \end{exmp}
 \divider
 \newpage
-Notice in the above example that replacing $\Delta x$ by $0$ was unnecessary when
+Notice in the above example that shrinking $\Delta x$ down to $0$ was unnecessary when
 taking the limit, since the ratio $\frac{f(x + \Delta x) ~-~ f(x)}{\Delta x}$
 simplified to 0 \emph{before} taking the limit, and the limit of 0 is 0
 regardless of what $\Delta x$ approaches. In fact, the answer---namely,
@@ -667,7 +667,7 @@ have a constant derivative.
    {\Delta x}\\[6pt]
   &=~ \lim_{\Delta x \to 0} ~\frac{~\dfrac{1}{x + \Delta x} ~-~ \dfrac{1}{x}~}
       {\Delta x} ~\rightarrow~ \frac{0}{0}\quad\text{, so simplify the ratio
-   before plugging in $\Delta x = 0$,}\\[6pt]
+   before shrinking $\Delta x$ all the way down to $0$,}\\[6pt]
   &=~ \lim_{\Delta x \to 0} ~\frac{~\dfrac{x ~-~ (x + \Delta x)}
       {(x + \Delta x)x}~}{\Delta x}
       \quad\text{(after getting a common denominator)}\\[6pt]
@@ -832,7 +832,7 @@ $\sin\,x$ are odd functions. The following result is often useful:
  The derivative of an odd function is an even function.
 \end{center}}
 
-To prove the first statement---the second is an exercise---suppose that $f$ is
+To prove the first statement---the second is left as an exercise---suppose that $f$ is
 an even function and that $f'(x)$ exists for all $x$ in its domain. Then
 \begin{alignat*}{3}
  f'(-x) ~&=~ \lim_{h \to 0} ~\frac{f(-x + h) ~-~ f(-x)}{h} \qquad&&\text{by
@@ -1026,13 +1026,13 @@ part of the \emph{hyperreal number system}. See \textsc{Keisler, H.J.},
 \emph{Elementary Calculus: An Infinitesimal Approach}, Boston: Prindle, Weber
 \& Schmidt, 1976.} This is not a problem, since calculus deals
 with other numbers, such as infinity, which are not real. An infinitesimal can
-be thought of as an infinitely small number arbitrarily close to 0 but
-not 0.
+be thought of as an infinitely small number arbitrarily close to---but
+\emph{not}---0.
 \newpage
 This might seem like a strange notion, but it really is not all that
-different from the limit notion where, say, you let $\Delta x$ \emph{approach} 0
-but not necessarily let it \emph{equal} 0.\footnote{The infinitesimal approach
-was first developed in an
+different from the limit notion where, say, you let $\Delta x$
+\emph{approach}---but not necessarily \emph{equal}---0.\footnote{The
+infinitesimal approach was first developed in an
 axiomatic manner in the landmark book \textsc{Robinson, A.},
 \emph{Non-Standard Analysis}, Amsterdam: North-Holland, 1966. Robinson showed
 that for all practical purposes calculus can be developed without resorting to
@@ -1238,7 +1238,7 @@ Figure \ref{fig:thales}(b) shows that $\angle\,OAC + \angle\,OCA +
 \angle\,BOC = 2\dx$.
 By the arc length formula from trigonometry, the length $s$ of the
 \emph{arc}\index{arc} $\wideparen{BC}$ along the circle from $B$ to $C$ is the
-radius times the central angle $\angle\,BOC$: $s = \wideparen{BC} = 1 \cdot 2\dx
+radius times the central angle $\angle\,BOC$: $ \wideparen{BC} = s = r \cdot \theta = OA \cdot \angle\,BOC = 1 \cdot 2\dx
 = 2\dx$. But by Microstraightness, $\wideparen{BC} = BC$, and thus:
 \begin{displaymath}
  2\sin\,\dx ~=~ BC ~=~ \wideparen{BC} ~=~ 2\dx \quad\Rightarrow\quad

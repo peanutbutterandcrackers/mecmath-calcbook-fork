@@ -12,4 +12,6 @@ RUN export DEST=`kpsewhich -var-value=TEXMFHOME`/tex/latex/misc; \
     && echo "For Reference: https://tex.stackexchange.com/a/1138"
 RUN mktexlsr
 RUN dnf -y install ghostscript make
+RUN dnf -y install entr
+RUN dnf -y install texlive-multirow
 CMD bash
