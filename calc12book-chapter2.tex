@@ -115,7 +115,7 @@ though, for the inverse function to be differentiable.
 
 In algebra you learned that $\frac{a}{b} = \frac{1}{\frac{b}{a}}$ for all real
 numbers $a \ne 0$ and $b \ne 0$ (and hence $\frac{b}{a} \ne 0$). The same holds
-true for the infinitesimals $\dy$ and $\dx$ (nonzero by definition) since they
+true for the infinitesimals $\dy$ and $\dx$ (which are nonzero \emph{by definition}) since they
 can be treated like numbers, which immediately yields a formula for the
 derivative of an inverse function:
 
@@ -131,12 +131,12 @@ undefined quantity $\frac{1}{0}$.
 
 Since $y$ is a function of $x$, $\dydx$ will be in terms of $x$ and hence
 $\frac{1}{\dydx}$ will be in terms of $x$. However, since (by invertibility)
-$x$ is a function of $y$, $\dxdy$ would normally be in terms of $y$, not $x$,
+$x$ is a function of $y$, $\dxdy$ would (normally) be in terms of $y$, not $x$,
 so that the two sides of the equation $\dxdy = \frac{1}{\dydx}$ are not in the
 same terms!
 One way to handle this discrepancy is to use the formula $y = f(x)$ to solve for
 $x$ in terms of $y$ then substitute that expression into $\dydx$, so that
-$\dxdy = \frac{1}{\dydx}$ is now in terms of $y$. That might not always be
+$\dxdy = \frac{1}{\dydx}$ will be in terms of $y$. That might not always be
 possible, however (e.g. try solving for $x$ in the formula $y = x \sin x$).
 
 \begin{exmp}\label{exmp:invderiv}
@@ -196,15 +196,24 @@ $f$,
  f^{-1}(f(x)) ~=~ x \quad\Rightarrow\quad
  \ddx\,\left(f^{-1}(f(x))\right) ~=~ \ddx\,(x) \quad\Rightarrow\quad
  \left(f^{-1}\right)'(f(x)) \;\cdot\; f'(x) ~=~ 1
+ \quad\big(\text{ $\because$ Chain Rule}\big)
 \]
-by the Chain Rule, and hence:
+and hence:
 
 \statethm{thm:invprime}{\vspace{-5mm}\begin{align*}
  \left(f^{-1}\right)'(f(x)) ~&=~ \frac{1}{f'(x)} \qquad\text{if $~f'(x) \ne 0$}
 \intertext{Two equivalent ways to write this are:}
  \left(f^{-1}\right)'(c) ~&=~ \frac{1}{f'(a)} \qquad\text{where $c = f(a)$ and $~f'(a) \ne 0$}
 \intertext{and}
- \left(f^{-1}\right)'(x) ~&=~ \frac{1}{f'(f^{-1}(x))} \qquad\text{if $~f'(f^{-1}(x)) \ne 0$}
+\left(f^{-1}\right)'(x) ~&=~ \frac{1}{f'(f^{-1}(x))} \quad\text{if $~f'(f^{-1}(x)) \ne 0$}
+\quad
+\left(
+\because
+\begin{aligned}[t]
+  &\text{$f(x)=y \Rightarrow f^{-1}(f(x))=f^{-1}(y)=x$,}\\
+  &\text{and switch $x$ and $y$ in the end.}
+\end{aligned}
+\right)
 \end{align*}}
 \divider
 \vspace{3mm}
@@ -664,17 +673,18 @@ defined for $-1 \le x \le 1$. Since $\cos y = x$ by the definition of $y$, then
 $\dxdy = -\sin y$ and
 \begin{displaymath}
  \sin^2 y ~=~ 1 - \cos^2 y ~=~ 1 - x^2 \quad\Rightarrow\quad
- \sin y ~=~ \pm\,\sqrt{1 - x^2} ~=~ \sqrt{1 - x^2}
+ \sin y ~=~ \pm\,\sqrt{1 - x^2} ~=~ \sqrt{1 - x^2} \quad\left(\because 0 \le y \le \pi \Rightarrow \sin y \ge 0\right)
 \end{displaymath}
-since $0 \le y \le \pi$ (which means $\sin y$ must be nonnegative). Thus:
 \begin{displaymath}
- \ddx\,(\cos^{-1} x) ~=~ \dydx ~=~ \frac{1}{\dxdy} ~=~ \frac{1}{-\sin y} ~=~
+ \text{Thus:}\quad\ddx\,(\cos^{-1} x) ~=~ \dydx ~=~ \frac{1}{\dxdy} ~=~ \frac{1}{-\sin y} ~=~
   -\,\frac{1}{\sqrt{1 - x^2}} \quad\checkmark
  \end{displaymath}
 
-For the derivative of $\sec^{-1} x$, since $y = \sec^{-1} x$ is defined for
-$\abs{x} \ge 1$, then  $0 \le y < \pi/2$ for $x \ge 1$ and $\pi/2 < y \le \pi$
-for $x \le -1$. Recall also that $\sec y$ and $\tan y$ are both positive  when
+\noindent For the derivative of $\sec^{-1} x$, since $y = \sec^{-1} x$
+is defined for $\abs{x} \ge 1$, and since $x = \sec y = \frac{1}{\cos
+  y}$, from the unit-circle: $x \ge 1 \Rightarrow 0 \le y < \pi/2$ and
+$x \le -1 \Rightarrow \pi/2 < y \le \pi$.  Recall also that $\sec y$
+and $\tan y$ are both positive when
 $0 < y < \pi/2$ and are both negative when $\pi/2 < y < \pi$. So in both cases
 the product $\sec y \; \tan y$ is nonnegative, i.e.
 $\sec y \; \tan y = \abs{\sec y \; \tan y}$. Thus, since $\sec y = x$ and
@@ -682,7 +692,7 @@ $\sec y \; \tan y = \abs{\sec y \; \tan y}$. Thus, since $\sec y = x$ and
  1 ~+~ \tan^2 y ~=~ \sec^2 y \quad\Rightarrow\quad \tan^2 y ~=~ \sec^2 y ~-~ 1 \quad\Rightarrow\quad
  \tan y ~=~ \pm\,\sqrt{\sec^2 y ~-~ 1} ~=~ \pm\,\sqrt{x^2 - 1}
 \end{displaymath}
-then for $\abs{x} > 1$:
+\indent then for $\abs{x} > 1$:
 \[
  \ddx\,(\sec^{-1} x) ~=~ \dydx ~=~ \frac{1}{\dxdy} ~=~ \frac{1}{\sec y \; \tan y} ~=~
   \frac{1}{\abs{\sec y \; \tan y}} ~=~ \frac{1}{\Abs{x \sqrt{x^2 - 1}}} ~=~
@@ -801,7 +811,7 @@ Publications, Inc., 1964.}
 3^{1.4142} ~&=~ 3^{\frac{14142}{10000}} ~&=~ 4.72873393017119\\
 3^{1.41421} ~&=~ 3^{\frac{141421}{100000}} ~&=~ 4.72878588090861\\
 3^{1.414213} ~&=~ 3^{\frac{1414213}{1000000}} ~&=~ 4.72880146624114\\
-{} &\vdots \quad ~&\vdots \\
+\vdots \qquad ~&~ \qquad \vdots ~&~ \vdots \qquad \qquad\\
 3^{1.414213562\ldots} ~&=~ 3^{\sqrt{2}} ~&=~ 4.72880438783742
 \end{alignat*}
 Of course you would never do all this by hand---you would simply use a computer
@@ -822,7 +832,7 @@ $e$\index{e@$e$}, defined as:
 The approximate value of $e$ is $e ~=~ 2.71828182845905\ldots$ (often called the
 \emph{Euler number}\index{Euler number}).}
 
-The limit in this definition means that as $x$ becomes larger---approaching
+The limit in this definition means that as $x$ becomes arbitrarily large---approaching
 infinity ($\infty$)---the values of $\left( 1 ~+~ \frac{1}{x} \right)^x$
 approach a number, denoted by $e$. More decimal places for $e$ can be obtained
 by making $x$ sufficiently large.\footnote{It will be shown in Chapter 9 that
@@ -831,9 +841,10 @@ this limit does in fact exist.} For example, when $x=5 \times 10^6$ the value is
 is, when $x \gg 1$ (the symbol $\gg$ means ``much larger than''),\index{$\gg$}
 \begin{displaymath}
  e ~\approx~ \left( 1 ~+~ \frac{1}{x} \right)^x \quad\Rightarrow\quad
- e^{1/x} ~\approx~ \left(\left( 1 ~+~ \frac{1}{x} \right)^x\right)^{1/x} ~=~
+ e^{1/x} ~\approx~
  1 ~+~ \frac{1}{x} \quad\Rightarrow\quad \left(e^{1/x} ~-~ 1\right)\,x ~\approx~
- \left(\frac{1}{x}\right)\,x ~=~ 1 ~,
+ 1 \quad\Rightarrow\quad \left(e^{1/x} ~-~ 1\right)\,\frac{1}{\left(\frac{1}{x}\right)} ~\approx~
+ 1 ~,
 \end{displaymath}
 so letting $h = 1/x$, and noting that $h = 1/x \to 0$ if and only if
 $x \to \infty$, yields the useful limit:\footnote{This is admittedly a
@@ -842,7 +853,10 @@ proving limits like this one.}
 \statethm{thm:limeh}{\begin{equation}\label{eqn:elimh0}
 \lim_{h \to 0}~\frac{e^h ~-~ 1}{h} ~=~ 1
 \end{equation}}
-Using the above limit, the derivative of $y = e^x$ can be found:
+Using the above limit---which is true for all $h \in \Reals$ since
+$\lbrace h: h = \left(\frac{1}{x}\right), x \in \Reals \rbrace = \Reals$ (as all real
+numbers have a multiplicative inverse)---the derivative of $y = e^x$
+can be found:
 \statethm{thm:expderiv}{\[
 \ddx\,\left(e^x\right) ~=~ e^x
 \]}
@@ -850,15 +864,15 @@ Using the above limit, the derivative of $y = e^x$ can be found:
 Using the limit definition of the derivative for $f(x) = e^x$,
 \begin{align*}
  \ddx\,\left(e^x\right) ~&=~ \lim_{h \to 0} ~\frac{f(x+h) ~-~ f(x)}{h}
-  ~=~ \lim_{h \to 0} ~\frac{e^{x+h} ~-~ e^x}{h}\\[6pt]
+  ~=~ \lim_{h \to 0} ~\frac{e^{x+h} ~-~ e^x}{h}\\
  &=~ \lim_{h \to 0} ~\frac{e^x \left(e^h ~-~ 1\right)}{h}
- ~=~ e^x \;\cdot\; \lim_{h \to 0}~\frac{e^h ~-~ 1}{h}
-     \quad\text{(since $e^x$ does not depend on $h$)}\\[6pt]
+ ~=~ e^x \;\cdot\; \underbrace{\lim_{h \to 0}~\frac{e^h ~-~ 1}{h}}_\text{= 1 by equation~\ref{eqn:elimh0}}
+     \quad\text{(since $e^x$ does not depend on $h$)}\\
  &=~ e^x \;\cdot\; 1 ~=~ e^x
 \end{align*}
 \vspace{-3mm}
 \end{proof}\end{proofbar}
-In general, for a differentiable function $u = u(x)$ as the exponent the
+In general, for a differentiable function $u = u(x)$ as the exponent, the
 Chain Rule yields:\index{derivative!exponential function}
 \statethm{thm:expderivch}{\[
 \ddx\,\left(e^u\right) ~=~ e^u \;\cdot\; \dudx
@@ -866,8 +880,8 @@ Chain Rule yields:\index{derivative!exponential function}
 
 \begin{exmp}\label{exmp:deriv4ex2}
  Find the derivative of $y = 4e^{-x^2}$.\vspace{1mm}
- \par\noindent\emph{Solution:} $\dydx ~=~ 4 e^{-x^2} \;\cdot\; \ddx\,(-x^2) ~=~
- 4 e^{-x^2} \;\cdot\; (-2x) ~=~ -8x e^{-x^2}$
+ \par\noindent\emph{Solution:} $\dydx ~=~ 4 \;\cdot\; e^{-x^2} \;\cdot\; \ddx\,(-x^2) ~=~
+ 4 \;\cdot\; e^{-x^2} \;\cdot\; (-2x) ~=~ -8x e^{-x^2}$
 \end{exmp}
 \divider
 \newpage
@@ -876,7 +890,7 @@ function}, even though there are obviously many exponential functions. What
 makes the base $e$ so special? Take $y = Ae^{kt}$ to represent the amount of
 some physical quantity at time $t$, for some constants $A$ and $k$. Then
 \begin{displaymath}
- \dydt ~=~ \ddt\,\left(Ae^{kt}\right) ~=~ k \cdot Ae^{kt} = ky ~,
+ \dydt ~=~ \ddt\,\left(Ae^{kt}\right) ~=~ A \cdot e^{kt} \cdot k ~=~ k \cdot Ae^{kt} = ky ~,
 \end{displaymath}
 which says that \emph{the instantaneous rate of change of the quantity is
 directly proportional to the amount present at that instant}. It turns out that
@@ -974,7 +988,7 @@ Hence:\index{derivative!natural logarithm function}
 \]}
 In general, for a differentiable function $u = u(x)$, the Chain Rule yields:
 \statethm{thm:lnderivch}{\[
-\ddx\,\left(\ln\,u\right) ~=~ \frac{1}{u} \;\cdot\; \dudx ~=~ \frac{u'}{u}
+\ddx\,\left(\ln\,u\right) ~=~ \frac{1}{u} \;\cdot\; \dudx ~=~ \frac{1}{u} \;\cdot\; u' ~=~ \frac{u'}{u}
 \]}
 
 \begin{exmp}\label{exmp:derivlnx2}
@@ -1130,12 +1144,12 @@ through the circuit at time $t \ge 0$  satisfies (by Kirchoff's Second Law) the
 differential equation
 \begin{displaymath}
  RC\frac{d\negmedspace I}{\dt} ~+~ I ~=~ 0 \quad\Rightarrow\quad
- \frac{d\negmedspace I}{\dt} ~=~ -\frac{I}{RC}
+ \frac{d\negmedspace I}{\dt} ~=~ \left(-\frac{1}{RC}\right) \;\cdot\; I
 \end{displaymath}
 so that $I(t) = I_0 e^{-t/RC}$ where $I_0$ is the initial current at $t = 0$.
 \emph{Ohm's Law} says that $V = I_0R$, so
 \begin{displaymath}
-I(t) ~=~ \frac{V}{R} e^{-t/RC}
+I(t) ~=~ \left(\frac{V}{R}\right) e^{\left(-\frac{1}{RC}\right)t} ~=~ \frac{V}{R} e^{-t/RC}
 \end{displaymath}
 is the current at time $t \ge 0$, which decreases exponentially.
 \end{exmp}
@@ -1146,13 +1160,13 @@ though. For example, the atmospheric pressure $p$ measured as a function of
 height $h$ above the surface of the Earth satisfies---assuming constant
 temperature---the differential equation
 \begin{displaymath}
- \frac{d\negmedspace p}{d\!h} ~=~ -\frac{w_0}{p_0}\,p
+ \frac{d\negmedspace p}{d\!h} ~=~ \left(-\frac{w_0}{p_0}\right)\,p
 \end{displaymath}
 where $p_0$ is the pressure at height $h = 0$ (i.e. ground level) and $w_0$ is
 the weight of a cubic foot of air at pressure $p_0$ (with air pressure measured
 in lbs per square foot and height measured in feet). Thus,
 \begin{displaymath}
- p(h) ~=~ p_0\;e^{-\frac{w_0}{p_0}\,h} ~.
+ p(h) ~=~ p_0\;e^{\left(-\frac{w_0}{p_0}\right)\,h}~.
 \end{displaymath}
 So the atmospheric pressure decreases exponentially as the height above the
 ground increases.
@@ -1243,12 +1257,12 @@ For a general exponential function $y = a^x$, with $a > 0$, use logarithmic
 differentiation to find its derivative:
 \begin{align*}
  \ln\,y ~&=~ \ln\,\left(a^x\right) ~=~ x \,\ln\,a\\
- \ddx\,(\ln\,y) ~&=~ \ddx\,(x \,\ln\,a) ~=~ \ln\,a\\
+ \ddx\,(\ln\,y) ~&=~ \ddx\,(x \,\ln\,a) ~=~ \ln\,a ~\left(\because \ln\,a \in \Reals\right)\\
  \frac{y'}{y} ~&=~ \ln\,a \quad\Rightarrow\quad y' ~=~ y \cdot \ln\,a
 \end{align*}
 Thus, the derivative of $y = a^x$ is:
 \statethm{thm:derivexpa}{\[ \ddx\,\left(a^x\right) ~=~ (\ln\,a)\;a^x \]}
-In general, for an exponent of the form $u = u(x)$:
+In general, for an exponent of the form $u = u(x)$, by the Chain Rule:
 \statethm{thm:derivexpach}{\[ \ddx\,\left(a^u\right) ~=~ (\ln\,a)\;a^u \;\cdot\; \dudx \]}
 
 \begin{exmp}
@@ -1341,8 +1355,8 @@ so dividing the last expression by $\ln\,a$ gives:
 The above formula is useful on calculators that do not have a $\log_a x$ key or
 function. Taking the derivative of both sides yields:
 \newpage
-\statethm{thm:derivloga}{\[ \ddx\,\left(\log_a x\right) ~=~ \frac{1}{x \,\ln\,a} \]}
-In general, when taking the logarithm of a function $u = u(x)$:
+\statethm{thm:derivloga}{\[ \ddx\,\left(\log_a x\right) ~=~ \frac{1}{\,\ln\,a} \;\cdot\; \frac{1}{x} ~=~ \frac{1}{x \,\ln\,a} \]}
+In general, when taking the logarithm of a function $u = u(x)$, by the Chain Rule:
 \statethm{thm:derivlogach}{\[ \ddx\,\left(\log_a u\right) ~=~ \frac{1}{u \,\ln\,a} \;\cdot\; \dudx
 ~=~ \frac{u'}{u \,\ln\,a} \]}
 
