@@ -212,7 +212,7 @@ at $P$ (i.e. $f'(x_0)$ exists). This is because the slope of $L_{PQ}$ is
 $(f(w) - f(x_0))/(w - x_0)$, and so
 \begin{displaymath}
  \lim_{Q \to P} ~ \left(\text{slope of } L_{PQ}\right) ~=~
- \lim_{w \to x_0} ~\frac{f(w) ~-~ f(x_0)}{w ~-~ x_0} ~=~ f'(x_0) ~=~
+ \underbrace{\lim_{w \to x_0} ~\frac{f(w) ~-~ f(x_0)}{w ~-~ x_0} ~=~ f'(x_0)}_\text{from equation~\ref{eqn:wxderivative}} ~=~
  \text{slope of } T_P
 \end{displaymath}
 which means that as $Q$ approaches $P$ the ``limit'' of the secant line $L_{PQ}$
@@ -222,7 +222,7 @@ has the same slope and goes through the same point $P$ as the tangent line $T_P$
   For example, think of the absolute value function $f(x) = \abs{x}$. Its graph has a sharp
   edge at the point $(0,0)$, making it nonsmooth there, as shown in Figure
   \ref{fig:tangentnonsmooth}(a) below. There is no real way to define a tangent line at
-  $(0,0)$, because as mentioned in Section 1.2, the derivative of $f(x)$ does not exist
+  $(0,0)$, because as shown in Example~\ref{exmp:absnondiff}, the derivative of $f(x)$ does not exist
   at $x = 0$. The same holds true for curves with cusps, as in Figure
   \ref{fig:tangentnonsmooth}(b).
 
@@ -252,18 +252,18 @@ has the same slope and goes through the same point $P$ as the tangent line $T_P$
  \label{fig:tangentnonsmooth}
 \end{figure}
 
-\par\noindent Many lines go through the point of nonsmoothness, some of
-which are indicated by the dashed lines in the above figures, but none of
-them can be the tangent line. Sharp edges and cusps have to be ``smoothed out''
-to have a tangent line.
+\par\noindent Many lines---some of which are outlined with dashes---go
+through the point of nonsmoothness in the figures above, but none of
+them can be \emph{the} tangent line. Sharp edges and cusps have to be
+``smoothed out'' to have a tangent line.
 \end{itemize}
 \divider
 \vspace{3mm}
 
 As a point moves along a smooth curve, the corresponding tangent lines to the
 curve make varying angles with the positive $x$-axis---the angle is thus a
-function of $x$. Let $\phi = \phi(x)$ be the smallest angle that the tangent
-line $L$ to a curve $y = f(x)$ makes with the positive $x$-axis, so that
+function of $x$. Let $\phi = \phi(x)$ be the \emph{smallest} angle that the tangent
+line, $L$, to a curve $y = f(x)$ at $(x,f(x))$ makes with the positive $x$-axis, so that
 $-90\Degrees < \phi(x) <90\Degrees$ for all $x$ (see Figure \ref{fig:tangentangle}).
 
 \begin{figure}[ht]
@@ -292,7 +292,7 @@ $-90\Degrees < \phi(x) <90\Degrees$ for all $x$ (see Figure \ref{fig:tangentangl
   \node [below left] at (-1.0,-0.744) {$L$};
   \node at (-1.9,0) {$\phi(x_1)$};
  \end{tikzpicture}
- \caption[]{\quad The angle $\phi(x)$ between the tangent line and positive $x$-axis}
+ \caption[]{\\The values of the smallest angle, $\phi(x)$, between the positive $x$-axis and the tangent line, $L$, to the curve $y=f(x)$ at various $x$}
  \label{fig:tangentangle}
 \end{figure}
 
@@ -307,8 +307,8 @@ As Figure \ref{fig:tangentangle} shows, $-90\Degrees < \phi(x) < 0\Degrees$ when
 the tangent line $L$ has negative slope, $0\Degrees < \phi(x) < 90\Degrees$ when
 $L$ has positive slope, and $\phi(x)=0\Degrees$ when $L$ is horizontal (i.e. has
 zero slope). The slope of a line is usually defined as the rise divided by the
-run in a right triangle, as shown in the figure on the right. The figure shows
-as well that by definition of the tangent of an angle, $\tan\,\phi(x)$ also
+run in a right triangle, as shown in the figure on the right. The figure also
+shows that, by definition of the tangent of an angle, $\tan\,\phi(x)$ also
 equals the rise (opposite) over run (adjacent). Thus, since the slope of $L$ is
 $f'(x)$, this means that $\tan\,\phi(x) = f'(x)$. In other words:
 \index{angle of tangent line}\index{tangent line!angle of}
@@ -373,8 +373,8 @@ $x = -\frac{1}{2}$ and the angle $\phi$.
  \node[above,align=left] at (2.76,1.8) {tangent\\line};
 \end{tikzpicture}}
 \noindent You learned about perpendicular lines in elementary geometry. Figure
-\ref{fig:normalline} shows the natural way to define how a line $N$ can be
-perpendicular to a \emph{curve} $y=f(x)$ at a point $P$ on the curve: the line
+\ref{fig:normalline} shows a natural way to define how a line $N$ can be
+perpendicular to a \emph{curve} $y=f(x)$ at a point $P$ on the curve: if the line
 is perpendicular to the tangent line of the curve at $P$. Call this line $N$ the
 \textbf{normal line}\index{normal line}\index{line!normal} to the curve at $P$.
 Since $N$ and $L$ are perpendicular, their slopes are negative reciprocals of
@@ -511,6 +511,7 @@ of $f(x)$ can be made \emph{arbitrarily} close to $L$ by picking values of $x$
  \begin{displaymath}
   \abs{f(x) - L} < \epsilon \quad\text{whenever}\quad 0 < \abs{x - a} < \delta ~.
  \end{displaymath}
+ \[ \text{i.e.}\quad \lim_{x \to a} ~f(x) ~=~ L \quad\Leftrightarrow\quad 0 < \abs{x - a} < \delta ~\Rightarrow~ \abs{f(x)-L} ~<~ \epsilon \]
 }
 
 \noindent A visual way of thinking of this definition is shown in Figure
@@ -594,7 +595,7 @@ $L = a$ and the function is $f(x) = x$, so since
 Calculating limits in this way might seem silly since---as in Example
 \ref{exmp:limx}---it requires extra effort for a result that is obvious. The
 formal definition is used most often in proofs of general results and theorems.
-For example, the rules for limits---listed in Section 1.2---can be proved by
+For example, the rules for limits---listed at Page~\pageref{thm:limitrules}---can be proved by
 using the formal definition.
 
 \begin{exmp}\label{exmp:limsum}
@@ -606,34 +607,38 @@ using the formal definition.
   \left(\lim_{x \to a} ~g(x)\right)
 \]
 \par\noindent\emph{Solution:} Let $\displaystyle\lim_{x \to a} f(x) = L_1$ and
-$\displaystyle\lim_{x \to a} g(x) = L_2$. The goal is to show that
-$\displaystyle\lim_{x \to a} ~(f(x) + g(x)) = L_1 + L_2$. So let $\epsilon > 0$.
-Then $\epsilon/2 > 0$, and so by definition there exist numbers
-$\delta_1 > 0$ and $\delta_2 > 0$ such that
+$\displaystyle\lim_{x \to a} g(x) = L_2$. (The goal now is to show that
+$\displaystyle\lim_{x \to a} ~(f(x) + g(x)) = L_1 + L_2$.) Let $\epsilon > 0$.
+Then $\epsilon/2 > 0$ (which we will use since the
+\CRef{defn:limit}{definition} allows \emph{any} $\epsilon > 0$). By
+\CRef{defn:limit}{definition} there exist numbers $\delta_1 > 0$ and
+$\delta_2 > 0$ such that
 \begin{align*}
- 0 < \abs{x - a} < \delta_1 \quad&\Rightarrow\quad \abs{f(x) ~-~ L_1} < \epsilon/2~\text{, and}\\
- 0 < \abs{x - a} < \delta_2 \quad&\Rightarrow\quad \abs{g(x) ~-~ L_2} < \epsilon/2 ~.
+ \lim_{x \to a} f(x) = L_1 \quad\Leftrightarrow\quad 0 < \abs{x - a} < \delta_1 ~&\Rightarrow~ \abs{f(x) ~-~ L_1} < \epsilon/2~\text{, and}\\
+ \lim_{x \to a} g(x) = L_2 \quad\Leftrightarrow\quad 0 < \abs{x - a} < \delta_2 ~&\Rightarrow~ \abs{g(x) ~-~ L_2} < \epsilon/2 ~.
 \end{align*}
-Now let $\delta = \min(\delta_1, \delta_2)$. Then $\delta > 0$ and
+\indent Now let $\delta = \min(\delta_1, \delta_2)$. Then $\delta > 0$ and
 \begin{align*}
  0 < \abs{x - a} < \delta \quad&\Rightarrow\quad
- 0 < \abs{x - a} < \delta_1 \quad\text{and}\quad 0 < \abs{x - a} < \delta_2\\
+ 0 < \abs{x - a} < \delta_1 \qquad\text{and}\quad 0 < \abs{x - a} < \delta_2 &\left(\because \delta = \min(\delta_1, \delta_2)\right)\\
  &\Rightarrow\quad \abs{f(x) ~-~ L_1} < \epsilon/2 \quad\text{and}\quad
-  \abs{g(x) ~-~ L_2} < \epsilon/2
+ \abs{g(x) ~-~ L_2} < \epsilon/2 &\left(\text{as deduced previously}\right)\\
+ &\Rightarrow\quad \left(\abs{f(x) ~-~ L_1} ~+~ \abs{g(x) ~-~ L_2}\right) ~<~ \left(\epsilon/2 ~+~ \epsilon/2\right)\\
+ &\Rightarrow\quad \underbrace{\abs{(f(x) ~-~ L_1) ~+~ (g(x) ~-~ L_2)}
+   ~\le~ \left(\abs{f(x) ~-~ L_1} ~+~ \abs{g(x) ~-~
+     L_2}\right)}_\text{Since $\abs{A+B} \le \abs{A} + \abs{B}$ for
+   all real numbers $A$ and $B$} ~<~ \epsilon\\
+ &\Rightarrow\quad \underbrace{\abs{f(x) ~+~ g(x) ~-~ (L_1 +
+     L_2)}}_\text{Basic algebraic manipulation} ~\le~ \left(\abs{f(x)
+   ~-~ L_1} ~+~ \abs{g(x) ~-~ L_2}\right) ~<~ \epsilon
 \end{align*}
-Since $\abs{A+B} \le \abs{A} + \abs{B}$ for all real numbers $A$ and $B$, then
+\indent Thus, by \CRef{defn:limit}{definition},
 \[
- \abs{f(x) ~+~ g(x) ~-~ (L_1 + L_2)} ~=~
-  \abs{(f(x) ~-~ L_1) ~+~ (g(x) ~-~ L_2)} ~\le~
-  \abs{f(x) ~-~ L_1} ~+~ \abs{g(x) ~-~ L_2}
+ 0 < \abs{x-a} < \delta ~\Rightarrow~
+ \abs{f(x) ~+~ g(x) ~-~ (L_1 + L_2)} ~<~ \epsilon
+ \quad\Leftrightarrow\quad \lim_{x \to a} ~(f(x) + g(x)) = L_1 + L_2
+ \quad\checkmark
 \]
-and thus
-\[
- 0 < \abs{x-a} < \delta \quad\Rightarrow\quad
- \abs{f(x) ~+~ g(x) ~-~ (L_1 + L_2)} ~<~ \epsilon/2 ~+~ \epsilon/2 ~=~ \epsilon
-\]
-which by definition means that $\displaystyle\lim_{x \to a} ~(f(x) + g(x)) = L_1 + L_2$.
-\quad\checkmark
 \end{exmp}
 \divider
 \newpage
@@ -641,8 +646,8 @@ The proofs of the other limit rules are similar.\footnote{For example, see
 Section 2.2 in \textsc{Protter, M.H. and C.B. Morrey}, \emph{A First Course in
 Real Analysis}, New York: Springer-Verlag, 1977.} In general, using the formal
 definition will not be necessary for evaluating limits of specific
-functions---in many cases a simple analysis of the function is all that is
-needed, often from its graph.
+functions---in many cases a simple analysis of the function, often from its graph, is all that is
+needed.
 
 \begin{exmp}\label{exmp:limsimple}
  \piccaption[]{\label{fig:limsimple}}\parpic[r]{\begin{tikzpicture}[every node/.style={font=\small}]
@@ -667,9 +672,9 @@ needed, often from its graph.
           \end{cases}
 \]
 \par\noindent\emph{Solution:} From the graph of $f(x)$ in Figure \ref{fig:limsimple},
-it is clear that as $x$ approaches $1$ from the right (i.e. for $x > 1$) $f(x)$
+it is clear that as $x$ approaches $1$ from the right (i.e. for $x > 1$), $f(x)$
 approaches $1$ along the line $y = x$, whereas as $x$ approaches $1$ from the
-left (i.e. for $x < 1$) $f(x)$ approaches $1$ along the horizontal line $y = 1$.
+left (i.e. for $x < 1$), $f(x)$ approaches $1$ along the horizontal line $y = 1$.
 Thus, $\displaystyle\lim_{x \to 1}~f(x) = 1~$.\\
 Note that the limit did not depend on the value of $f(x)$ at $x = 1$.
 \end{exmp}
@@ -681,7 +686,7 @@ to the value of $f(x)$ as $x$ gets
 \emph{near} $a$, not at $x=a$ itself. Figure \ref{fig:lims}(a) below shows how
 as $x$ approaches $a$, $f(x)$ approaches a number different from $f(a)$. Figure
 \ref{fig:lims}(b) shows that $x=a$ does not even need to be in the domain of
-$f(x)$, i.e. $f(a)$ does not have to be defined. So it will not always
+$f(x)$, i.e. $f(a)$ does not have to be defined. So it will \emph{not} always
 be the case that $\displaystyle\lim_{x \to a} ~f(x) = f(a)$.
 
 \begin{figure}[ht]
@@ -724,29 +729,34 @@ be the case that $\displaystyle\lim_{x \to a} ~f(x) = f(a)$.
 
 In Example \ref{exmp:limsimple} the direction in which $x$ approached the number
 $1$ did not affect the limit. But what if $f(x)$ had approached different values
-depending on how $x$ approached $1$? In that case the limit would not exist. The
+depending on how $x$ approached $1$? In that case the limit would not have existed. The
 following definitions and notation for
 \textbf{one-sided limits}\index{limit!one-sided} will make situations like that
 simpler to state.
 
 \statedefn{defn:onesidedlimit}{
+ \begin{center}
  Call $L$ the \textbf{right limit} of a function $f(x)$ as $x$ approaches
- $a$, written as
+ $a$, written as\vspace{-1em}
  \begin{displaymath}
-  \lim_{x \to a+} ~f(x) ~=~ L ~,
- \end{displaymath}
+  \lim_{x \to a+} ~f(x) ~=~ L ~,\vspace{-1em}
+ \end{displaymath}\vspace{-1em}
  if $f(x)$ approaches $L$ as $x$ approaches $a$ for values of $x$ larger
- than $a$.\\
+ than $a$.
+ \[ \text{i.e.}\quad \lim_{x \to a+} ~f(x) ~=~ L \quad\Leftrightarrow\quad 0 < x - a < \delta ~\Rightarrow~ \abs{f(x) ~-~ L} ~<~ \epsilon \]
+ \quad\\
  Call $L$ the \textbf{left limit} of a function $f(x)$ as $x$ approaches
- $a$, written as
+ $a$, written as\vspace{-1em}
  \begin{displaymath}
-  \lim_{x \to a-} ~f(x) ~=~ L ~,
- \end{displaymath}
+  \lim_{x \to a-} ~f(x) ~=~ L ~,\vspace{-1em}
+ \end{displaymath}\vspace{-1em}
  if $f(x)$ approaches $L$ as $x$ approaches $a$ for values of $x$ smaller
  than $a$.
+ \[ \text{i.e.}\quad \lim_{x \to a-} ~f(x) ~=~ L \quad\Leftrightarrow\quad 0 < a - x < \delta ~\Rightarrow~ \abs{f(x) ~-~ L} ~<~ \epsilon \]
+ \end{center}
 }
 
-\noindent The following statement follows immediately from the above
+\noindent The following is an immediate consequence of the foregoing
 definitions:\index{limit!right}\index{limit!left}
 
 \statethm{thm:limitexist}{
@@ -785,8 +795,8 @@ $\displaystyle\lim_{x \to 0+}~f(x)$, and $\displaystyle\lim_{x \to 0}~f(x)$
 \]
 \par\noindent\emph{Solution:} From the graph of $f(x)$ in Figure
 \ref{fig:onesidedlim}, it is clear that as $x$ approaches $0$ from the left
-(i.e. for $x < 0$) $f(x)$ approaches $0$ along the parabola $y = x^2$, whereas
-as $x$ approaches $0$ from the right (i.e. for $x > 0$) $f(x)$ approaches $2$
+(i.e. for $x < 0$), $f(x)$ approaches $0$ along the parabola $y = x^2$, whereas
+as $x$ approaches $0$ from the right (i.e. for $x > 0$), $f(x)$ approaches $2$
 along the line $y = 2 - x$. Hence,
 $\displaystyle\lim_{x \to 0-}~f(x) = 0~$ and
 $\displaystyle\lim_{x \to 0+}~f(x) = 2~$. Thus,
@@ -824,41 +834,45 @@ So far only \emph{finite} limits have been considered, that is,
 $L = \displaystyle\lim_{x \to a}~f(x)$ where $L$ is a real (i.e. finite) number.
 Define an \emph{infinite limit}\index{limit!infinite}, with $L = \infty$ or
 $-\infty$, as follows:
-
 \statedefn{defn:limitinf}{
 For a real number $a$, the limit of a function $f(x)$ \textbf{equals infinity}
  as $x$ approaches $a$, written as
+ \vspace{-0.7em}
  \begin{displaymath}
   \lim_{x \to a} ~f(x) ~=~ \infty ~,
  \end{displaymath}
  if $f(x)$ grows without bound as $x$ approaches $a$, i.e. $f(x)$ can
-be made larger than any positive number by picking $x$ sufficiently close to $a$:\\
- For any given number $M>0$, there exists a number $\delta > 0$, such that
+be made larger than any positive number by picking $x$ sufficiently close to $a$:
+ for any given number $M>0$, there exists a number $\delta > 0$, such that
+ \vspace{-1em}
  \begin{equation*}
   f(x) ~>~ M \quad\text{whenever}\quad 0 < \abs{x - a} < \delta ~.
- \end{equation*}}
-
+ \end{equation*}
+\[ \text{i.e.}\quad \lim_{x \to a} ~f(x) ~=~ \infty \quad\Leftrightarrow\quad 0 < \abs{x - a} < \delta ~\Rightarrow~ f(x) ~>~ M \]
+}
 \statedefn{defn:limitneginf}{
 For a real number $a$, the limit of a function $f(x)$ \textbf{equals negative infinity}
  as $x$ approaches $a$, written as
+ \vspace{-0.7em}
  \begin{displaymath}
   \lim_{x \to a} ~f(x) ~=~ -\infty ~,
  \end{displaymath}
  if $f(x)$ grows negatively without bound as $x$ approaches $a$, i.e. $f(x)$
  can be made smaller than any negative number by picking $x$ sufficiently close
- to $a$:\\
- For any given number $M<0$, there exists a number $\delta > 0$, such that
+ to $a$:
+ for any given number $M<0$, there exists a number $\delta > 0$, such that
+ \vspace{-1em}
  \begin{equation*}
   f(x) ~<~ M \quad\text{whenever}\quad 0 < \abs{x - a} < \delta ~.
- \end{equation*}}
-
+ \end{equation*}
+\[ \text{i.e.}\quad \lim_{x \to a} ~f(x) ~=~ -\infty \quad\Leftrightarrow\quad 0 < \abs{x - a} < \delta ~\Rightarrow~ f(x) ~<~ M \]
+}
 \noindent The above definitions can be modified accordingly for one-sided limits.
 If $\displaystyle\lim_{x \to a} ~f(x) = \infty $ or
 $\displaystyle\lim_{x \to a} ~f(x) = -\infty$, then the line $x=a$ is a
 \textbf{vertical asymptote}\index{vertical asymptote}\index{asymptote!vertical} of $f(x)$,
 and $f(x)$ \emph{approaches the line $x=a\,$ asymptotically}. 
 The formal definitions are rarely needed.\index{asymptote}
-
 \begin{exmp}\label{exmp:lim1overx}
  \piccaption[]{\label{fig:lim1overx}}\parpic[r]{\begin{tikzpicture}[every node/.style={font=\small}]
   \begin{scope}[color=linecolor,line width=1.5pt]
@@ -877,15 +891,11 @@ The formal definitions are rarely needed.\index{asymptote}
 \noindent Evaluate $\displaystyle\lim_{x \to 0}~\dfrac{1}{x}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} For $x \ne 0$ the function $f(x) = \frac{1}{x}$
 is defined, and its graph\\is shown in Figure \ref{fig:lim1overx}. As $x$
-approaches $0$ from the right, $1/x$\\approaches $\infty$, that is,
-\[
-\lim_{x \to 0+}~\dfrac{1}{x} ~=~ \infty ~.
-\]
-As $x$ approaches $0$ from the left, $1/x$ approaches $-\infty$, that is,
-\[
-\lim_{x \to 0-}~\dfrac{1}{x} ~=~ -\infty ~.
-\]
-Since the right limit and the left limit are not equal, then
+approaches $0$ from the right, $y=1/x$\\approaches $\infty$, that is,
+$\displaystyle \lim_{x \to 0+}~\dfrac{1}{x} ~=~ \infty$.\\
+As $x$ approaches $0$ from the left, $y=1/x$ approaches $-\infty$,\\
+that is, $\displaystyle \lim_{x \to 0-}~\dfrac{1}{x} ~=~ -\infty$.\\
+Since the right limit and the left limit are not equal,
 $\displaystyle\lim_{x \to 0}~\dfrac{1}{x} ~\text{does not exist}$~.
 
 \noindent Note that the $y$-axis (i.e. the line $x = 0$) is a vertical asymptote
@@ -911,7 +921,7 @@ for $f(x) = \frac{1}{x}$.
 \noindent Evaluate $\displaystyle\lim_{x \to 0}~\dfrac{1}{x^2}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} For $x \ne 0$ the function $f(x) = \frac{1}{x^2}$
 is defined, and its graph\\is shown in Figure \ref{fig:lim1overx2}. As $x$
-approaches $0$ from either the right\\ or the left, $1/x^2$ approaches
+approaches $0$ from either the right\\ or the left, $y=1/x^2$ approaches
 $\infty$, that is,
 \[
 \lim_{x \to 0+}~\dfrac{1}{x^2} ~=~ \infty ~=~ \lim_{x \to 0-}~\dfrac{1}{x^2} ~.
@@ -931,39 +941,48 @@ have been considered. However, $a$ could be either $\infty$ or $-\infty$:
 \statedefn{defn:limitinfa}{
 For a real number $L$, the limit of a function $f(x)$ equals $L$
  as $x$ approaches $\infty$, written as
+ \vspace{-0.7em}
  \begin{displaymath}
   \lim_{x \to \infty} ~f(x) ~=~ L ~,
  \end{displaymath}
  if $f(x)$ can be made arbitrarily close to $L$ for $x$ sufficiently large and
- positive:\\
- For any given number $\epsilon > 0$, there exists a number $N > 0$, such that
+ positive:
+ for any given number $\epsilon > 0$, there exists a number $N > 0$, such that
+ \vspace{-1em}
  \begin{equation*}
   \abs{f(x) ~-~ L} ~<~ \epsilon \quad\text{whenever}\quad x > N ~.
- \end{equation*}}
+ \end{equation*}
+ \[ \text{i.e.}\quad \lim_{x \to \infty} ~f(x) ~=~ L \quad\Leftrightarrow\quad x > N ~\Rightarrow~ \abs{f(x) - L} < \epsilon \]
+}
 
 \statedefn{defn:limitneginfa}{
 For a real number $L$, the limit of a function $f(x)$ equals $L$
  as $x$ approaches $-\infty$, written as
+ \vspace{-0.7em}
  \begin{displaymath}
   \lim_{x \to -\infty} ~f(x) ~=~ L ~,
  \end{displaymath}
  if $f(x)$ can be made arbitrarily close to $L$ for $x$ sufficiently small and
- negative:\\
- For any given number $\epsilon > 0$, there exists a number $N < 0$, such that
+ negative:
+ for any given number $\epsilon > 0$, there exists a number $N < 0$, such that
+ \vspace{-1em}
  \begin{equation*}
   \abs{f(x) ~-~ L} ~<~ \epsilon \quad\text{whenever}\quad x < N ~.
- \end{equation*}}
+ \end{equation*}
+ \[ \text{i.e.}\quad \lim_{x \to -\infty} ~f(x) ~=~ L \quad\Leftrightarrow\quad x < N ~\Rightarrow~ \abs{f(x) - L} < \epsilon \]
+}
 
-\noindent The above definitions can be modified accordingly for $L$ replaced by
+The above definitions can be modified accordingly for $L$ replaced by
 either $\infty$ or $-\infty$.
 
-\noindent One way to interpret the statement
+One way to interpret the statement
 $\displaystyle\lim_{x \to \infty} ~f(x) ~=~ L$ is: \emph{the
 long-term behavior of $f(x)$ is to approach a steady-state at $L$}.
 If $\displaystyle\lim_{x \to \infty} ~f(x) = L $ or
 $\displaystyle\lim_{x \to -\infty} ~f(x) = L$, then the line $y=L$ is a
 \textbf{horizontal asymptote}\index{horizontal asymptote}\index{asymptote!horizontal} of $f(x)$,
 and $f(x)$ \emph{approaches the line $y=L\,$ asymptotically}. 
+
 Again, for most limits of specific functions, only the intuitive notions are
 needed.
 
@@ -1017,32 +1036,35 @@ such that
 \abs{f(x)} ~\le~ M\,\abs{g(x)} ~~\text{for all $x \ge x_0$.}
 \]}
 
-\noindent For example, obviously $2x^3 = O(x^3)$, by picking $M = 2$, with $x_0$
-any positive number. In general, $f(x) = O(g(x))$ means that $f$ exhibits the
+\noindent For example, obviously $2x^3 = O(x^3)$, by picking $M = 2$ and
+any positive number as $x_0$. In general, $f(x) = O(g(x))$ means that $f$ exhibits the
 same long-term behavior as $g$, up to a constant multiple. You can think of $g$
-as the more basic ``type'' of function that describes $f$, as far as long-term
-behavior.
+as the more basic (or standard) ``type'' of function that describes $f$, insofar as the long-term
+behavior is concerned.
 
 \begin{exmp}\label{exmp:bigOexmp}
-\noindent Show that $5x^4 - 2 = O(x^4)$.\vspace{1mm}
-\par\noindent\emph{Solution:} First, recall from algebra that
-$\abs{a + b} \le \abs{a} + \abs{b}$ for all real numbers $a$ and $b$. Thus,
-\[
-\Abs{5x^4 - 2} ~\le~ \Abs{5x^4} ~+~ \abs{-2} ~=~ 5\,\Abs{x^4} ~+~ 2
-\]
-for all $x$. So since $\Abs{x^4} = x^4 \ge 1$ for all $x \ge 1$, then
-\[
-\Abs{5x^4 - 2} ~\le~ 5\,\Abs{x^4} ~+~ 2 ~\le~ 5\,\Abs{x^4} ~+~ 2\,\Abs{x^4}
-\quad\Rightarrow\quad \Abs{5x^4 - 2} ~\le~ 7\,\Abs{x^4} ~~\text{for all $x \ge 1$,}
-\]
-which shows that $5x^4 - 2 = O(x^4)$, with $M= 7$ and $x_0 = 1$.
+  \noindent Show that $5x^4 - 2 = O(x^4)$.\vspace{1mm}
+  \par\noindent\emph{Solution:}
+  \begin{align*}
+    &\underbrace{
+      \abs{5x^4 - 2} ~\le~ \Abs{5x^4} ~+~ \abs{-2}
+    }_\text{$\because~ \abs{a + b} \le \abs{a} + \abs{b}$ for all $a, b \in \Reals$}
+    ~=~ 5\,\Abs{x^4} ~+~ 2 &\text{for all $x \in \Reals$}\\
+    &\Abs{x^4} = x^4 \ge 1 &\text{for all $x \ge 1$}\\
+    \Rightarrow~ &\abs{5x^4 - 2} ~\le~ \underbrace{
+      5\,\Abs{x^4} ~+~ 2 ~\le~ 5\,\Abs{x^4} ~+~ 2\,\Abs{x^4}
+    }_{\because~ 1 \le \Abs{x^4} \text{ for all } x \ge 1}
+    ~=~ 7\,\Abs{x^4} &\text{for all $x \ge 1$}\\
+    \Rightarrow~ &\abs{5x^4 - 2} ~\le~ 7\,\Abs{x^4} &\text{for all $x \ge 1$}\\
+    \Leftrightarrow~ &5x^4 - 2 = O(x^4) &\text{By \CRef{defn:bigO}{definition}, with $M=7$ and $x_0=1$.}
+  \end{align*}
 \end{exmp}
 \divider
 \newpage
 Some limits need algebraic manipulation before they can be evaluated.
 
 \begin{exmp}\label{exmp:liminfminusinf}
-\noindent Evaluate $\displaystyle\lim_{x \to \infty}~\left(\sqrt{x + 1} \,-\, \sqrt{x}\right)~$.\vspace{1mm}
+\noindent Evaluate $\displaystyle\lim_{x \to \infty}~\left(\sqrt{x + 1} \,-\, \sqrt{x}\right)~$.
 \par\noindent\emph{Solution:} Note that both $\sqrt{x + 1}$ and $\sqrt{x}$
 approach $\infty$ as $x$ goes to $\infty$, resulting in a limit of the form
 $\infty - \infty$. This is an example of an
@@ -1050,6 +1072,7 @@ $\infty - \infty$. This is an example of an
 (as will be discussed shortly); it does \emph{not} have to equal $0$ (i.e. the
 $\infty$'s do not necessarily ``cancel out''). The trick here is to use the
 conjugate of $\sqrt{x + 1} \,-\, \sqrt{x}$, so that
+\vspace{-0.7em}
 \[
 \lim_{x \to \infty}~\left(\sqrt{x + 1} \,-\, \sqrt{x}\right) ~=~
 \lim_{x \to \infty}~\left(\sqrt{x + 1} \,-\, \sqrt{x}\right) \cdot
@@ -1058,45 +1081,57 @@ conjugate of $\sqrt{x + 1} \,-\, \sqrt{x}$, so that
 ~=~ \lim_{x \to \infty}~\frac{1}{\sqrt{x + 1} \,+\, \sqrt{x}}
 ~=~ 0
 \]
+\vspace{-0.7em}
 since the numerator is $1$ and both terms in the sum in the denominator approach
-$\infty$ (i.e. $\frac{1}{\infty} = 0$).
+$\infty \left( \text{i.e.} \displaystyle \lim_{x \to \infty} 1/x = 0\right)$.
+\vspace{-0.3em}
 \end{exmp}
 \divider
-\vspace{3mm}
 
 Some other indeterminate forms are $\infty/\infty$, $0/0$ and $\infty \cdot 0$.
 How would you handle such limits? One way is to use
 \textbf{L'H\^{o}pital's Rule}\index{L'H\^{o}pital's Rule}\footnote{For a proof,
 see pp.89-91 in \textsc{Protter, M.H. and C.B. Morrey}, \emph{A First Course in
-Real Analysis}, New York: Springer-Verlag, 1977.}; a simplified form is stated
-below:
+Real Analysis}, New York: Springer-Verlag, 1977. or \S\,3.7
+``L'H\^{o}pital's Rule and Indeterminate Forms'' in \textsc{Feldman,
+  J., A. Rechnitzer and E. Yeager}, \emph{CLP-2 Integral Calculus},
+\url{https://personal.math.ubc.ca/~CLP/CLP2/}, 2017. or
+\textsc{Jipsen, P.}, \emph{Proof of L'H\^{o}pital's Rule},
+\url{https://math.chapman.edu/~jipsen/mathposters/L'Hospital's%20Rule.pdf},
+  2019.}; a simplified form is stated below:
 
 \statethm{thm:lhopital}{
 {\textbf{L'H\^{o}pital's Rule}: If $f$ and $g$ are differentiable functions and
-\[
-\lim_{x \to a}~\frac{f(x)}{g(x)} ~=~ \frac{\pm\infty}{\pm\infty} ~~\text{or}~~ \frac{0}{0}
-\]
-then
-\[
-\lim_{x \to a}~\frac{f(x)}{g(x)} ~=~ \lim_{x \to a}~\frac{f'(x)}{g'(x)} ~.
-\]
-The number $a$ can be real, $\infty$, or $-\infty$.}
+\vspace{-0.5em}
+\begin{align*}
+&\lim_{x \to a}\frac{f(x)}{g(x)} ~=~ \frac{\pm\infty}{\pm\infty} ~~\text{or}~~ \frac{0}{0}\\
+\text{then,}\quad&\lim_{x \to a}~\frac{f(x)}{g(x)} ~=~ \lim_{x \to a}~\frac{f'(x)}{g'(x)} ~.
+\end{align*}
+\vspace{-0.5em}
+This also holds for $x \to \pm\infty$ besides $x \to a, a \in \Reals$.}
 }
+
+There is an intuitive justification for L'H\^{o}pital's Rule: since the limit
+$\lim_{x \to a}\;\frac{f(x)}{g(x)}$
+uses a ratio to compare how $f$ changes relative to $g$ as $x$ approaches $a$,
+then it is really the rates of change of $f$ and $g$---namely $f'$ and $g'$,
+respectively---that are being compared in that ratio, which is what
+L'H\^{o}pital's Rule says.
 
 \begin{exmp}\label{exmp:limxexpx}
 \noindent Evaluate $\displaystyle\lim_{x \to \infty}~\dfrac{2x - 1}{e^x}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} This limit is of the form $\infty/\infty$:
 \begin{align*}
 &\lim_{x \to \infty}~\dfrac{2x - 1}{e^x} ~\to~ \frac{\infty}{\infty}\\
-&=~ \lim_{x \to \infty}~\dfrac{2}{e^x} \quad\text{by L'H\^{o}pital's Rule}\\
-&=~ 0
+=~ &\lim_{x \to \infty}~\dfrac{2}{e^x} \quad(\text{by L'H\^{o}pital's Rule})\\
+=~ &~0 \quad(\text{since the numerator is $2$ and $e^x \to \infty$ as $x \to \infty$.})
 \end{align*}
-since the numerator is $2$ and $e^x \to \infty$ as $x \to \infty$.\\
 Note that one way of interpreting the limit being $0$ is that $e^x$ grows much
 faster than $2x - 1$. In fact, using L'H\^{o}pital's Rule it can be shown that
 $e^x$ grows much faster than any polynomial, i.e. \emph{exponential growth
 outstrips polynomial growth}.
 \end{exmp}
+\vspace{-0.7em}
 \divider
 \newpage
 \begin{exmp}\label{exmp:limxlnx}
@@ -1104,9 +1139,9 @@ outstrips polynomial growth}.
 \par\noindent\emph{Solution:} This limit is of the form $\infty/\infty$:
 \begin{align*}
 &\lim_{x \to \infty}~\dfrac{x}{\ln\,x} ~\to~ \frac{\infty}{\infty}\\
-&=~ \lim_{x \to \infty}~\dfrac{1}{\frac{1}{x}} \quad\text{by L'H\^{o}pital's Rule}\\[6pt]
-&=~ \lim_{x \to \infty}~x\\
-&=~ \infty
+=~ &\lim_{x \to \infty}~\dfrac{1}{\frac{1}{x}} \quad(\text{by L'H\^{o}pital's Rule})\\[6pt]
+=~ &\lim_{x \to \infty}~x\\
+=~ &\infty
 \end{align*}
 Note that one way of interpreting the limit being $\infty$ is that $x$ grows
 much faster than $\ln\,x$. In fact, using L'H\^{o}pital's Rule it can be shown
@@ -1119,7 +1154,7 @@ growth outstrips logarithmic growth}.
 can be converted to $\infty/\infty$:
 \begin{align*}
 \lim_{x \to \infty}~x e^{-2x} ~&=~ \lim_{x \to \infty}~\frac{x}{e^{2x}} ~\to~ \frac{\infty}{\infty}\\
-&=~ \lim_{x \to \infty}~\dfrac{1}{2e^{2x}} \quad\text{by L'H\^{o}pital's Rule}\\
+&=~ \lim_{x \to \infty}~\dfrac{1}{2e^{2x}} \quad(\text{by L'H\^{o}pital's Rule})\\
 &=~ 0
 \end{align*}
 Note that the limit is another consequence of exponential growth outstripping
@@ -1130,10 +1165,10 @@ polynomial growth.
 \par\noindent\emph{Solution:} This limit is of the form $\infty/\infty$:
 \begin{align*}
 &\lim_{x \to \infty}~\dfrac{2x^2 ~-~ 7x ~-~ 5}{3x^2 ~+~ 2x ~-~ 1} ~\to~ \frac{\infty}{\infty}\\[4pt]
-&=~ \lim_{x \to \infty}~\dfrac{4x ~-~ 7}{6x ~+~ 2} \quad\text{by L'H\^{o}pital's Rule}
+=~ &\lim_{x \to \infty}~\dfrac{4x ~-~ 7}{6x ~+~ 2} \quad(\text{by L'H\^{o}pital's Rule})
 ~\to~ \frac{\infty}{\infty} \\[6pt]
-&=~ \frac{4}{6} \quad\text{by L'H\^{o}pital's Rule, again}\\
-&=~ \frac{2}{3}
+=~ &\frac{4}{6} \quad(\text{by L'H\^{o}pital's Rule, again})\\
+=~ &\frac{2}{3}
 \end{align*}
 Note that the limit ended up being the ratio of the leading coefficients of the
 polynomials in the numerator and denominator of the original limit. Note also
@@ -1149,20 +1184,13 @@ ratio of polynomials (i.e. a
 \par\noindent\emph{Solution:} This limit is of the form $0/0$:
 \begin{align*}
 &\lim_{x \to 0}~\dfrac{1 ~-~ \cos\,x}{x} ~\to~ \frac{0}{0}\\[4pt]
-&=~ \lim_{x \to 0}~\dfrac{\sin\,x}{1} \quad\text{by L'H\^{o}pital's Rule}\\[6pt]
-&=~ \frac{\sin 0}{1}\\
-&=~ 0
+=~ &\lim_{x \to 0}~\dfrac{\sin\,x}{1} \quad(\text{by L'H\^{o}pital's Rule})\\[6pt]
+=~ &\sin 0\\
+=~ &0
 \end{align*}
 \end{exmp}
 \divider
 \vspace{3mm}
-
-There is an intuitive justification for L'H\^{o}pital's Rule: since the limit
-$\lim_{x \to a}\;\frac{f(x)}{g(x)}$
-uses a ratio to compare how $f$ changes relative to $g$ as $x$ approaches $a$,
-then it is really the rates of change of $f$ and $g$---namely $f'$ and $g'$,
-respectively---that are being compared in that ratio, which is what
-L'H\^{o}pital's Rule says.
 
 The following result provides another way to calculate certain limits:
 \index{Squeeze Theorem}
@@ -1183,7 +1211,7 @@ $\displaystyle\lim_{x \to a}\;f(x) ~=~ L$.}
 Intuitively, the Squeeze Theorem says that if one function is ``squeezed''
 between two functions approaching the same limit, then the function in the
 middle must also approach that limit. The theorem also applies to one-sided
-limits ($x \to a+\;$ or $\;x \to a-$).
+limits, i.e. $x \to a+\;$ and $\;x \to a-$.
 
 \begin{exmp}\label{exmp:squeeze}
 \noindent Evaluate $\displaystyle\lim_{x \to \infty}~\dfrac{\sin\,x}{x}~$.\vspace{1mm}
@@ -1191,10 +1219,13 @@ limits ($x \to a+\;$ or $\;x \to a-$).
 then dividing all parts of those inequalities by $x > 0$ yields
 \[
 -\frac{1}{x} ~\le~ \frac{\sin\,x}{x} ~\le~ \frac{1}{x} ~~\text{for all $x > 0$}
-\quad\Rightarrow\quad \lim_{x \to \infty}~\frac{\sin\,x}{x} ~=~ 0
 \]
-by the Squeeze Theorem, since $\displaystyle\lim_{x \to \infty}~\frac{-1}{x} ~=~
-0 ~=~ \displaystyle\lim_{x \to \infty}~\frac{1}{x}$.
+\[
+\Rightarrow\quad \lim_{x \to \infty}~\frac{\sin\,x}{x} ~=~ 0 ~\text{by
+  the Squeeze Theorem, since $\displaystyle\lim_{x \to
+    \infty}~-\frac{1}{x} ~=~ 0 ~=~ \displaystyle\lim_{x \to
+    \infty}~\frac{1}{x}$.  }
+\]
 \end{exmp}
 \divider
 \newpage
@@ -1473,22 +1504,34 @@ $\lim_{x \to a}\;f(x)$ because that limit will not exist.
 By the various rules for limits, it is straightforward to show that sums,
 differences, constant multiples, products and quotients of continuous functions
 are continuous. Likewise a continuous function of a continuous function (i.e. a
-composition of continuous functions) is also continuous. In addition, a
-continuous function of a finite limit of a function can be passed inside the
-limit:
+composition of continuous functions) is also continuous. In addition,
+the following holds true:
 
 \statethm{thm:contlimit}{If $f$ is a continuous function and
-$\displaystyle\lim_{x \to a}~g(x)$ exists and is finite, then:
-\begin{equation}
-f\left(\lim_{x \to a}~g(x)\right) ~=~ \lim_{x \to a}~f(g(x))
+$\displaystyle\lim_{x \to a}~g(x) = L \in \Reals$, i.e. the limit exists and is finite, then:
+\begin{equation}\label{eqn:lim-cont-comp}
+\lim_{x \to a}~f(g(x)) ~=~ f\left(\lim_{x \to a}~g(x)\right) ~=~ f(L)
 \end{equation}
-The same relation holds for one-sided limits.
+The same relation also holds for one-sided limits.
 }
 
-\noindent The above result is useful in evaluating the indeterminate forms
-$0^0$, $\infty^0$, and $1^{\infty}$. The idea is to take the natural logarithm
-of the limit by passing the continuous function $\ln\,x$ inside the limit and
-evaluate the resulting limit.\index{indeterminate form}
+\noindent This seemingly trivial result is useful in evaluating the
+indeterminate forms $0^0$, $\infty^0$, and $1^{\infty}$. The
+trick---somewhat parallaling the technique of logarithmic
+differentiation (and more clearly illustrated in Example
+\ref{exmp:zerotozerolim})---is to start by taking the natural
+logarithm of the limit of such an indeterminate form and then work
+backwards through Equation~\ref{eqn:lim-cont-comp}. The natural
+logarithm function, $\ln\,x$, will be the continuous function $f(x)$;
+and the indeterminate limit, presumed to exist, will be $\displaystyle
+\lim_{x \to a}~g(x)$. This $\displaystyle \ln\left(\lim_{x \to
+  a}~g(x)\right)$ form, working backwards through
+Equation~\ref{eqn:lim-cont-comp}, is equal to the form $\displaystyle
+\lim_{x \to a}~\ln(g(x))$, which can be determined after logarithmic
+properties are used to further simplify $\ln(g(x))$. The original
+indeterminate limit, $\left(\lim_{x \to a}~g(x)\right)$ is then
+recovered by evaluating $e^{\ln\left(\lim_{x \to
+    a}~g(x)\right)}$. \index{indeterminate form}
 
 \begin{exmp}\label{exmp:zerotozerolim}
 \noindent Evaluate $\displaystyle\lim_{x \to 0+}~x^x~$.\vspace{1mm}
@@ -1497,11 +1540,10 @@ $y = \displaystyle\lim_{x \to 0+}~x^x$ and then take the natural logarithm of
 $y$:
 \begin{align*}
 \ln\,y ~&=~ \ln\,\left(\lim_{x \to 0+}~x^x\right)\\[4pt]
-&=~ \lim_{x \to 0+}~\ln\,x^x \quad\text{(pass the natural logarithm function inside the limit)}\\[4pt]
-&=~ \lim_{x \to 0+}~x\;\ln\,x \quad\to\quad 0 \cdot (-\infty)\\
+&=~ \lim_{x \to 0+}~\ln\,x^x \quad\left[\text{working backwards through Equation~\ref{eqn:lim-cont-comp}:}~\displaystyle f\left(\lim_{x \to a}~g(x)\right) ~=~ \lim_{x \to a}~f(g(x))\right]\\[4pt]
+&=~ \lim_{x \to 0+}~x\;\ln\,x \quad\left(\text{using logarithmic property to simplify the indeterminate form}\right)\quad\to\quad 0 \cdot (-\infty)\\
 &=~ \lim_{x \to 0+}~\frac{\ln\,x}{1/x} \quad\to\quad\frac{-\infty}{\infty}\\[6pt]
-&=~ \lim_{x \to 0+}~\frac{1/x}{-1/x^2} \quad\text{by L'H\^{o}pital's Rule}\\[6pt]
-\ln\,y ~&=~ \lim_{x \to 0+}~(-x) ~=~ 0
+&=~ \lim_{x \to 0+}~\frac{1/x}{-1/x^2} \quad\left(\text{by L'H\^{o}pital's Rule}\right) ~=~ \lim_{x \to 0+}~(-x) ~=~ 0
 \end{align*}
 Thus, $\displaystyle\lim_{x \to 0+}~x^x ~=~ y ~=~ e^{\ln\,y} ~=~ e^0 ~=~ 1$.
 \end{exmp}
@@ -1509,15 +1551,15 @@ Thus, $\displaystyle\lim_{x \to 0+}~x^x ~=~ y ~=~ e^{\ln\,y} ~=~ e^0 ~=~ 1$.
 \newpage
 \noindent There is an important relationship between differentiability and
 continuity:
-
+\vspace{-0.5em}
 \statecomment{\begin{center}
 Every differentiable function is continuous.
 \end{center}}
-
+\vspace{-0.5em}
 \noindent Proof: If a function $f$ is differentiable at $x = a$ then
 $f'(a) = \displaystyle\lim_{x \to a}~$$\frac{f(x) - f(a)}{x - a}$ exists, so
 \[
-\lim_{x \to a}~(f(x) - f(a)) ~=~ \lim_{x \to a}~(f(x) - f(a)) \cdot \dfrac{x - a}{x - a} ~=~
+\lim_{x \to a}~(f(x) - f(a)) ~=~ \lim_{x \to a}~\left((f(x) - f(a)) \cdot \dfrac{x - a}{x - a}\right) ~=~
 \lim_{x \to a}~\dfrac{f(x) - f(a)}{x - a} ~\cdot~ \lim_{x \to a}~(x - a) ~=~ f'(a) \cdot 0 ~=~ 0
 \]
 which means that $\displaystyle\lim_{x \to a}~f(x) ~=~ f(a)\,,$
@@ -1532,34 +1574,32 @@ i.e. $f$ is continuous at $x = a\,.\quad\checkmark$
 \end{tikzpicture}}
 \par Note that the converse is not true. For example, the absolute value
 function $f(x) = \abs{x}$ is continuous everywhere---its graph is unbroken, as
-shown in the picture on the right---but---recall from Example
-\ref{exmp:absnondiff} in Section 1.2 that---it is not differentiable (at $x = 0$).
+shown in the picture on the right---but---recall from
+Example~\ref{exmp:absnondiff} in
+Section~\ref{sec:derivative-limit-approach} that---it is not
+differentiable (at $x = 0$).
 Continuous curves can have sharp edges and cusps, but differentiable curves
-cannot -- they must be ``smooth''.
-
-This fact is worth restating in it's logically equivalent---and perhaps more illuminating---contrapositive form:
+cannot---they must be ``smooth''.
+This fact is worth restating in it's logically equivalent, and perhaps more illuminating, contrapositive form:
+\vspace{-0.5em}
 \statecomment{\begin{center}
     If a function is not continuous, then it is not differentiable.
-
-    \textsc{or}
-
-    No discontinuous function is differentiable.
 \end{center}}
-
+\vspace{-0.5em}
 
 Two other important theorems\footnote{The full proofs require some advanced
 results. See pp.97-98 and p.558 in \textsc{Taylor, A.E. and W.R. Mann},
 \emph{Advanced Calculus}, 2nd ed., New York: John Wiley \& Sons, Inc., 1972.}
 about continuous functions are:
-
+\vspace{-0.5em}
 \statethm{thm:evt}{\textbf{Extreme Value Theorem}: If $f$ is a continuous
 function on a closed interval $\ival{a}{b}$ then $f$ attains both a maximum
 value and a minimum value on that interval.}
-
+\vspace{-1.09em}
 \statethm{thm:ivt}{\textbf{Intermediate Value Theorem}: If $f$ is a continuous
 function on a closed interval $\ival{a}{b}$ then $f$ attains every value between
 $f(a)$ and $f(b)$.}\vspace{-3mm}
-
+\vspace{-0.5em}
 \begin{figure}[ht]
 \begin{minipage}[b]{6.5cm}
  \begin{center}
@@ -1619,10 +1659,15 @@ $f(a)$ and $f(b)$.}\vspace{-3mm}
  \label{fig:ivt}
 \end{minipage}
 \end{figure}
-
+\vspace{-0.5em}
 \noindent Figure \ref{fig:evt} shows why a closed interval is required for the
 Extreme Value Theorem, as $f$ attains neither a maximum nor minimum on the open
-interval $(c,d)$. The Intermediate Value Theorem says that continuous functions
+interval $(c,d)$\footnote{The real numbers can't be listed in a
+sequence and as such there is no ``next'' number to $c$ nor a ``previous''
+number to $d$ that could be dubbed the extreme values in the interval
+$(c,d)$ (see Footnote~\ref{footnote:dense-reals} in
+Chapter~\ref{ch:derivative}).}. The Intermediate Value Theorem says
+that continuous functions
 cannot ``skip over'' intermediate values between two other function values. In
 Figure \ref{fig:ivt} the function $f$ skips the value $k$ between $f(c)=1$ and
 $f(d)=2$ because $f$ is not continuous over all of $\ival{c}{d}$. On
@@ -1632,12 +1677,13 @@ since $f$ is continuous on $\ival{a}{b}$.
 \begin{exmp}\label{exmp:ivt}
 \noindent Show that there is a solution to the equation $\cos\,x = x$.\vspace{1mm}
 \par\noindent\emph{Solution:} Let $f(x) = \cos\,x ~-~ x$. Since $f$ is
-continuous for all $x$, in particular it is continuous on $\ival{0}{1}$. So
-since $f(0) = 1 > 0$ and $f(1) = -0.459698 < 0$, then by the Intermediate Value
-Theorem there is a number $c$ in the open interval $(0,1)$ such that $f(c) = 0$,
-since $0$ is between the values $f(0)$ and $f(1)$. Hence, $\cos\,c ~-~ c ~=~ 0$,
-which means that $\cos\,c ~=~ c$. That is, $x = c$ is a solution of
-$\cos\,x = x$.\vspace{-2mm}
+continuous for all $x \in \Reals$, in particular it is continuous on
+$x \in \ival{0}{1}$. So since $\left(f(1) = -0.459698\right) < 0 <
+\left(f(0) = 1\right)$, then by the \CRef{thm:ivt}{Intermediate Value
+  Theorem} there is a number $c \in (0,1)$ such that $f(c) = 0$ since
+$0 \in \big(f(1), f(0)\big)$. This means that $\cos\,c ~-~ c ~=~ 0
+~\Rightarrow~ \cos\,c ~=~ c$. That is, a solution to the equation
+$\cos\,x = x$ exists and is a number $x = c \in (0,1)$.\vspace{-2mm}
 \end{exmp}
 \divider
 \vspace{2mm}
@@ -1789,7 +1835,7 @@ $x$\index{differentiation!implicit} in the following sense: as $x$ varies so
 does $y$. Hence it should be possible to find the rate of change of $y$
 with respect to the variable $x$ (i.e. $\dydx$). To do so, take $\ddx$ of both
 sides of the equation, then assume that $y$ really is a function of $x$ so that
-you can use the Chain Rule to solve for $\dydx$. The example below illustrates
+you can use the \CRef{thm:chainrule}{Chain Rule} to solve for $\dydx$. The example below illustrates
 this procedure, called \textbf{implicit differentiation}.
 
 \begin{exmp}\label{exmp:implicit1}
@@ -1802,8 +1848,8 @@ violates the vertical line test, but $y$ still varies with $x$. To find
 $\dydx$ take $\ddx$ of both sides of the equation then solve for $\dydx$:
 \begin{align*}
 \ddx\,(x^3 ~+~ 3x ~+~ 2) ~&=~ \ddx\,(y^2)\\[5pt]
-3x^2 ~+~ 3 ~&=~ 2y \cdot \dydx \quad\text{by the Chain Rule, so}\\[5pt]
-\dydx ~&=~ \frac{3x^2 ~+~ 3}{2y}
+3x^2 ~+~ 3 ~&=~ 2y \cdot \dydx \quad\left(\text{by the Chain Rule}\right)\\[5pt]
+\text{So,}\quad \dydx ~&=~ \frac{3x^2 ~+~ 3}{2y}
 \end{align*}\vspace{-6mm}
 \picskip{0}
 At first this might seem unsatisfying---or confusing---since $\dydx$ is given
@@ -1841,8 +1887,8 @@ algebraic curve and its graph is shown on the right. To find
 $\dydx$ take $\ddx$ of both sides of the equation then solve for $\dydx$:
 \begin{align*}
 \ddx\,(x ~+~ y) ~&=~ \ddx\,(x^3 ~+~ y^3)\\[6pt]
-1 ~+~ \dydx ~&=~ 3x^2 ~+~ 3y^2 \cdot \dydx \quad\text{by the Chain Rule, so}\\[6pt]
-\dydx ~&=~ \frac{3x^2 ~-~ 1}{1 ~-~ 3y^2}
+1 ~+~ \dydx ~&=~ 3x^2 ~+~ 3y^2 \cdot \dydx \quad\left(\text{by the Chain Rule}\right)\\[6pt]
+\text{So,}\quad\dydx ~&=~ \frac{3x^2 ~-~ 1}{1 ~-~ 3y^2}
 \end{align*}\vspace{-9mm}
 \picskip{0}
 Notice that the curve consists of an oval shape (an ellipse, actually) with a
@@ -1898,7 +1944,7 @@ $(4/5,3/5)$.\vspace{1mm}
 picture on the right. First use implicit differentiation to find $\dydx$:
 \begin{align*}
 \ddx\,(x^2 ~+~ y^2) ~=~ \ddx\,(1) \quad&\Rightarrow\quad
-2x ~+~ 2y \cdot \dydx ~=~ 0 \quad\text{by the Chain Rule}\\[4pt]
+2x ~+~ 2y \cdot \dydx ~=~ 0 \quad\left(\text{by the Chain Rule}\right)\\[4pt]
 &\Rightarrow\quad \dydx ~=~ -\frac{x}{y}
 \end{align*}\vspace{-7mm}
 \picskip{0}
@@ -1962,12 +2008,12 @@ tangent line is $y - \frac{3}{5} = -\frac{4}{3}\left(x - \frac{4}{5}\right)$.
 }
 \newpage
 %Begin Section 3.5
-\section{Related Rates}
+\section{Related Rates}\label{sec:related-rates}
 If several quantities are related by an equation, then differentiating both
 sides of that equation with respect to a variable (usually $t$, representing
 time) produces a relation between the rates of change of those quantities.
-The known rates of change are then used in that relation to determine an
-unknown related rate.\index{related rates}
+The known rates of change in that relation are then used to determine an
+unknown related rate of change.\index{related rates}
 
 \begin{exmp}\label{exmp:relrate1}
 \parpic[r]{\begin{tikzpicture}[>=latex, every node/.style={font=\small}]
@@ -1996,13 +2042,12 @@ V ~=~ (300)(100)h ~=~ 30000h ~~\text{ft}^3
 where $h$ is the height of the water, as in the picture on the right.
 Both $V$ and $h$ are functions of time $t$ (measured in minutes), and
 $\dVdt = 60000~\text{ft}^3$/min was given. The goal is to find
-$\frac{d\!h}{\dt}$. Since
+$\frac{d\!h}{\dt}$.
 \[
 \dVdt ~=~ \ddt\,(30000h) ~=~ 30000\,\frac{d\!h}{\dt}
 \]
-then
 \[
-\frac{d\!h}{\dt} ~=~ \frac{1}{30000} \dVdt ~=~ \frac{1}{30000}\cdot 60000
+\Rightarrow\quad \frac{d\!h}{\dt} ~=~ \frac{1}{30000} \dVdt ~=~ \frac{1}{30000}\cdot 60000
 ~=~ 2~\text{ft/min} .
 \]
 \end{exmp}
@@ -2030,18 +2075,17 @@ $x$ be the length of the shadow, as in the picture on the right. Both $\theta$
 and $x$ are functions of time $t$ (measured in minutes), and
 $\frac{d\negmedspace\theta}{\dt} = -0.05$ rad/min was given (the derivative is
 negative since $\theta$ is decreasing). The goal is to find $\dxdt$ when
-$\theta = \pi/6$, denoted by $\dxdt\Biggr|_{\theta=\pi/6}$ (the vertical bar
-means ``evaluated at'' the value of the subscript to the right of the bar).
-Since
-\[
-x ~=~ 100\;\cot\,\theta \quad\Rightarrow\quad
-\dxdt ~=~ -100\;\csc^2\theta \cdot \frac{d\negmedspace\theta}{\dt}
-~=~ -100\;\csc^2\theta \cdot (-0.05) ~=~ 5\;\csc^2\theta
-\]
-then
-\[
-\dxdt\Biggr|_{\theta=\pi/6} ~=~ 5\;\csc^2(\pi/6) ~=~ 5\;(2)^2 ~=~ 20~\text{ft/min} .
-\]
+$\theta = \pi/6$.\footnote{This is denoted $\dxdt\Biggr|_{\theta=\pi/6}$: the vertical bar
+means ``evaluated at'' the value of the subscript to the right of the bar.}
+From the adjacent figure,
+\begin{align*}
+&x ~=~ 100\;\cot\,\theta \quad\left(\because~ \tan\,\theta ~=~ \frac{100}{x}\right)\\
+\Rightarrow\quad &\dxdt ~=~ -100\;\csc^2\theta \cdot
+\frac{d\negmedspace\theta}{\dt} ~=~ -100\;\csc^2\theta \cdot (-0.05)
+~=~ 5\;\csc^2\theta \quad\left(\because~
+\frac{d\negmedspace\theta}{\dt} = -0.05~\text{rad/min}\right)\\
+\Rightarrow\quad &\dxdt\Biggr|_{\theta=\pi/6} ~=~ 5\;\csc^2(\pi/6) ~=~ 5\;(2)^2 ~=~ 20~\text{ft/min}
+\end{align*}
 \end{exmp}
 \divider
 \newpage
@@ -2051,19 +2095,26 @@ $3$ cm/min, while the height is increasing at the rate of $2$ cm/min. Find the
 rate of change of the volume of the cylinder when the radius is $8$ cm and the
 height is $6$ cm.\vspace{1mm}
 \par\noindent\emph{Solution:} Let $r$, $h$, and $V$ be the radius, height, and
-volume, respectively, of the cylinder. Then $V = \pi\,r^2 \,h$. Since
-$\frac{\dr}{\dt} = -3$ cm/min and $\frac{d\negmedspace h}{\dt} = 2$ cm/min, then
-by the Product Rule:
-\[
-  \dVdt ~=~ \ddt (\pi\,r^2 \,h) ~=~ \left( 2\pi \,r\;\cdot\;\drdt\right)\,h ~+~
-  \pi\,r^2 \;\cdot\;\frac{d\negmedspace h}{\dt} \quad\Rightarrow\quad
-  \dVdt\Biggr|_{\text{\scriptsize{$\begin{matrix}r=8\\h=6\end{matrix}$}}} ~=~
-  2\pi\,(8)\,(-3)\,(6) ~+~ \pi\,(8^2)\,(2) ~=~
- -160\pi~\frac{\text{\scriptsize cm}^3}{\text{\scriptsize min}}
-\]
+volume of the cylinder, respectively. Since
+$\frac{\dr}{\dt} = -3$ cm/min and $\frac{d\negmedspace h}{\dt} = 2$ cm/min,
+differentiating $V = \pi\,r^2 \,h$ with respect to $t$ on both sides yields:
+\vspace{-0.7em}
+\begin{gather*}
+  \ddt V ~=~ \ddt (\pi\,r^2 \,h) ~=~ \pi \ddt (r^2 \,h) ~=~ \pi
+  \underbrace{\left(\ddt (r^2) \cdot h + r^2 \cdot
+    \ddt(h)\right)}_\text{Product Rule} ~=~ \pi \underbrace{\left(
+    2\,r\,\drdt\cdot\,h + \,r^2 \cdot\frac{d\negmedspace h}{\dt}
+    \right)}_\text{Chain Rule} ~=~ 2\pi \,r\,\drdt\,h +
+  \pi\,r^2\,\frac{d\negmedspace h}{\dt} \\
+  \Rightarrow\quad
+  \dVdt\Biggr|_{\text{\scriptsize{$\begin{matrix}r=8\\h=6\end{matrix}$}}}
+  ~=~ 2\pi\,(8)\,(-3)\,(6) ~+~ \pi\,(8^2)\,(2) ~=~
+  -160\pi~\frac{\text{\scriptsize cm}^3}{\text{\scriptsize min}}
+\end{gather*}
 \end{exmp}
+\vspace{-0.5em}
 \divider
-\vspace{2mm}
+\vspace{1mm}
  
 \startexercises\label{sec3dot5}
 {\small
@@ -2185,25 +2236,24 @@ let $c$ be a constant. Then:
 For example, to prove (e), multiply both sides of the usual Product Rule by
 $\dx$ so that
 \begin{align*}
-\frac{d(fg)}{\dx} ~=~ f\,\frac{\dg}{\dx} ~+~ g\,\frac{\df}{\dx} \quad&\Rightarrow\quad
- d(fg) ~=~ \cancel{\dx}\,\left(f\,\frac{\dg}{\cancel{\dx}} ~+~
- g\,\frac{\df}{\cancel{\dx}}\right)\\
-&\Rightarrow\quad d(fg) ~=~ f\,\dg ~+~ g\,\df \quad\checkmark
+  \frac{d(fg)}{\dx} ~&=~ f\,\frac{\dg}{\dx} ~+~ g\,\frac{\df}{\dx}\\
+  \Rightarrow\quad\cancel{\dx}\,\frac{d(fg)}{\cancel{\dx}} ~&=~
+  \cancel{\dx}\,\left(f\,\frac{\dg}{\cancel{\dx}} ~+~
+  g\,\frac{\df}{\cancel{\dx}}\right)\\
+  \Rightarrow\quad d(fg) ~&=~ f\,\dg ~+~ g\,\df \quad\checkmark
 \end{align*}
 since the $\dx$ terms all cancel. The proofs of the other rules are similar.
 
-The differential version of the ideal gas law in Equation (\ref{eqn:gaslaw})
-\[
- \dfrac{\dP}{P} ~+~ \dfrac{\dV}{V} ~=~ \dfrac{\dT}{T}
-\]
-can now be proved by taking the differential of both sides of the equation $PV = RT$:
 \begin{align*}
- d(PV) ~&=~ d(RT) ~=~ R \cdot \dT \quad\text{by the Constant Multiple Rule}\\
- V \; \dP ~+~ P \; \dV ~&=~ \frac{PV}{T} \; \dT \quad\text{by the Product Rule and since
- $R = \frac{PV}{T}$}\\[6pt]
- \frac{V\;\dP}{PV} ~+~ \frac{P\;\dV}{PV} ~&=~ \frac{\dT}{T} \quad\text{after dividing both
- sides by $PV$}\\[6pt]
- \frac{\dP}{P} ~+~ \frac{\dV}{V} ~&=~ \frac{\dT}{T} \quad\checkmark
+ \intertext{The differential version of the ideal gas law in Equation (\ref{eqn:gaslaw}) can now be proved:}
+ &PV& ~&=~ RT& &\left(\text{Ideal Gas Law}\right)\\
+\Rightarrow\quad &d(PV)& ~&=~ d(RT)& &\left(\text{Taking the differential of both sides of the equation}\right)\\
+\Rightarrow\quad &d(PV)& ~&=~ R \cdot \dT& &\left(\text{By the Constant Multiple Rule}\right)\\
+\Rightarrow\quad &V \; \dP ~+~ P \; \dV& ~&=~ \frac{PV}{T} \; \dT& &\left(\text{By the Product Rule and since
+ $R = \frac{PV}{T}$}\right)\\
+\Rightarrow\quad &\frac{V\;\dP}{PV} ~+~ \frac{P\;\dV}{PV}& ~&=~ \frac{\dT}{T}& &\left(\text{After dividing both
+ sides by $PV$}\right)\\
+\Rightarrow\quad &\frac{\dP}{P} ~+~ \frac{\dV}{V}& ~&=~ \frac{\dT}{T}& &\checkmark
 \end{align*}
 Notice that $\frac{\dP}{P}$, $\frac{\dV}{V}$ and $\frac{\dT}{T}$ represent
 the \emph{relative} infinitesimal changes in $P$, $V$, and $T$, respectively.
@@ -2225,29 +2275,31 @@ respectively, at the beginning of the time $\dt$.\vspace{1mm}
 The momentum of the rocket at the beginning of the time $\dt$ is thus $Mv$.
 At the end of the time $\dt$, the momentum of the rocket consists of two parts,
 namely the momentum of the rocket and its remaining unburnt fuel, which is
-\begin{gather}
+\begin{gather*}
 \text{((mass before $\dt$) $-$ (increase in burnt fuel)) $\times$
 ((velocity before $\dt$) $+$ (increase in velocity))}\\
-(M - \dm)(v + \dv)
-\end{gather}
-and the momentum of the fuel that was burnt and expelled out the rear, which is
-\[
-(v - v_E)\,\dm ~.
-\]
-So by conservation of momentum,
+=~ (M - \dm)(v + \dv)
+\intertext{and the momentum of the fuel that was burnt and expelled out the rear, which is}
+(v - v_E)\,\dm.
+\end{gather*}
+\vspace{-4em}
 \begin{align*}
+\intertext{So, by conservation of momentum,}
 Mv ~&=~ (M - \dm)(v + \dv) ~+~ (v - v_E)\,\dm\\
-Mv ~&=~ Mv ~-~ v\,\dm ~+~ M\,\dv ~-~ (\dm)(\dv) ~+~ v\,\dm ~-~ v_E\,\dm, \quad\text{so}\\
- v_E\,\dm ~&=~ M\,\dv ~-~ (\dm)(\dv) ~=~ M\,\dv
+\Rightarrow\quad \cancel{Mv} ~&=~ \cancel{Mv} ~-~ \cancel{v\,\dm} ~+~ M\,\dv ~-~ (\dm)(\dv) ~+~ \cancel{v\,\dm} ~-~ v_E\,\dm\\
+\Rightarrow\quad v_E\,\dm ~&=~ M\,\dv ~-~ (\dm)(\dv)\\
+\Rightarrow\quad v_E\,\dm ~&=~ M\,\dv
+~\bigg(\because~\underbrace{(\dm)(\dv) =
+  \left(m'(t)\,\dt\right)\left(v'(t)\,\dt\right)}_\text{By
+  Equation~\ref{eqn:dffprimedx}} ~=~ m'(t)v'(t)(\dt)^2 ~=~ m'(t)v'(t)
+\cdot 0 = 0\bigg)
+\quad\checkmark
 \end{align*}
-since $(\dm)(\dv) = (m'(t)\,\dt)(v'(t)\,\dt) ~=~ m'(t)v'(t)(\dt)^2 
-~=~ m'(t)v'(t) \cdot 0 = 0$.\vspace{2mm}
-
-\noindent Dividing both sides of $v_E\,\dm = M\,\dv$ by $\dt$ yields the equation
+Furthermore,
 \[
-M\,\dot{v} ~=~ \dot{m}\,v_E
+v_E\,\dm ~=~ M\,\dv \quad\Rightarrow\quad \frac{v_E\,\dm}{\dt} ~=~ \frac{M\,\dv}{\dt} \quad\Rightarrow\quad M\,\dot{v} ~=~ \dot{m}\,v_E
 \]
-using the dot notation---mentioned in Section 1.3---for the derivative with
+using the dot notation---mentioned in Section~\ref{sec:derivative-inifinitesimal-approach}---for the derivative with
 respect to the time variable $t$, which is still popular with physicists. Since
 $\dot{v}$ is just acceleration $a$, this formulation is the classic equation for
 the acceleration of a rocket.\footnote{For other formulations see Chapter 1 in
@@ -2257,14 +2309,14 @@ Rocket Flight}, New York: McGraw-Hill Book Company, Inc., 1947.}
 \divider
 \vspace{3mm}
 
-Letting $f$ be the natural logarithm function and letting $g = u$ in the
+Letting $f$ be the natural logarithm function, $\ln$, and letting $g = u$ in the
 differential version of the Chain Rule yields the following useful result:
 
 \statethm{thm:dlnu}{\begin{center}
-$d(\ln\,u) ~=~ \dfrac{\du}{u}$
+$d(\ln\,u) ~=~ \ddu\left(\ln\,u\right)\du ~=~ \dfrac{1}{u}\du ~=~ \dfrac{\du}{u}$
 \end{center}}
 This is often used in a differential version of the technique of logarithmic
-differentiation\index{logarithmic differentiation} discussed in Section 2.3.
+differentiation\index{logarithmic differentiation} discussed in Section~\ref{sec:exponential-and-natural-logarithm-functions}.
 
 \begin{exmp}\label{exmp:diff3}
 \noindent Prove the relation $\frac{\dP}{P} + \frac{\dV}{V} = \frac{\dT}{T}$
@@ -2296,29 +2348,39 @@ $d\negmedspace A$ the infinitesimal area of the shaded ring in the picture.
  \filldraw[fill=fillcolor,line width=1pt] (0,0) circle (2);
  \filldraw[fill=white,line width=1pt] (0,0) circle (1.5);
  \draw[-latex] (0,0) -- (0,1.5) node[midway,right] {$r$};
- \draw[dashed] (0,1.5) -- (0,2) node[midway,right] {$\dr$};
- \draw[line width=2.5pt,-latex] (3,1) -- (4.8,1)
-  node[midway,above,align=left] {slice and\\roll flat};
+ \draw[densely dashed,thick] (0,1.5) -- (0,2) node[midway,right] {$\dr$};
+ \draw[line width=1pt,-latex] (2.0,1.3) -- (5,1.3)
+  node[midway,above,align=left] {slice and roll flat};
  \node at (1.75,0) {$d\negmedspace A$};
  \fill (0,0) circle (2.5pt);
- \begin{scope}[>=latex,shift={(7,1)}]
+ \begin{scope}[>=latex,shift={(5,1)}]
   \filldraw[fill=fillcolor,line width=1pt] (0,0) -- (6,0) -- (5.5,0.5) -- (0.5,0.5) --cycle;
   \draw[|<->|] (0.5,0.8) -- (5.5,0.8) node[fill=white,midway] {$2\pi r$};
-  \draw[|<->|] (0,-0.3) -- (6,-0.3) node[fill=white,midway] {$2\pi(r+\dr)$};
-  \draw[dashed] (0.5,0) -- (0.5,0.5) node[midway,right] {$\dr$};
-  \draw[dashed] (5.5,0) -- (5.5,0.5);
+  \draw[|<->|] (0,-0.3) -- (6,-0.3) node[fill=white,midway] {$2\pi(r+\dr)=2\pi r+2\pi\dr$};
+  \draw[|-|] (0,-0.50) -- (0.5,-0.50) node[midway,below] {$\pi\dr$};
+  \draw[-] (0.5,-0.50) -- (5.5,-0.50) node[midway,below] {$2\pi r$};
+  \draw[|-|] (5.5,-0.50) -- (6,-0.50) node[midway,below] {$\pi\dr$};
+  \draw[dotted,thick] (0.5,0) -- (0.5,0.5) node[midway,right] {$\dr$};
+  \draw[dotted,thick] (5.5,0) -- (5.5,0.5);
   \node at (3,0.25) {area $= d\negmedspace A$};
  \end{scope}
- \begin{scope}[shift={(5.5,-1.5)}]
+ \begin{scope}[shift={(4.0,-1.5)}]
   \filldraw[fill=fillcolor,line width=1pt] (0,0) -- (1.5,0) node[midway,below] {$\pi\;\dr$}
    -- (1.5,1.5) node[midway,right] {$\dr$} -- cycle;
   \draw (1.3,0) -- (1.3,0.2) -- (1.5,0.2);
-  \draw[line width=1.5, latex-] (2.3,0.75) -- (3,0.75) node[right] {area $= 0$};
+ \end{scope}
+ \begin{scope}[shift={(12.0,-1.5)},yscale=1,xscale=-1]
+   \filldraw[fill=fillcolor,line width=1pt] (0,0) -- (1.5,0) node[midway,below] {$\pi\;\dr$}
+   -- (1.5,1.5) node[midway,left] {$\dr$} -- cycle;
+   \draw (1.3,0) -- (1.3,0.2) -- (1.5,0.2);
  \end{scope}
 \end{tikzpicture}
 \end{center}
 
-Slice that ring along the dashed line then roll it flat, yielding a trapezoid
+Slice that ring along the dashed line then roll it flat\footnote{If
+you try to do this with paper and scissors and can't roll the ring
+flat, proceed by taking one piece of thread around the inner circle
+and another piece around the outer one.}, yielding a trapezoid
 with height $\dr$, top length $2\pi r$ (from the circumference of the inner
 circle of the ring), and bottom length $2\pi(r+\dr)$ (from the circumference of
 the outer circle of the ring), as shown in the picture above on the right. The
@@ -2330,6 +2392,7 @@ entire area $d\negmedspace A$ of the trapezoid comes from the rectangular
 portion of height $\dr$ and base $2\pi r$, which means
 $d\negmedspace A = 2\pi r\,\dr$, as expected.
 \end{exmp}
+\vspace{-1em}
 \divider
 \vspace{3mm}
 
@@ -2349,7 +2412,7 @@ T. and C.A. Manogue}, Putting Differentials Back into Calculus,
 \emph{College Math. J.} \textbf{41} (2010), 90\symbol{45}100. Some of the
 material in this section is indebted to that paper, which is available at
 \url{http://www.math.oregonstate.edu/bridge/papers/differentials.pdf}} For
-example, recall Example \ref{exmp:relrate3} in Section 3.5 on related rates,
+example, recall Example \ref{exmp:relrate3} in Section~\ref{sec:related-rates} on related rates,
 where the volume $V$ of a right circular cylinder with radius $r$ and height
 $h$ changes with time $t$ as
 \[

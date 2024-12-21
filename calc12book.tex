@@ -119,9 +119,14 @@ vcentering,hcentering,ignoremp,portrait,letterpaper]{geometry}
  {#1 \textbf{#2} \enskip {\color{black}\hrulethick}\\[6pt]}
 \theoremstyle{itexmp}
 \newtheorem{exmp}{Example}[chapter]
+%% \newcommand{\CRefstyle}[1]{\underline{\emph{#1}}}{}
+\newcommand{\CRefstyle}[1]{#1}{}
+\newcommand{\CRef}[2]{\hyperref[#1]{\CRefstyle{#2}}}{}
+\newcounter{defn-counter}
 \newcommand{\statedefn}[2]{
  \definecolor{defncolor}{HTML}{E6F0FF}
  \definecolor{defnrulecolor}{HTML}{0074C8}
+ \refstepcounter{defn-counter}
  \begin{center}
  \tikzstyle{mybox} = [draw=defnrulecolor,fill=defncolor,line width=1.2pt,
   rectangle,inner sep=8pt]
@@ -132,9 +137,12 @@ vcentering,hcentering,ignoremp,portrait,letterpaper]{geometry}
  \end{tikzpicture}
  \end{center}
 }
+\newcounter{thm-counter}
+\newenvironment{thm}[0]{\refstepcounter{thm-counter}}{}
 \newcommand{\statethm}[2]{
  \definecolor{thmcolor}{HTML}{FFFFD8}
  \definecolor{thmrulecolor}{HTML}{9B5900}
+ \begin{thm}
  \begin{center}
  \tikzstyle{mybox} = [draw=thmrulecolor,fill=thmcolor,line width=1.2pt,
   rectangle,inner sep=8pt]
@@ -144,6 +152,7 @@ vcentering,hcentering,ignoremp,portrait,letterpaper]{geometry}
   };
  \end{tikzpicture}
  \end{center}
+ \end{thm}
 }
 \newcommand{\statecor}[2]{
  \definecolor{corcolor}{HTML}{FAF2FF}
