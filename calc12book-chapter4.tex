@@ -47,11 +47,12 @@ In the picture, on the
 interval $\ival{a}{b}$ the function $f$ has a global minimum at $x=a$, a global
 maximum at $x=c_1$, a local minimum at $x=c_2$, and a local maximum at $x=b$.
 \newpage
-Every global maximum [minimum] is a local maximum [minimum], but not vice versa.
+Every global maximum (or, minimum) is a local maximum (or, minimum), but not vice versa.
 In physical applications global maxima or minima\footnote{The words ``maxima''
 and ``minima'' are the traditional plural forms of maximum and minimum,
-respectively.} are the primary interest. The Extreme Value Theorem in Section
-3.3 guarantees the existence of at least one global maximum and at least one
+respectively.} are the primary interest. The \CRef{thm:evt}{Extreme
+  Value Theorem} in Section~\ref{sec:continuity} guarantees the
+existence of at least one global maximum and at least one
 global minimum for continuous functions defined on \emph{closed} intervals (i.e.
 intervals of the form $\ival{a}{b}$). All the functions under consideration here
 will be differentiable, and hence continuous. So the only issues will be how
@@ -85,13 +86,14 @@ that point. That means that $f'(x)>0$ before $x=c_1$ and $f'(x)<0$ after the
   \fill (5.3,0.822) circle (2.5pt);
   \fill (7,1.3) circle (2.5pt);
   \node[above] at (7.5,1.9) {$y=f(x)$};
-  \node[above] at (1,1) {$f'>0$};
-  \node[above] at (4.5,1.2) {$f'<0$};
-  \node[below] at (7,1) {$f'>0$};
+  %% \draw[thin, dashed, gray] (0,0) grid (8,3);
+  \draw[red] (1.13,0.73) -- (1.7,1.3) node{.} node[black,left] {$f'>0$} -- (2.22,1.83);
+  \draw[red] (3.28,1.86) -- (3.78,1.45) node{.} node[black,right] {$f'<0$} -- (4.3,1.01);
+  \draw[red] (5.82, 0.84) -- (6.27, 0.99) node{.} node[black,right] {$f'>0$} -- (6.97, 1.23);
  \end{tikzpicture}
 \end{center}\vspace{-2mm}
 Assuming that $f'$ is continuous (which will be the case for all the functions
-in this section), then this means that $f'=0$ at $x=c_1$, that is, $f'(c_1)=0$.
+in this section), this means that $f'=0$ at $x=c_1$, that is, $f'(c_1)=0$.
 Similarly, near the internal minimum at $x=c_2$, $f'(x)<0$ before $x=c_2$ and
 $f'(x)>0$ after $x=c_2$, so that $f'(c_2)=0$. Points at which the derivative is
 zero are called \textbf{critical points}\index{critical point} (or
@@ -102,7 +104,7 @@ Note in the picture that $f'$ goes from positive to zero to negative around
 $x=c_1$, so that $f'$ is decreasing around $x=c_1$, i.e. $f''=(f')'<0$.
 Similarly, $f'$ is increasing around $x=c_2$, i.e. $f''>0$.
 This leads to the following test for local maxima and minima:\footnote{A formal
-proof requires the Mean Value Theorem, which will be presented in Section 4.4.}
+proof requires the Mean Value Theorem, which will be presented in Section~\ref{sec:mvt}.}
 \index{Second Derivative Test}
 
 \statethm{thm:2ndderivtest}{\textbf{Second Derivative Test}: Let $x=c$ be a
@@ -114,7 +116,7 @@ critical point of $f$ (i.e $f'(c)=0$). Then:
 \end{enumerate}}
 To see why the test fails when $f''(c)=0$, consider $f(x)=x^3$: $f'(0)=0$ and
 $f''(0)=0$, yet $x=0$ is neither a local minimum nor maximum in any open
-interval containing $x=0$. Section 4.2 will present an alternative for when the
+interval containing $x=0$. Section~\ref{sec:curve-sketching} will present an alternative for when the
 Second Derivative Test fails.
 \newpage
 There is a simple visual mnemonic device for remembering the Second Derivative
@@ -140,7 +142,7 @@ respectively:
    \draw[line width=1pt,shift={(0,-0.25)}] (0,0) circle (0.25);
    \node[above] at (-0.5,0.1) {\textbf{o}};
    \node[above] at (0.5,0.1) {\textbf{o}};
-   \node[below,align=center] at (0,-1.2) {$f''=0$\\test fails};
+   \node[below,align=center] at (0,-1.2) {$f''=0$\\test fails.};
   \end{scope}
  \end{tikzpicture}
 \end{center}
@@ -153,7 +155,7 @@ known). The procedure for finding a global maximum or minimum can now be stated:
 Suppose that $f$ is defined on an interval $I$. There are two cases:
 \begin{enumerate}[\bfseries 1.]
  \item \textbf{The interval $I$ is closed}: The global maximum of $f$ will
-  occur either at an interior local maximum or at one of the endpoints of $I$
+  occur either at an interior local maximum or at one of the endpoints of $I$;
   whichever of these points provides the largest value of $f$ will be
   where the global maximum occurs.\\
   Similarly, the global minimum of $f$ will occur either at an interior local
@@ -189,14 +191,14 @@ L ~=~ 2x ~+~ 2y \quad\Rightarrow\quad y ~=~ \frac{L}{2} ~-~ x ~,
 \]
 and hence
 \[
-A ~=~ x\,\left(\frac{L}{2} ~-~ x\right) ~=~ \frac{Lx}{2} ~-~ x^2
+A ~=~ xy ~=~ x\,\left(\frac{L}{2} ~-~ x\right) ~=~ \frac{Lx}{2} ~-~ x^2
 \]
 is now a function of $x$ alone, on the open interval $(0,L/2)$ (since the length
-$x$ is positive). Now find the critical points of $A$:
-\begin{align*}
-A'(x) ~=~ 0 \quad&\Rightarrow\quad \frac{L}{2} ~-~ 2x ~=~ 0\\
-&\Rightarrow\quad x ~=~ \frac{L}{4} ~~\text{is the only critical point}
-\end{align*}
+$x$ is always positive). Now find the critical points of $A$:
+\[
+A'(x) ~=~ 0 \quad\Rightarrow\quad \frac{L}{2} ~-~ 2x ~=~ 0
+\quad\Rightarrow\quad x ~=~ \frac{L}{4} ~~\text{is the only critical point}
+\]
 This problem is thus the case of a function defined on an open interval having
 only one critical point. Use the Second Derivative Test to verify that the sole
 critical point $x=L/4$ is a local maximum for $A$:
@@ -231,9 +233,9 @@ where the first term in the sum on the right side of the equation is the
 combined area of the two circular lids and the second term is the lateral
 surface area of the can. So $S$ is a function of $r$ and $h$, but $h$ can be
 eliminated since
-\[
+\begin{equation}\label{eqn:exmp:minmax2-h}
 V ~=~ \pi r^2h \quad\Rightarrow\quad h ~=~ \frac{V}{\pi r^2}
-\]
+\end{equation}
 and so
 \[
 S ~=~ 2\pi r^2 ~+~ 2\pi r \cdot \frac{V}{\pi r^2} ~=~ 2\pi r^2 ~+~ \frac{2V}{r}
@@ -241,9 +243,9 @@ S ~=~ 2\pi r^2 ~+~ 2\pi r \cdot \frac{V}{\pi r^2} ~=~ 2\pi r^2 ~+~ \frac{2V}{r}
 making $S$ a function of $r$ alone. Now find the critical points of $S$ (i.e.
 solve $S'(r)=0$):
 \begin{align*}
-S'(r) ~=~ 0 \quad&\Rightarrow\quad 4\pi r ~-~ \frac{2V}{r^2} ~=~ 0\\
-&\Rightarrow\quad r^3 ~=~ \frac{V}{2\pi}\\
-&\Rightarrow\quad r ~=~ \sqrt[3]{\frac{V}{2\pi}} ~~\text{is the only critical point}
+S'(r) ~=~ 0 \quad\Rightarrow\quad 4\pi r ~-~ \frac{2V}{r^2} ~=~ 0
+\quad\Rightarrow\quad r^3 ~=~ \frac{V}{2\pi}
+\quad\Rightarrow\quad r ~=~ \sqrt[3]{\frac{V}{2\pi}} ~~\text{is the only critical point}
 \end{align*}
 Since both $r$ and $h$ are lengths and have to be positive, then
 $0 < r < \infty$. So this is another case of a function defined on an open
@@ -258,8 +260,8 @@ S''\left(\sqrt[3]{\frac{V}{2\pi}}\right) ~=~ 4\pi ~+~ \frac{4V}{\frac{V}{2\pi}}
 \]
 Thus, $S$ has a global minimum at $r = \sqrt[3]{\frac{V}{2\pi}}$, and
 \[
-r \cdot r^2 ~=~ r^3 ~=~ \frac{V}{2\pi} \quad\Rightarrow\quad
-2r ~=~ \frac{V}{\pi r^2} ~=~ h ~.
+r^3 ~=~ r \cdot r^2 ~=~ \frac{V}{2\pi} \quad\Rightarrow\quad
+2r ~=~ \frac{V}{\pi r^2} ~=~ h \quad\left(\because~\text{Equation}~\ref{eqn:exmp:minmax2-h}\right)~.
 \]
 Hence, $r = \sqrt[3]{\frac{V}{2\pi}}$ and $h = 2\,\sqrt[3]{\frac{V}{2\pi}}$ will
 minimize the total surface area, i.e. the height should equal the diameter.\vspace{2mm}
@@ -284,7 +286,7 @@ considered; compromise is often necessary.
   \draw[|<->|] (0,-0.3) -- (4,-0.3) node[fill=white,midway] {$L$};
   \node at (24:0.5) {$\theta$};
   \draw (0:0.7) arc (0:50.2:0.7);
-  \begin{scope}[shift={(0,-2.5)}]
+  \begin{scope}[shift={(1.57,-1.55)}]
    \draw[line width=1pt] (0,0) -- (1,1) node[sloped,midway,above] {$v_0$} --
     (1,0) node[midway,right] {$v_0 \sin\,\theta$} -- cycle;
    \node[below] at (0.5,0) {$v_0 \cos\,\theta$};
@@ -307,51 +309,51 @@ horizontal and vertical distances traveled by the projectile by time $t$ \emph{d
 to the initial velocity} are
 $(v_0 \cos\,\theta)t$ and $(v_0 \sin\,\theta)t$, respectively. Ignoring wind and
 air resistance, the only other force on the projectile will be the downward force
-$g$ due to gravity, so that the equations of motion for the projectile are:
+$g$ due to gravity, so that \CRef{thm:gravity}{the equations of motion
+  for the projectile}---as will be derived in
+Section~\ref{sec:indefinite-integral}---are:
 \begin{align*}
  x ~&=~ (v_0 \cos\,\theta)t\\
  y ~&=~ -\frac{1}{2}gt^2 ~+~ (v_0 \sin\,\theta)t
 \end{align*}
 The goal is to find $\theta$ that maximizes the length $L$ shown in Figure
 \ref{fig:minmax3}. First write $y$ as a function of $x$:
-\begin{align*}
-x ~=~ (v_0 \cos\,\theta)t \quad&\Rightarrow\quad t ~=~ \frac{x}{v_0 \cos\,\theta}
-\quad\Rightarrow\quad y ~=~ -\frac{1}{2}g\left(\frac{x}{v_0 \cos\,\theta}\right)^2
- ~+~ (v_0 \sin\,\theta) \cdot \frac{x}{v_0 \cos\,\theta}\\[6pt]
-&\Rightarrow\quad y ~=~ -\frac{gx^2}{2v_0^2 \cos^2\,\theta} ~+~ x\tan\,\theta
-\end{align*}
-Then $L$ is the value of $x>0$ that makes $y=0$:
+\begin{gather*}
+x ~=~ (v_0 \cos\,\theta)t ~\Rightarrow~ t ~=~ \frac{x}{v_0 \cos\,\theta}\\
+~\Rightarrow~ y ~=~ -\frac{1}{2}gt^2 ~+~ (v_0 \sin\,\theta)t ~=~ -\frac{1}{2}g\left(\frac{x}{v_0 \cos\,\theta}\right)^2
+ ~+~ (v_0 \sin\,\theta) \cdot \frac{x}{v_0 \cos\,\theta} ~=~ -\frac{gx^2}{2v_0^2 \cos^2\,\theta} ~+~ x\frac{\sin\,\theta}{\cos\,\theta}
+\end{gather*}
+Since $L$ is the value of $x>0$ that makes $y=0$:
 \[
-0 ~=~ -\frac{gL^2}{2v_0^2 \cos^2\,\theta} ~+~ L\tan\,\theta
+0 ~=~ -\frac{gL^2}{2v_0^2 \cos^2\,\theta} ~+~ L\frac{\sin\,\theta}{\cos\,\theta}
 \quad\Rightarrow\quad L ~=~ \frac{2v_0^2 \sin\,\theta\;\cos\,\theta}{g} ~=~
 \frac{v_0^2 \sin\,2\theta}{g}
 \]
 So $L$ is now a function of $\theta$, with $0 < \theta < \pi/2$ (why?). So if
 there is a single local maximum then it must be the global maximum. Now get
 the critical points of $L$:
-\begin{align*}
-L'(\theta) ~=~ 0 \quad&\Rightarrow\quad \frac{2v_0^2 \cos\,2\theta}{g} ~=~ 0\\[4pt]
-&\Rightarrow\quad \cos\,2\theta ~=~ 0\\[3pt]
-&\Rightarrow\quad 2\theta ~=~ \frac{\pi}{2}
-\quad\Rightarrow\quad \theta ~=~ \frac{\pi}{4} ~~\text{is the only critical point}
-\end{align*}
+\begin{gather*}
+L'(\theta) ~=~ 0 ~\Rightarrow~ \frac{2v_0^2 \cos\,2\theta}{g} ~=~ 0
+~\Rightarrow~ \cos\,2\theta ~=~ 0
+~\Rightarrow~ 2\theta ~=~ \frac{\pi}{2}
+~\Rightarrow~ \theta ~=~ \frac{\pi}{4} ~~\text{is the only critical point}
+\end{gather*}
 Use the Second Derivative Test to verify that $L$ has a local maximum at
 $\theta = \pi/4$:
 \begin{align*}
 L''(\theta) ~=~ -\frac{4v_0^2 \sin\,2\theta}{g}
-\quad&\Rightarrow\quad L''(\pi/4) ~=~ -\frac{4v_0^2}{g} ~<~ 0\\[4pt]
-&\Rightarrow\quad \text{$L$ has a local maximum at $\theta = \frac{\pi}{4}$}
+\quad\Rightarrow\quad L''(\pi/4) ~=~ -\frac{4v_0^2}{g} ~<~ 0 \quad\Rightarrow\quad \text{$L$ has a local maximum at $\theta = \frac{\pi}{4}$}
 \end{align*}
 Thus, $L$ has a global maximum at $\theta = \frac{\pi}{4}$, i.e. the projectile
 travels the farthest horizontally when launched at a $45\Degrees$ angle with the
-ground (with $L\left(\frac{\pi}{4}\right) = \frac{v_0^2}{g}$ being the maximum
-horizontal distance).\vspace{2mm}
+ground $\bigg($with $L\left(\frac{\pi}{4}\right) = \frac{v_0^2}{g}$ being the maximum
+horizontal distance$\bigg)$.\vspace{2mm}
 
 \par\noindent Note that once the formula for $L$ as a function of $\theta$ was
 found to be $L = \frac{v_0^2 \sin\,2\theta}{g}$, calculus was not actually
 needed to solve this problem. Why? Since $v_0^2$ and $g$ are positive
 constants (recall $g = 9.8 \text{m/s}^2$), $L$ would have its largest value
-when $\sin\,2\theta$ has its largest value $1$, which occurs when
+when $\sin\,2\theta$ has its largest value (i.e. $1$), which occurs when
 $\theta = \pi/4$.
 \end{exmp}
 \begin{exmp}\label{exmp:minmax4}
@@ -404,10 +406,14 @@ $y_1$ and $y_2$ are constants, so the goal is to write the total distance $D$ as
 a function of $x$, find the $x$ that minimizes $D$, then show that that value of
 $x$ makes $\theta_1 = \theta_2$.
 
-First, note that $C$ has to be between $A$ and $B$ as in the picture, otherwise
-the total distance $D$ would be larger than if $C$ were directly below either
-$A$ or $B$. This ensures that $\theta_1$ and $\theta_2$ are between $0$ and
-$\pi/2$, and that $0 \le x \le L$.
+First, we can rule out the possibility that $C$ falls outside of $A$
+and $B$\footnote{i.e. $X(C) \notin [X(A),X(B)]$, where $X()$ is a
+function that returns the X-coordinate of a point (and $X(A)<X(B)$).}
+since, if it did, contrary to Fermat's Principle (and it's
+consequences), the total distance $D$ would be larger than if $C$ were
+directly beneath either $A$ or $B$. This ensures that $\theta_1$ and
+$\theta_2$ are between $0$ and $\pi/2$ (inclusive), and that $0 \le x
+\le L$.
 
 Next, by the Pythagorean Theorem and the above picture,
 \[
@@ -419,14 +425,13 @@ of $x$:
 \[
 D(x) ~=~ \sqrt{x^2 + y_1^2} ~+~ \sqrt{(L-x)^2 + y_2^2}
 \]
-To find the critical points of $D$, solve the equation $D'(x)=0$:
-\[
-D'(x) ~=~ \frac{x}{\sqrt{x^2 + y_1^2}} ~-~ \frac{L-x}{\sqrt{(L-x)^2 + y_2^2}} ~=~ 0
-\quad\Rightarrow\quad \frac{x}{d_1} ~=~ \frac{L-x}{d_2}
-\quad\Rightarrow\quad \cos\,\theta_1 ~=~ \cos\,\theta_2
-\quad\Rightarrow\quad \theta_1 ~=~ \theta_2
-\]
-since the cosine function is one-to-one over the interval $\ival{0}{\frac{\pi}{2}}$.
+At the critical points of $D$, the equation $D'(x)=0$ holds:
+\begin{align*}
+D'(x) ~=~ \frac{x}{\sqrt{x^2 + y_1^2}} ~-~ \frac{L-x}{\sqrt{(L-x)^2 + y_2^2}} ~&=~ 0\\
+\Rightarrow~\frac{x}{d_1} ~&=~ \frac{L-x}{d_2}\\
+\Rightarrow~\cos\,\theta_1 ~&=~ \cos\,\theta_2\\
+\Rightarrow~\theta_1 ~&=~ \theta_2 \quad\left(\because~\text{cosine is one-to-one over the interval $\ival{0}{\frac{\pi}{2}}$}\right)
+\end{align*}
 
 This seems to prove the result, except for one remaining issue to resolve:
 verifying that the minimum for $D$ really does occur at the $x$ between $0$ and
@@ -436,23 +441,23 @@ matter, since you would have to check the value of $D$ at the endpoints anyway
 and compare those values to the values of $D$ at the critical points. To find
 expressions for the critical points, note that
 \begin{align*}
-D'(x) ~=~ 0 \quad&\Rightarrow\quad
-\frac{x}{\sqrt{x^2 + y_1^2}} ~=~ \frac{L-x}{\sqrt{(L-x)^2 + y_2^2}}
-\quad\Rightarrow\quad \frac{x^2}{x^2 + y_1^2} ~=~ \frac{(L-x)^2}{(L-x)^2 + y_2^2}\\[6pt]
-&\Rightarrow\quad \cancel{(L-x)^2 x^2} ~+~ x^2 y_2^2 ~=~ \cancel{(L-x)^2 x^2} ~+~ (L-x)^2 y_1^2\\[4pt]
-&\Rightarrow\quad xy_2 ~=~ (L-x)y_1
-\quad\Rightarrow\quad x ~=~ \frac{Ly_1}{y_1 + y_2} \quad\text{is the only critical point,}
+D'(x) ~=~ 0 \quad\Rightarrow\quad \frac{x}{\sqrt{x^2 + y_1^2}} ~-~ \frac{L-x}{\sqrt{(L-x)^2 + y_2^2}} ~&=~ 0\\
+\Rightarrow\quad \frac{x}{\sqrt{x^2 + y_1^2}} ~&=~ \frac{L-x}{\sqrt{(L-x)^2 + y_2^2}}\\
+\Rightarrow\quad \frac{x^2}{x^2 + y_1^2} ~&=~ \frac{(L-x)^2}{(L-x)^2 + y_2^2}\\
+\Rightarrow\quad \cancel{(L-x)^2 x^2} ~+~ x^2 y_2^2 ~&=~ \cancel{(L-x)^2 x^2} ~+~ (L-x)^2 y_1^2\\
+\Rightarrow\quad xy_2 ~&=~ (L-x)y_1 \quad\left(\because~\begin{minipage}{0.38\linewidth}Since all the quantities involved are guaranteed to be positive, $\sqrt{a^2}=\abs{a}=a$\end{minipage}\right)\\
+\Rightarrow\quad x ~&=~ \frac{Ly_1}{y_1 + y_2} ~\text{is the only critical point,}~x \in \ival{0}{L}.
 \end{align*}
-and $x$ is between $0$ and $L$. Now compare the values
-of $D''(x)$ at $x=0$, $x=L$, and $x=\frac{Ly_1}{y_1 + y_2}$:
+Now compare the values of $D(x)$ at $x=0$, $x=L$, and
+$x=\frac{Ly_1}{y_1 + y_2}$. Some tedius algebraic manipulation yields:
 \begin{align*}
-D''(0) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1\sqrt{L^2 + y_2^2}\\
-D''(L) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_2\sqrt{L^2 + y_1^2}\\
-D''\left(\tfrac{Ly_1}{y_1 + y_2}\right) ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1y_2
+D(0) ~&=~ y_1 + \sqrt{L^2 ~+~ y_2^2} &\quad\Rightarrow\quad& &\left(D(0)\right)^2 ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1\sqrt{L^2 + y_2^2}\\
+D(L) ~&=~ \sqrt{L^2 + y_1^2} + y_2 &\quad\Rightarrow\quad& &\left(D(L)\right)^2 ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_2\sqrt{L^2 + y_1^2}\\
+D\left(\tfrac{Ly_1}{y_1 + y_2}\right) ~&=~ \sqrt{L^2 ~+~ (y_1 + y_2)^2} &\quad\Rightarrow\quad& &\left(D\left(\tfrac{Ly_1}{y_1 + y_2}\right)\right)^2 ~&=~ L^2 ~+~ y_1^2 ~+~ y_2^2 ~+~ 2y_1y_2
 \end{align*}
 Since $y_2 < \sqrt{L^2 + y_2^2}$ and $y_1 < \sqrt{L^2 + y_1^2}$, then
-$D''\left(\tfrac{Ly_1}{y_1 + y_2}\right)$ is the smallest of the three values
-above, so that $D''(x)$ has its minimum value at $x=\frac{Ly_1}{y_1 + y_2}$,
+$\left(D\left(\tfrac{Ly_1}{y_1 + y_2}\right)\right)^2$ is the smallest of the three values
+above, so that $\left(D(x)\right)^2$ has its minimum value at $x=\frac{Ly_1}{y_1 + y_2}$,
 which means $D(x)$ has its minimum value there.$\quad\checkmark$
 \end{exmp}
 \divider
@@ -461,17 +466,14 @@ which means $D(x)$ has its minimum value there.$\quad\checkmark$
 \noindent A man is in a boat $4$ miles off a straight coast. He wants to reach a
   point $10$ miles down the coast in the minimum possible time. If he can row
   $4$ mi/hr and run $5$ mi/hr, where should he land the boat?
-\parpic[r]{\begin{tikzpicture}[every node/.style={font=\small}]
+\parpic[r]{\begin{tikzpicture}[scale=1.7,every node/.style={font=\small}]
  \draw [line width=1.5pt,linecolor] (0,0) -- (3,0);
  \draw [-latex] (0.5,1) -- (1.5,0) node[above right,midway] {$\sqrt{x^2 + 16}$};
  \draw [dashed] (0.5,1) -- (0.5,0) node[left,midway] {$4$};
- \draw (0.5,-0.1) -- (0.5,-0.9);
- \draw (1.5,-0.1) -- (1.5,-0.4);
- \draw (2.7,-0.1) -- (2.7,-0.9);
- \draw [latex-latex] (0.5,-0.2) -- (1.5,-0.2) node[below,midway] {$x$};
- \draw [latex-latex] (1.5,-0.2) -- (2.7,-0.2) node[below,midway] {$10-x$};
- \draw [latex-latex] (0.5,-0.8) -- (2.7,-0.8) node[fill=white,midway] {$10$};
- \node [above] at (0.5,0.9) {\PHship};
+ \draw [|{latex}-{latex}|] (0.5,-0.2) -- (1.5,-0.2) node[above,midway,inner sep=1pt] {$x$};
+ \draw [latex-{latex}|] (1.5,-0.2) -- (2.7,-0.2) node[above,midway,inner sep=1pt] {$10-x$};
+ \draw [|{latex}-{latex}|] (0.5,-0.33) -- (2.7,-0.33) node[fill=white,midway,inner sep=0pt] {$10$};
+ \node [above,scale=1.19,xscale=-1] at (0.5,0.9) {\PHship};
  \fill (0.5,0) circle (2pt);
  \fill (2.7,0) circle (2pt);
 \end{tikzpicture}}
@@ -480,20 +482,20 @@ which means $D(x)$ has its minimum value there.$\quad\checkmark$
  by speed, break the total time into two parts: the time rowing in the water and
  the time running on the coast, so that
  \begin{displaymath}
-  T ~=~ \text{time}_{\text{row}} ~+~ \text{time}_{\text{run}} ~=~
-   \dfrac{\text{dist}_{\text{row}}}{\text{speed}_{\text{row}}} ~+~
-   \dfrac{\text{dist}_{\text{run}}}{\text{speed}_{\text{run}}} ~=~
+  T ~=~ \text{Time}_{\text{row}} ~+~ \text{Time}_{\text{run}} ~=~
+   \dfrac{\text{Dist}_{\text{row}}}{\text{Speed}_{\text{row}}} ~+~
+   \dfrac{\text{Dist}_{\text{run}}}{\text{Speed}_{\text{run}}} ~=~
    \dfrac{\sqrt{x^2 + 16}}{4} ~+~ \dfrac{10-x}{5} ~,
  \end{displaymath}
  where $0 \le x \le 10$ is the distance along the coast where the boat lands.
- Then
+ Then:
  \begin{displaymath}
   T'(x) ~=~ \dfrac{x}{4\,\sqrt{x^2 + 16}} ~-~ \dfrac{1}{5} ~=~ 0
    \quad\Rightarrow\quad 5x ~=~ 4\,\sqrt{x^2 + 16} \quad\Rightarrow\quad
    25x^2 ~=~ 16\,(x^2 + 16) \quad\Rightarrow\quad x ~=~ \dfrac{16}{3} ~,
  \end{displaymath}
  so $x=\frac{16}{3}$ is the only critical point. Thus, the (global) minimum of
- $T$ will occur at $x=\frac{16}{3}$, $x=0$, or $x=10$. Since
+ $T$ on the \emph{closed} interval $\ival{0}{10}$ will occur either at $x=\frac{16}{3}$, or at $x=0$, or $x=10$. Since
 \[
 T(0) ~=~ 3 \quad,\qquad T(10) ~=~ \frac{\sqrt{29}}{2} ~\approx~ 2.693
 \quad,\qquad T\left(\frac{16}{3}\right) ~=~ \frac{13}{5} ~=~ 2.6
@@ -530,7 +532,7 @@ is closest to the point $(1,0)$.
  \node [above] at (2.5,1.9) {$y=\sqrt{x}$};
 \end{tikzpicture}}
  \par\noindent\emph{Solution:} Let $(x,y)$ be a point on the curve $y=\sqrt{x}$.
- Then $(x,y) = (x,\sqrt{x}\;)$, so by the distance formula the distance $D$
+ Then $(x,y) = (x,\sqrt{x}\;)$, so by the distance formula, the distance $D$
  between $(x,y)$ and $(1,0)$ is given by
  \begin{displaymath}
   D^2 ~=~ (x-1)^2 ~+~ (y - 0)^2 ~=~ (x-1)^2 ~+~ (\sqrt{x}\,)^2 ~=~ (x-1)^2 ~+~ x~,
@@ -543,7 +545,7 @@ is closest to the point $(1,0)$.
  \end{displaymath}
  and since $\frac{d^2(D^2)}{\dx^2} \;=\; 2 \;>\; 0$ for all $x$, then by the
  Second Derivative Test $x=1/2$ is a local minimum. Hence, the global minimum
- for $D^2$ must occur at the endpoint $x=0$ or at $x=1/2$. But $D^2(0)=1 >
+ for $D^2$ must occur either at the endpoint $x=0$ or at $x=1/2$. But $D^2(0)=1 >
  D^2(1/2)=3/4$, so the global minimum occurs at $x=1/2$. Hence, the closest
  point is $(x,y) ~=~ (1/2,\sqrt{1/2})$.
 \end{exmp}
@@ -583,7 +585,7 @@ P''\left(\tfrac{4r}{\sqrt{5}}\right) ~=~ -\,\frac{5^{3/2}}{2r} ~<~ 0
 \]
 then $P$ has a local maximum at $w=\frac{4r}{\sqrt{5}}$, by the Second
 Derivative Test. Since $P(w)$ is defined for $w$ in the open interval $(0,2r)$,
-the local maximum is a global maximum. For the width $w=\frac{4r}{\sqrt{5}}$ the
+the local maximum is a global maximum. For the width $w=\frac{4r}{\sqrt{5}}$, the
 height is $h=\frac{r}{\sqrt{5}}$, which gives the dimensions for the maximum
 perimeter.\vspace{2mm}
 
@@ -822,7 +824,7 @@ second medium, respectively, as in the picture above.
 }
 \newpage
 %Begin Section 4.2
-\section{Curve Sketching}
+\section{Curve Sketching}\label{sec:curve-sketching}
 A function can increase between two points in different ways, as shown in Figure
 \ref{fig:concav3}.
 
@@ -939,26 +941,28 @@ twice-differentiable function on $\ival{a}{b}$. Then:
   \fill (3.5,2.5) circle (2.5pt);
 \end{tikzpicture}}
 \noindent Proof: Only part (a) will be proved; the proof of part (b) is similar
-and left as an exercise. So assume that $f''(x)>0$ on $(a,b)$, and $l(x)$ be the
-line joining $(a,f(a))$ and $(b,f(b))$, as in the drawing on the right. The
-drawing suggests that $f(x)$ < $l(x)$ over $(a,b)$, but this is what must be
-proved.
+and left as an exercise. Assume that $f''(x)>0$ on $(a,b)$, and let
+$l(x)$ be the line joining $(a,f(a))$ and $(b,f(b))$, as in the
+drawing on the right (which also suggests that $f(x)$ < $l(x)$ over
+$(a,b)$, but can't be accepted as proof).
 
-The goal is to show that $g(x) = f(x) - l(x) < 0$ on $(a,b)$, since
-this will show that $f(x) < l(x)$ on $(a,b)$. Since $f$ and $l$ are both
-continuous on $\ival{a}{b}$ then so is $g$. Hence $g$ has a global maximum
-somewhere in $\ival{a}{b}$, by the Extreme Value Theorem. Suppose the global
-maximum occurs at an interior point $x=c$, i.e. for some $c$ in the open
-interval $(a,b)$. Then $g'(c)=0$ and $g''(c)=f''(c)-l''(c)=f''(c)>0$, since
-$l(x)$ is a line and hence has a second derivative of $0$ for all $x$. Then
-by the Second Derivative Test $g$ has a local minimum at $x=c$, which
-contradicts $g$ having a global maximum at $x=c$. Thus, the global maximum of
-$g$ cannot occur at an interior point, so it must occur at one of the end points
-$x=a$ or $x=b$. In other words, either $g(x)<g(a)$ or $g(x)<g(b)$ for all $x$ in
-$(a,b)$. But $f(a)=l(a)$ and $f(b)=l(b)$, so $g(a)=0=g(b)$. Hence, $g(x)<0$ for
-all $x$ in $(a,b)$, i.e. $f(x) < l(x)$ for all $x$ in $(a,b).
-\quad\checkmark$\vspace{2mm}\\
-\divider
+The goal is to show that $\left(g(x) = f(x) - l(x)\right) < 0$ on
+$(a,b)$, since this will show that $f(x) < l(x)$ on $(a,b)$. Since $f$
+and $l$ are both continuous on $\ival{a}{b}$ then so is $g$. As such,
+the \CRef{thm:evt}{Extreme Value Theorem} guarantees that $g$ attains
+a maximum (and minimum) value somewhere in $\ival{a}{b}$. Suppose the
+(global) maximum of $g(x)$ occurs at an interior point $x=c$, i.e. for
+some $c$ in the open interval $(a,b)$. Then $g'(c)=0$ and
+$g''(c)=f''(c)-l''(c)=f''(c)>0$ (since $l(x)$ is a line and hence has
+a second derivative of $0$ for all $x$). Then by the
+\CRef{thm:2ndderivtest}{Second Derivative Test}, $g$ has a (local)
+minimum at $x=c$, which contradicts $g$ having a (global) maximum at
+$x=c$. Thus, the (global) maximum of $g$ cannot occur at an interior
+point, so it must occur at one of the end points $x=a$ or $x=b$. In
+other words, either $g(x)<g(a)$ or $g(x)<g(b)$ for all $x$ in
+$(a,b)$. But $f(a)=l(a)$ and $f(b)=l(b)$, so $g(a)=0=g(b)$. Hence,
+$g(x)<0$ for all $x$ in $(a,b)$, i.e. $f(x) < l(x)$ for all $x$ in
+$(a,b).  \quad\checkmark$\vspace{2mm}\\ \divider
 \vspace{3mm}
 
 Points where the concavity of a function changes have a special name:
@@ -1195,7 +1199,9 @@ $r = \left(1 \pm \frac{1}{\sqrt{2}}\right)\,a_0$.\vspace{2mm}
 $a_0\,D(x) = 4x^2 e^{-2x}$ does not involve $a_0$, which was multiplied
 over to the left side. In general that is the strategy when dealing with
 these sorts of functions where variables and constants are combined. In this
-case the stray constant $a_0$ can be multiplied with $D$ since that will not
+case the stray constant $a_0$ can be multiplied with $D$---amounting
+to a vertical scaling, $kf(x)$, of a function $f(x)$ by a scalar
+$k$---since that will not
 affect the location of critical and inflection points, nor fundamentally alter
 the general shape of the graph.
 \end{exmp}
@@ -1257,7 +1263,7 @@ asymptotes.
 }
 \newpage
 %Begin Section 4.3
-\section{Numerical Approximation of Roots of Functions}
+\section{Numerical Approximation of Roots of Functions}\label{sec:numeric-root-approx}
 When finding critical points of a function $f$, you encounter the problem of
 solving the equation $f'(x)=0$. The examples and exercises so far were set up
 carefully so that solutions to that equation could be found in a simple closed
@@ -1271,7 +1277,7 @@ no solution in a closed-form expression.
 What should you do in such a situation?\footnote{Note: To ``just give up''---as
 suggested semi-seriously by some students I have had---is not an option.}  One
 possibility is to use the bisection method\index{bisection method} mentioned in
-Section 3.3. In fact, in Example \ref{exmp:ivt} the solution to the equation
+Section~\ref{sec:continuity}. In fact, in Example \ref{exmp:ivt} the solution to the equation
 $\cos\,x = x$ (i.e. $\cos\,x \;-\; x \;=\;0$) was shown to exist in the interval
 $\ival{0}{1}$, and then a demonstration of the bisection method was given to
 find that solution.
@@ -1346,9 +1352,9 @@ x_n ~=~ x_{n-1} ~-~ \frac{f(x_{n-1})}{f'(x_{n-1})} \qquad\text{for $n =1$, $2$,
 $3$, $\ldots$}
 \]
 That is, each ``next'' number $x_n$ depends on the previous number $x_{n-1}$.
-The algorithm terminates whenever $f'(x_n)=0$, or when the desired accuracy is
-reached. If $f'(x_n)=0$ for some $n \ge 0$, then you could start over with a
-different initial guess $x_0$.}
+The algorithm terminates whenever the desired accuracy is reached or
+when $f'(x_n)=0$ for some $n \ge 0$, at which point you could start
+over with a different initial guess $x_0$.}
 
 To implement this algorithm in a programming language (for which Newton's
 method is well-suited), the following language-independent \emph{pseudocode}
@@ -1838,7 +1844,7 @@ minimizes $t(p)$ when $a = 24.3$ms and $m=3500.3$ms.
 }
 \newpage
 %Begin Section 4.4
-\section{The Mean Value Theorem}
+\section{The Mean Value Theorem}\label{sec:mvt}
 The difference between instantaneous and average rates of change has been
 discussed in earlier sections. Recall that there is no difference between the
 two for linear functions. For nonlinear functions the average rate of change
@@ -1960,7 +1966,7 @@ Note that both the Mean Value Theorem and Rolle's Theorem are purely
 task of \emph{finding} the numbers is left to you.  For the Mean Value Theorem
 that task involves solving the equation $f'(x) = \frac{f(b) - f(a)}{b - a}$ (or
 $f'(x)=0$ for Rolle's Theorem). The numerical root-finding methods from Section
-4.3 could come in handy, since obtaining closed-form solutions might be
+\ref{sec:numeric-root-approx} could come in handy, since obtaining closed-form solutions might be
 impossible. For that reason, the Mean Value Theorem is more useful for
 theoretical purposes. One such application is the following important result:
 \newpage
@@ -2007,7 +2013,7 @@ $I.\quad\checkmark$
 
 The proof of part (b) is similar and is left as an exercise. 
 You might wonder why such a proof is necessary. After all, an intuitive
-explanation was provided in Section 1.2 for why positive or negative derivatives
+explanation was provided in Section~\ref{sec:derivative-limit-approach} for why positive or negative derivatives
 imply that a function is increasing or decreasing, respectively. That knowledge
 has been assumed and used in the subsequent sections. Intuitive so-called
 ``hand-waving'' explanations, in fact, often yield more insight than a
