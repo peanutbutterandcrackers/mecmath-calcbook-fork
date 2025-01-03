@@ -65,8 +65,8 @@ in the common domain $I$ of $F$ and $G$. Since $F'(x) = G'(x) = f(x)$, then
 \[
 H'(x) ~=~ F'(x) ~-~ G'(x) ~=~ f(x) ~-~ f(x) ~=~ 0
 \]
-for all $x$ in $I$, so $H(x)$ is a constant function on $I$, as was shown in
-Section 4.4 on the Mean Value Theorem. Thus, there is a constant $C$ such that
+for all $x$ in $I$, so $H(x)$ is a constant function on $I$, as was \CRef{thm:zeroderiv}{shown} in
+Section~\ref{sec:mvt} on the Mean Value Theorem. Thus, there is a constant $C$ such that
 \[
 H(x) ~=~ C \quad\Rightarrow\quad F(x) ~-~ G(x) ~=~ C \quad\Rightarrow\quad
 F(x) ~=~ G(x) ~+~ C
@@ -106,7 +106,7 @@ You might be wondering what the integral sign in the indefinite integral
 represents, and why an infinitesimal $\dx$ is included. It has to do with what
 an infinitesimal represents: an infinitesimal ``piece'' of a quantity. For an
 antiderivative $F(x)$ of a function $f(x)$, the infinitesimal (or differential)
-$d\!F$ is given by $d\!F = F'(x)\,\dx = f(x)\,\dx$, and so
+$d\!F$ is given by $d\!F = F'(x)\,\dx = f(x)\,\dx ~\left(\because~\text{Equation~\ref{eqn:dffprimedx}}\right)$, and so
 \[
 F(x) ~=~ \int\,f(x)~\dx ~=~ \int\,d\!F ~.
 \]
@@ -249,7 +249,7 @@ Since $\ddx(e^x) = e^x$, then:
 \end{align*}
 \end{exmp}
 \begin{exmp}\label{exmp:gravity}
-\noindent Recall from Section 1.1 the example of an object dropped from a height
+\noindent Recall from Section~\ref{sec:intro} the example of an object dropped from a height
 of 100 ft. Show that the height $s(t)$ of the object $t$ seconds after being
 dropped is $s(t) = -16t^2 + 100$, measured in feet.\vspace{1mm}
 \parpic[r]{\begin{tikzpicture}[>=latex,every node/.style={font=\small}]
@@ -347,10 +347,10 @@ Now integrate both sides (notice how the \emph{function} $y$ is treated as a
 y ~&=~ e^{kt+C} ~=~ e^{kt} \cdot e^C ~=~ A e^{kt}
 \end{align*}
 where $A = e^C$ is a constant. Note that this is the formula for radioactive
-decay from Section 2.3.
+decay from Section~\ref{sec:exponential-and-natural-logarithm-functions}.
 \end{exmp}
 \begin{exmp}\label{exmp:intidealgas}
-\noindent Recall from Section 3.6 the equation of differentials
+\noindent Recall from Section~\ref{sec:differentials} the equation of differentials
 \[
 \dfrac{\dP}{P} ~+~ \dfrac{\dV}{V} ~=~ \dfrac{\dT}{T}
 \]
@@ -511,7 +511,7 @@ that gap turns out to be zero, as shown below:
 
 By the Microstraightness Property, the curve $y=f(x)$ shown in Figure
 \ref{fig:defint} is a straight line over the infinitesimal interval
-$\ival{x}{x+\dx}$, as shown in Figure \ref{fig:defintinf}.\footnote{The function
+$\ival{x}{x+\dx}$, as shown in Figure \ref{fig:defintinf}.\footnote{\label{ftnt:assumed-differentiable}The function
 $f$ is assumed to be differentiable at $x$, in this case. If not then the points
 where $f$ is not differentiable can be excluded without affecting the integral.}
 Thus, the part of the area between the curve and the $x$-axis over the interval
@@ -521,8 +521,13 @@ shown in Figure \ref{fig:defintinf}. However, the area of $\triangle ABC$ is
 zero:
 \[
 \text{Area of }\triangle ABC ~=~ \frac{1}{2}\text{(base)}\times\text{(height)}
- ~=~ \frac{1}{2}(\dx)(\df) ~=~ \frac{1}{2}(\dx)(f'(x)\,\dx) ~=~
-\frac{1}{2}f'(x)(\dx)^2 ~=~ 0
+~=~ \frac{1}{2}(\dx)(\df) ~=~ \frac{1}{2}(\dx)\underbracket[0.3pt]{(f'(x)\,\dx)}
+_{\begin{minipage}[c]{0.09\linewidth}
+    \tiny
+    See Footnote~\ref{ftnt:assumed-differentiable}\\
+    \& Equation~\ref{eqn:dffprimedx}
+\end{minipage}}
+~=~ \frac{1}{2}f'(x)(\dx)^2 ~=~ 0
 \]
 The function $f$ shown in Figure \ref{fig:defintinf} is increasing at
 $x$, but a similar argument could be made if $f$ were decreasing at $x$.
@@ -803,7 +808,7 @@ so that the rectangles appear as in Figure \ref{fig:riemann1}(b). Then
 &= \lim_{n \to \infty}~\left(1 \;+\; \frac{2}{n^2}\cdot\frac{(n-1)n}{2} \;+\;
    \frac{1}{n^3}\cdot\frac{(n-1)n(2n-1)}{6}\right)\quad\text{(replace $n$ by $n-1$ in Formulas (2) and (3))}\\[6pt]
 &=~ \left(\lim_{n \to \infty}\,1\right) ~+~ \left(\lim_{n \to \infty}\,\frac{n-1}{n}\right)
-    ~+~ \left(\lim_{n \to \infty}\,\frac{2n^2-3n+1}{6n^2}\right)\\[6pt]
+    ~+~ \left(\lim_{n \to \infty}\,\frac{2n^2-3n+1}{6n^2}\right)\quad(\text{Now use~\CRef{thm:lhopital}{L'H\^{o}pital's Rule}})\\[6pt]
 &=~ 1 ~+~ \frac{1}{1} ~+~ \frac{2}{6} ~=~ \frac{7}{3}
 \end{align*}
 \end{exmp}
@@ -941,7 +946,7 @@ for all integers $m > 2$. Explain why that inequality is true.
 }
 \newpage
 %Begin Section 5.3
-\section{The Fundamental Theorem of Calculus}
+\section{The Fundamental Theorem of Calculus}\label{sec:ftc}
 Using Riemann sums to calculate definite integrals can be tedious, as was seen
 in the previous section. In fact the technique shown in that section depended on
 the function being a low-degree polynomial, which obviously will not always be
@@ -971,7 +976,7 @@ Then:\vspace{2mm}
 
 The function $A(x)$ in Part I of the theorem is sometimes called the
 \textbf{area function}\index{area function}\index{function!area} because
-it represents the area under the curve $y=f(x)$ over the interval $\ival{a}{x}$,
+it represents the area under the curve $y=f(t)$ over the interval $\ival{a}{x}$,
 as shown in Figure \ref{fig:ftc1} below.
 
 \begin{figure}[ht]
@@ -985,7 +990,7 @@ as shown in Figure \ref{fig:ftc1} below.
    \draw[line width=1pt] (3,0) -- (3,1.5);
    \draw [linecolor,line width=1.5pt] (4.2,1) to[out=140,in=-10] (3,1.5)
     to[out=180,in=0] (2,1) to[out=180,in=-45] (1,1.5);
-   \node [above] at (2.5,1.5) {$y = f(x)$};
+   \node [above] at (2.5,1.5) {$y = f(t)$};
    \draw[<->,black!60,line width=1pt,anchor=base] (0,2.3) node[above] {$y$} |-
     (5,0) node[right] {$x$} node[black,shift={(0,-0.4)}] at (1,0) {$a$}
     node[black,shift={(0,-0.4)}] at (3,0) {$x$}
@@ -1001,19 +1006,19 @@ as shown in Figure \ref{fig:ftc1} below.
 \begin{minipage}[b]{7.5cm}
  \begin{center}
   \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
-   \fill [fill=fillcolor] (3,1.5)
-    to[out=180,in=0] (2,1) -- (2,0) -- (3,0) -- (3,1.5);
-   \draw[line width=1pt] (2,0) -- (2,1);
+   \fill [fill=fillcolor] (3.6,1.35)
+    to[out=180,in=0] (3,1.5) -- (3,0) -- (3.6,0) -- (3.6,1.35); %% x+dx_TOP x_TOP x_BOT x+dx_BOT x+dx_TOP
    \draw[line width=1pt] (3,0) -- (3,1.5);
+   \draw[line width=1pt] (3.6,0) -- (3.6,1.35);
    \draw [linecolor,line width=1.5pt] (4.2,1) to[out=140,in=-10] (3,1.5)
     to[out=180,in=0] (2,1) to[out=180,in=-45] (1,1.5);
-   \node [above] at (2.5,1.5) {$y = f(x)$};
+   \node [above] at (2.5,1.5) {$y = f(t)$};
    \draw[<->,black!60,line width=1pt,anchor=base] (0,2.3) node[above] {$y$} |-
     (5,0) node[right] {$x$} node[black,shift={(0,-0.4)}] at (1,0) {$a$}
-    node[black,shift={(0,-0.4)}] at (2,0) {$x$}
-    node[black,shift={(0,-0.4)}] at (3,0) {$x+\dx$}
+    node[black,shift={(0,-0.25)}] at (3,0) {\tiny$x$}
+    node[black,shift={(0,-0.25)}] at (3.6,0) {\tiny$x+\dx$}
     node[black,shift={(0,-0.4)}] at (4.2,0) {$b$};
-   \node at (2.5,0.5) {$\dA$};
+   \node at (3.32,0.5) {$\dA$};
    \fill (1,1.5) circle (2.5pt);
    \fill (4.2,1) circle (2.5pt);
   \end{tikzpicture}\vspace{-6mm}
@@ -1023,14 +1028,14 @@ as shown in Figure \ref{fig:ftc1} below.
 \end{minipage}
 \end{figure}\vspace{-2mm}
 
-To prove Part I, assume that $f(x) \ge 0$ on $\ival{a}{b}$ as in Figure
-\ref{fig:ftc1} (the proofs for $f(x)$ either negative or
-switching sign over $\ival{a}{b}$ are similar). The goal is to show that for any
-$x$ in $\ival{a}{b}$ the differential $\dA$ exists and equals $f(x)\,\dx$.
-First, $\dA = A(x+\dx) - A(x)$ is the area under the curve $y=f(x)$ over the
+To prove Part I, assume that $f(t) \ge 0$ on $\ival{a}{b}$ as in Figure
+\ref{fig:ftc1} (the proofs for $f(t)$ either negative or
+switching sign over $\ival{a}{b}$ are similar). %% The goal is to show that for any
+%% $x$ in $\ival{a}{b}$ the differential $\dA$ exists and equals $f(x)\,\dx$.
+First, $\dA = A(x+\dx) - A(x)$ is the area under the curve $y=f(t)$ over the
 interval $\ival{x}{x+\dx}$, as shown in Figure \ref{fig:ftc1dA} above.
 \newpage
-By the Microstraightness Property the curve $y=f(x)$ is a straight line over the
+By the Microstraightness Property the curve $y=f(t)$ is a straight line over the
 infinitesimal
 interval $\ival{x}{x+\dx}$, so $f$ must be either increasing, constant, or
 decreasing over that interval. The three possibilities are shown in Figure
@@ -1046,7 +1051,7 @@ decreasing over that interval. The three possibilities are shown in Figure
    \filldraw[linecolor,fill=fillcolor] (0,0) -- (0,4) -- (1.5,5.25) -- (1.5,0) -- cycle;
    \draw[linecolor,dashed] (0,4) -- (1.5,4);
    \draw[linecolor] (1.3,4) -- (1.3,4.2) -- (1.5,4.2);
-   \draw[linecolor,line width=1.5pt] (0,4) -- (1.5,5.25) node[black,above left,midway] {$y=f(x)$};
+   \draw[linecolor,line width=1.5pt] (0,4) -- (1.5,5.25) node[black,above left,midway] {$y=f(t)$};
    \fill (0,4) circle (2.5pt);
    \fill (1.5,5.25) circle (2.5pt);
    \node[below] at (0,0) {$x\vphantom{\dx}$};
@@ -1061,7 +1066,7 @@ decreasing over that interval. The three possibilities are shown in Figure
  \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
    \draw[|<->|] (-0.4,0) -- (-0.4,4) node[left,midway] {$f(x)$};
    \filldraw[linecolor,fill=fillcolor] (0,0) -- (0,4) -- (1.5,4) -- (1.5,0) -- cycle;
-   \draw[linecolor,line width=1.5pt] (0,4) -- (1.5,4) node[black,above,midway] {$y=f(x)$};
+   \draw[linecolor,line width=1.5pt] (0,4) -- (1.5,4) node[black,above,midway] {$y=f(t)$};
    \fill (0,4) circle (2.5pt);
    \fill (1.5,4) circle (2.5pt);
    \node[below] at (0,0) {$x\vphantom{\dx}$};
@@ -1077,7 +1082,7 @@ decreasing over that interval. The three possibilities are shown in Figure
    \filldraw[linecolor,fill=fillcolor] (0,0) -- (0,5.25) -- (1.5,4) -- (1.5,0) -- cycle;
    \draw[linecolor,dashed] (0,4) -- (1.5,4);
    \draw[linecolor] (0.2,4) -- (0.2,4.2) -- (0,4.2);
-   \draw[linecolor,line width=1.5pt] (0,5.25) -- (1.5,4) node[black,above right,pos=0.2] {$y=f(x)$};
+   \draw[linecolor,line width=1.5pt] (0,5.25) -- (1.5,4) node[black,above right,pos=0.2] {$y=f(t)$};
    \fill (0,5.25) circle (2.5pt);
    \fill (1.5,4) circle (2.5pt);
    \node[below] at (0,0) {$x\vphantom{\dx}$};
@@ -1107,17 +1112,17 @@ width $\dx$ and the area of the right triangle $\triangle ABC$ shown in Figure
 \ref{fig:ftc1dA3}(c). Note that $\df < 0$ since $f$ is decreasing, and so the
 area of $\triangle ABC$ is $\frac{1}{2}(-\df)(\dx) = -\frac{1}{2}f'(x)(\dx)^2
 = 0$. Thus,
-\[
-\dA ~=~ f(x+\dx)\,\dx ~=~ (f(x) + \df)\,\dx ~=~
-        f(x)\,\dx ~+~ f'(x)(\dx)^2 ~=~ f(x)\,\dx ~+~ 0 ~=~ f(x)\,\dx ~.
-\]
+$
+\dA ~=\allowbreak~ f(x+\dx)\,\dx ~=\allowbreak~ (f(x) + \df)\,\dx ~=\allowbreak~
+        f(x)\,\dx ~+~ f'(x)(\dx)^2 ~=\allowbreak~ f(x)\,\dx ~+~ 0 ~=\allowbreak~ f(x)\,\dx ~.
+$
 
 So in all three cases, $\dA = f(x)\,\dx$, and so $A'(x) = \frac{\dA}{\dx} = f(x)$,
 which shows that $A(x)$ is differentiable and has derivative $f(x)$.
 This proves Part I of the Fundamental Theorem of Calculus.$\quad\checkmark$
 
 To prove Part II of the theorem, let $F(x)$ be an antiderivative of $f(x)$ over
-$\ival{a}{b}$. Since the area function $A(x) = \int_a^x f(x)\,\dx$ is also an
+$\ival{a}{b}$. Since the area function $A(x) = \int_a^x f(t)\,\dt$ is also an
 antiderivative of
 $f(x)$ over $\ival{a}{b}$ by Part I of the theorem, then $A(x)$ and $F(x)$
 differ by a constant $C$ over $\ival{a}{b}$. In other words:
@@ -1135,7 +1140,14 @@ interval $\ival{a}{a}$ of zero length. Thus,
 \]
 and so
 \[
-\int_a^b f(x)~\dx ~=~ A(b) ~=~ F(b) ~-~ F(a)
+\overbracket[0.3pt]{
+  \int_a^b f(x)~\dx ~=~ \int_a^b f(t)~\dt
+}^{\begin{minipage}[t]{0.255\linewidth}
+    \tiny
+    $f(t)$ and $f(x)$ are the same function---only with different
+    independent variable names.
+\end{minipage}}
+~=~ A(b) ~=~ F(b) ~-~ F(a)
 \]
 which proves Part II of the theorem.\footnote{The theorem can be proved for the
 weaker condition that $f$ is merely continuous on $\ival{a}{b}$. See p.173-175
@@ -1300,15 +1312,19 @@ F(b) ~-~ F(a) ~=~ \int_a^b f(x)~\dx
 which proves rule (3).
 
 The following result is a consequence of Part I of the Fundamental Theorem of
-Calculus along with the Chain Rule:
-
+Calculus along with the Chain Rule:\footnote{ Let $A(x) =
+\int_a^{x}\,f(t)\,\dt \quad\Rightarrow A(g(x)) =
+\int_a^{g(x)}\,f(t)\,\dt = F(x) \quad\Rightarrow A'(g(x))g'(x) = F'(x)
+~\left(\because~\text{Chain Rule}\right) \quad\Rightarrow f(g(x))g'(x)
+= F'(x) ~\left(\because A'(x) = f(x)~\text{from Part I of the
+  Fundamental Theorem of Calculus}\right)$ }
 \statethm{thm:ftc1chain}{\textbf{Chain Rule for integrals}:
 Let $f$ be a continuous function on an interval $I$
-containing $x=a$, and let $g(x)$ be a differentiable function on $I$. If
+containing $x=a$, and let $g(x)$ be a differentiable function on $I$. Then, for all $x$ in $I$:
 \[
-F(x) ~=~ \int_a^{g(x)}\,f(t)~\dt \quad\text{for all $x$ in $I$}
+F(x) ~=~ \int_a^{g(x)}\,f(t)~\dt \quad\Rightarrow\quad F'(x) ~=~ f(g(x)) \cdot g'(x)
 \]
-then $F'(x) = f(g(x)) \cdot g'(x)$ for all $x$ in $I$.}
+}
 \newpage
 \begin{exmp}\label{exmp:ftc4}
 \noindent Let $F(x) = \displaystyle\int_0^{x^2} e^{-t^2}~\dt$ for all $x > 0$.
@@ -1538,7 +1554,12 @@ $\du = -\sin\,x\;\dx ~\Rightarrow~ \sin\,x\;\dx = -\du$. Thus:
 \noindent Evaluate $\displaystyle\int\,\sec\,x~\dx$.\vspace{1mm}
 \par\noindent\emph{Solution:} Notice that
 \[
-\int\,\sec\,x~\dx ~=~ \int\,\frac{\sec\,x~(\sec\,x ~+~ \tan\,x)}{\sec\,x ~+~ \tan\,x}~\dx
+\int\,\sec\,x~\dx ~=~ \underbracket[0.3pt]{\int\,\frac{\sec\,x~(\sec\,x ~+~ \tan\,x)}{\sec\,x ~+~ \tan\,x}~\dx}
+_{\begin{minipage}[t]{0.255\linewidth}
+    \tiny
+    Yes, this is rather mysterious. See \url{https://en.wikipedia.org/wiki/Integral_of_the_secant_function#History}.
+\end{minipage}}
+~
 ~=~ \int\,\frac{\sec\,x\;\tan\,x ~+~ \sec^2 x}{\sec\,x ~+~ \tan\,x}~\dx
 \]
 and that the numerator in the last integral is the derivative of the
@@ -1552,8 +1573,8 @@ $\du = (\sec\,x\;\tan\,x ~+~ \sec^2 x)\,\dx$. Thus:
 \divider
 \vspace{3mm}
 
-The following formulas are straightforward consequences of substitution and the
-derivatives of inverse trigonometric functions discussed in Section 2.2:
+The following formulas are straightforward consequences of substitution and \CRef{thm:invtrig}{the
+derivatives} of inverse trigonometric functions discussed in Section~\ref{sec:trig-and-inv-trig-functions}:
 \newpage
 \statethm{thm:intinvtrig}{For any constant $a > 0$:\vspace{-1mm}
 \begin{align}
@@ -1564,9 +1585,9 @@ derivatives of inverse trigonometric functions discussed in Section 2.2:
                                        \quad\text{(if $\abs{x} > a$)}\label{eqn:asecint}
 \end{align}}
 
-For example, to prove the second formula, recall that
-$\ddx\left(\tan^{-1}x\right) ~=~ \frac{1}{1 + x^2}$. Make the substitution
-$u = x/a$, so that $x = au$ and $\dx= a\,\du$. Thus:
+For example, to prove the second formula, make the substitution
+$u = x/a$, so that $x = au$ and $\dx= a\,\du$, and recall that
+$\ddx\left(\tan^{-1}x\right) ~=~ \frac{1}{1 + x^2}$. Thus:
 \[
 \int\,\frac{\dx}{a^2 + x^2} ~=~ \int\,\frac{a\,\du}{a^2 + a^2 u^2} ~=~
 \frac{1}{a}\,\int\,\frac{\du}{1 + u^2} ~=~
@@ -1584,7 +1605,7 @@ $u = 3x$, which means that $\dx = \frac{1}{3}\,\du$ and $u^2 = 9x^2$. Thus,
 ~=~ \frac{1}{3}\,\sin^{-1}\left(\frac{u}{2}\right) ~+~ C ~=~
 \frac{1}{3}\,\sin^{-1}\left(\frac{3x}{2}\right) ~+~ C
 \]
-by Formula (5.2) with $a = 2$.
+by Formula~\ref{eqn:asinint} with $a = 2$.
 \end{exmp}
 \divider
 \vspace{3mm}
@@ -1614,7 +1635,7 @@ The following property of definite integrals comes in handy for evaluating
 certain types of definite integrals:
 
 \statethm{thm:intaminusx}{For any constant $a$,
-\begin{equation}
+\begin{equation}\label{eqn:intaminusx}
 \int_0^a \,f(x)~\dx ~=~ \int_0^a \,f(a-x)~\dx ~.
 \end{equation}}
 
@@ -1622,14 +1643,16 @@ This is simple to prove, using the substitution $u = a - x$, so $x = a - u$ and
 $\dx = -\du$, while $x=0$ becomes $u=a$ and $x=a$ becomes $u=0$ in the limits of
 integration:
 \begin{displaymath}
- \int_0^a \,f(x)\;\dx ~=~ -\int_a^0 \,f(a-u)\;\du ~=~ \int_0^a \,f(a-u)\;\du ~=~
- \int_0^a \,f(a-x)\;\dx \quad\checkmark
+ \int_0^a \,f(x)\;\dx ~=~ -\int_a^0 \,f(a-u)\;\du ~=~ \underbracket[0.3pt]{\int_0^a \,f(a-u)\;\du ~=~
+   \int_0^a \,f(a-x)\;\dx}_{\begin{minipage}[t]{0.23\linewidth}
+   \tiny We're merely switching the dummy for the independent variable from $u$ to $x$.
+ \end{minipage}} \quad\checkmark
 \end{displaymath}
 
 \begin{exmp}\label{exmp:subst12}
 \noindent Evaluate $\displaystyle\int_0^{\pi}\,\dfrac{x\;\sin\,x}{1 + \cos^2 x}~\dx$.\vspace{1mm}
 \par\noindent\emph{Solution:} Let $I = \displaystyle\int_0^{\pi}\,\dfrac{x\;\sin\,x}{1 + \cos^2 x}~\dx$.
-Then by the above property (with $a = \pi$):
+Then by Equation~\ref{eqn:intaminusx} (with $a = \pi$):
 \begin{align*}
  I ~&=~ \int_0^{\pi}\,\frac{(\pi - x)\;\sin\,(\pi - x)}{1 + \cos^2 (\pi -x)}~\dx
  ~=~ \int_0^{\pi}\,\frac{(\pi - x)\;\sin\,x}{1 + \cos^2 x}~\dx
@@ -1884,7 +1907,7 @@ improper integrals can be interpreted as representing the area under a curve.
 \picskip{1}
 \noindent and so the integral is divergent. This means that the area under the
 curve $y=1/x$ over the interval $\lival{1}{\infty}$---as shown in the graph
-above---is infinite.
+alongside---is infinite.
 \end{exmp}
 \begin{exmp}\label{exmp:improper2}
 \noindent Evaluate $~\displaystyle\int_1^{\infty}\,\dfrac{\dx}{x^2}~$.\vspace{1mm}
@@ -1911,7 +1934,7 @@ above---is infinite.
 \end{align*}\vspace{-10mm}
 \picskip{0}
 \noindent This means that the area under the curve $y=1/x^2$ over the interval
-$\lival{1}{\infty}$---as shown in the graph above---equals 1. Thus, an infinite
+$\lival{1}{\infty}$---as shown in the graph alongside---equals 1. Thus, an infinite
 region can have a finite area. Length and area are different and not necessarily
 related concepts, as this example illustrates. Notice that $y=1/x^2$ approaches
 the $x$-axis asymptote much faster than $y=1/x$ does---fast enough to make the
@@ -1935,10 +1958,10 @@ integral convergent.
 \begin{align*}
 \int_{-\infty}^0\,e^x~\dx ~&=~ \lim_{b \to -\infty}~\int_{b}^0\,e^x~\dx ~=~
 \lim_{b \to -\infty}~\left(e^x~\Biggr|_b^{0}\right)\\[6pt]
-&=~ \lim_{b \to -\infty}~ (1 ~-~ e^b) ~=~ 1 ~-~ 0 ~=~ 1 ~.
+&=~ \lim_{b \to -\infty}~ (e^0 ~-~ e^b) ~=~ e^0 ~-~ 0 ~=~ 1 ~.
 \end{align*}
 This means that the area under the curve $y=e^x$ over the interval
-$\rival{-\infty}{0}$---as shown in the graph above---equals 1.
+$\rival{-\infty}{0}$---as shown in the graph alongside---equals 1.
 \end{exmp}
 \divider
 \newpage
@@ -2003,7 +2026,7 @@ negative below---is indeterminate.
 \end{align*}\vspace{-14mm}
 \picskip{0}
 \noindent This means that the area under the curve $y=\frac{1}{1+x^2}$ over the
-entire real line $(-\infty,\infty)$---as shown in the graph above---equals
+entire real line $(-\infty,\infty)$---as shown in the graph alongside---equals
 $\pi$. Note that if the integral were split at any number $c$ then the answer
 would be the same. Another way to evaluate the integral would have been to use
 the symmetry around the $y$-axis---as $f(x)=\frac{1}{1+x^2}$ is an even
@@ -2087,7 +2110,7 @@ $y = \frac{1}{x}$,
 \picskip{1}
 \noindent and so the integral is divergent. This means that the area under the
 curve $y=1/x$ over the interval $\rival{0}{1}$---as shown in the graph
-above---is infinite. The region is infinite in the $y$ direction.
+alongside---is infinite. The region is infinite in the $y$ direction.
 \end{exmp}
 \divider
 \newpage
@@ -2118,7 +2141,7 @@ $y = \frac{1}{\sqrt{x}}$,
 \picskip{1}
 \noindent This means that the area under the curve $y=1/\sqrt{x}$ over the
 interval $\rival{0}{1}$---as shown in the graph above---equals 2. The region is
-infinite in the $y$ direction.
+finite in the $y$ direction.
 \end{exmp}
 \begin{exmp}\label{exmp:improper8}
 \noindent Evaluate $~\displaystyle\int_{1}^{3}\,\lfloor x \rfloor~\dx~$.\vspace{1mm}
@@ -2141,7 +2164,7 @@ infinite in the $y$ direction.
  \node[above] at (1,1.5) {$y = \lfloor x \rfloor$};
 \end{tikzpicture}}
 \par\noindent\emph{Solution:} Recall from Example \ref{exmp:floorceil} in
-Section 3.3 that the floor function $y=\lfloor x \rfloor$ has jump
+Section~\ref{sec:continuity} that the floor function $y=\lfloor x \rfloor$ has jump
 discontinuities at each integer value of $x$, as shown in the graph on the
 right. The integral $\int_{1}^{3}\,\lfloor x \rfloor\;\dx$ is thus an improper
 integral over the interval $\lival{1}{3}$, which needs to be split at the point
@@ -2182,7 +2205,7 @@ $\int_a^{\infty} g(x)\,\dx$ is divergent, then $\int_a^{\infty} f(x)\,\dx$ is
 divergent.
 \end{enumerate}}
 
-The idea behind part (a) is that if $-g(x) \le f(x) \le g(x)$ over
+The idea behind part (a) is that if $\abs{f(x)} \le g(x) \Leftrightarrow -g(x) \le f(x) \le g(x)$ over
 $\lival{a}{\infty}$, then---thinking of improper integrals as areas---the
 integral of $f$ is ``squeezed'' between the two finite integrals for $\pm g$.
 There are, however, some subtle issues to prove about the limit in the integral
@@ -2231,7 +2254,7 @@ $y=\pm\tfrac{1}{x^2}$.
 \divider
 \vspace{2mm}
 
-The rules and properties from Section 5.3 concerning definite integrals still
+The rules and properties from Section~\ref{sec:ftc} concerning definite integrals still
 apply to improper integrals, provided the improper integrals are convergent.
 For example, suppose a function $f$ has a discontinuity or vertical asymptote at
 $x=c$. If both improper integrals $\int_a^{c} f(x)\,\dx$ and
