@@ -1,40 +1,46 @@
 \chapter{Methods of Integration}
 %Begin Section 6.1
-\section{Integration by Parts}
+\section{Integration by Parts}\label{sec:int-by-parts}
 In physics and engineering the
 \textbf{Gamma function}\index{Gamma function}\footnote{Created by the Swiss
 mathematician, physicist and astronomer Leonhard Euler (1707-1783). The use of
 the Greek capital letter $\Gamma$ for this function is due to the French
 mathematician Adrien-Marie Legendre (1752-1833).}
  $\Gamma\,(t)$, defined by
+{
+  \setlength{\abovedisplayskip}{0.3em}
+  \setlength{\belowdisplayskip}{0.3em}
 \[
 \Gamma\,(t) ~=~ \int_0^{\infty} x^{t-1} \, e^{-x} ~\dx \quad\text{for all $t > 0$,}
 \]
+}
 has found many uses. Evaluating $\Gamma\,(2)$ entails integrating the function
 $f(x) = x\,e^{-x}$. No formula or substitution you have learned so far would be
 of help. \emph{Differentiating} that function, on the other hand, is easy. By
 the Product Rule for differentials,
+{
+  \setlength{\abovedisplayskip}{0.5em}
+  \setlength{\belowdisplayskip}{0.5em}
 \begin{align*}
 d(x\,e^{-x}) ~&=~ x\,d(e^{-x}) ~+~ d(x)\,e^{-x}\\
 &=~ -x\,e^{-x}\,\dx ~+~ e^{-x}\,\dx\\
-d(x\,e^{-x}) ~&=~ -x\,e^{-x}\,\dx ~-~ d(e^{-x})\\
-x\,e^{-x}\,\dx ~&=~ -d(x\,e^{-x}) ~-~ d(e^{-x}),\quad\text{so integrate both sides to get}\\[6pt]
-\int x\,e^{-x}\,\dx ~&=~ -\int d(x\,e^{-x}) ~-~ \int d(e^{-x})
-~=~ -x\,e^{-x} ~-~ e^{-x} ~+~ C
-\end{align*}
-since $\int d\!F \,=\, F \,+\, C$. Generalizing this process for functions $u$
-and $v$,
-\begin{align*}
+&=~ -x\,e^{-x}\,\dx ~-~ d(e^{-x})\\
+\Rightarrow~\,e^{-x}\,\dx ~&=~ -d(x\,e^{-x}) ~-~ d(e^{-x}) \quad(\text{Now integrate both sides})\\
+\Rightarrow~\int x\,e^{-x}\,\dx ~&=~ -\int d(x\,e^{-x}) ~-~ \int d(e^{-x})
+~=~ -x\,e^{-x} ~-~ e^{-x} ~+~ C \quad\left(\because~\int d\!F \,=\, F \,+\, C\right)\\
+\text{Generalizing}~&\text{this process for functions $u$ and $v$,}\\
 d(uv) ~&=~ u\,\dv ~+~ v\,\du\\
-u\,\dv ~&=~ d(uv) ~-~ v\,\du
+u\,\dv ~&=~ d(uv) ~-~ v\,\du\\
+\text{and integrating}&~\text{both sides yields the
+  \textbf{integration by parts} formula:\index{integration!by parts}}
 \end{align*}
-so that integrating both sides yields the \textbf{integration by parts}
-formula:\index{integration!by parts}
-
+}
+\vspace{-2em}
 \statethm{thm:intbyparts}{For differentiable functions $u$ and $v$:
 \begin{equation}
 \int u\,\dv ~=~ uv ~-~ \int v\,\du
 \end{equation}}
+\vspace{-0.7em}
 Integration by parts is just the Product Rule for derivatives in integral form,
 typically used when the integral $\int v\,\du$ would be simpler than the
 original integral $\int u\,\dv$.
@@ -116,7 +122,7 @@ by parts is to eliminate the most complicated function in the integral by
 integrating it---as $\dv$---into something simpler (which becomes $v$). In
 this integral, $e^{x^2}$ is somewhat complicated but has no
 closed form antiderivative. However, $x\,e^{x^2}$ appears in the
-integral and can be integrated easily (using a substitution as in Section 5.4).
+integral and can be integrated easily (using a substitution as in Example~\ref{exmp:subst4}).
 So choose $\dv = x\,e^{x^2}\,\dx$, which means $u = x^2$. Then
 $\du = 2x\,\dx$ and $v = \int \dv = \int x\,e^{x^2}\,\dx = \frac{1}{2}e^{x^2}$.
 Now integrate by parts:
@@ -138,7 +144,7 @@ following example.
 \noindent Evaluate $~\displaystyle\int x^2\,e^{-x}\,\dx~$.\vspace{1mm}
 \par\noindent\emph{Solution:} This integral appears similar to the one in
 Example \ref{exmp:intparts1}, so choose $\dv = e^{-x}\,\dx$ and $u = x^2$. Then
-$\du = 2x\,\dx$ and $v = \int e^{-x}\,\dv = -e^{-x}$. Now integrate by parts:
+$\du = 2x\,\dx$ and $v = \int \dv = \int e^{-x}\,\dx = -e^{-x}$. Now integrate by parts:
 \begin{align*}
 \int u\,\dv ~&=~ uv ~-~ \int v\,\du\\[6pt]
 \int x^2\,e^{-x}\,\dx ~&=~ x^2\,\cdot\,(-e^{-x}) ~-~
@@ -218,7 +224,7 @@ arrows indicate multiplication):
 
 The idea is to differentiate down the $u$ column and integrate down the $\dv$
 column. If the $u$ in the original integral is a polynomial of degree $n$, then
-you know from Section 1.6 that its $(n+1)$-st derivative will be 0, at which
+you know from Section~\ref{sec:higher-order-derivatives} that its $(n+1)$-st derivative will be 0, at which
 point the tabular method terminates. The integral is then the sum of the
 indicated products with alternating signs.
 
@@ -317,7 +323,7 @@ $v = \int \dv = \int \sec^2 x\,\dx = \tan\,x$. Then
 \int \sec^3 x~\dx ~&=~ \sec\,x\;\tan\,x ~-~ \int \sec\,x\;(\sec^2 x \,-\, 1)~\dx\\[6pt]
 \int \sec^3 x~\dx ~&=~ \sec\,x\;\tan\,x ~+~ \int \sec\,x~\dx ~-~ \int \sec^3 x~\dx\\[6pt]
 2\,\int \sec^3 x~\dx ~&=~ \sec\,x\;\tan\,x ~+~
- \ln\;\abs{\,\sec\,x \;+\; \tan\,x\,} ~+~ C\\[6pt]
+ \ln\;\abs{\,\sec\,x \;+\; \tan\,x\,} \quad\left(\because~\text{Example}~\ref{exmp:subst9}\right)\\[6pt]
 \int \sec^3 x~\dx ~&=~ \frac{1}{2}\,\left(\sec\,x\;\tan\,x ~+~
  \ln\;\abs{\,\sec\,x \;+\; \tan\,x\,}\right) ~+~ C
 \end{align*}
@@ -359,8 +365,8 @@ $v = \int \dv = \int x\,\sqrt{1-x^2}\,\dx = -\frac{1}{3}(1-x^2)^{3/2}$, and so:
 \int_a^b u\,\dv ~&=~ uv~\Biggr|_a^b ~-~ \int_a^b v\,\du\\[6pt]
 \int_0^1 x^3\,\sqrt{1-x^2}~\dx ~&=~ -\frac{x^2}{3}(1-x^2)^{3/2}~\Biggr|_0^1 ~+~
  \int_0^1 \frac{2x}{3}(1-x^2)^{3/2}~\dx\\[6pt]
-&=~ (0 - 0) ~+~ \left(\frac{-2}{15}(1-x^2)^{5/2}~\Biggr|_0^1\right) ~=~ 0 ~+~
- \frac{2}{15} ~=~ \frac{2}{15}
+&=~ (0 - 0) ~+~ \left(\frac{-2}{15}(1-x^2)^{5/2}~\Biggr|_0^1\right) ~=~ 0 ~-~
+ \left(-\frac{2}{15}\right) ~=~ \frac{2}{15}
 \end{align*}
 \end{exmp}
 \divider
@@ -502,11 +508,12 @@ formulas}\index{integral!trigonometric}\index{trigonometric integrals}
 \begin{align*}
 \sin\;A~\sin\;B ~&=~ -\tfrac{1}{2}\;(\cos\;(A+B) ~-~ \cos\;(A-B))\\
 \sin\,x~\sin\,12x ~&=~ -\tfrac{1}{2}\;(\cos\;(x+12x) ~-~ \cos\;(x-12x))\\
-\sin\,x~\sin\,12x ~&=~ -\tfrac{1}{2}\;(\cos\,13x ~-~ \cos\,11x)
+                   &=~ -\tfrac{1}{2}\;(\cos\,13x ~-~ \cos\,11x)\qquad\left(\because~\cos(-x)=\cos(x)\right)
 \end{align*}
-since $\cos\,(-11x) = \cos\,11x$. Then
+Then,
 \begin{align*}
 \int 0.5\,\sin\,x\;\sin\,12x~\dx ~&=~ -\frac{1}{4}\,\int (\cos\,13x ~-~ \cos\,11x)~\dx\\[6pt]
+&=~ -\frac{1}{4} \left(\frac{\sin\,13x}{13}-\frac{\sin\,11x}{11}\right)\\
 &=~ -\frac{1}{52}\,\sin\,13x ~+~ \frac{1}{44}\,\sin\,11x ~+~ C
 \end{align*}
 Notice how the product-to-sum formula turned an integral of products of sines
@@ -556,7 +563,7 @@ higher than two. For the sine function raised to odd powers of the form $2n+1$
 \end{align*}
 where $p(u)$ is a polynomial in the variable $u=\cos\,x$, and the remaining
 single $\sin\,x$ is now part of $\du = -\sin\,x\;\dx$. You can then use the
-Power Formula to integrate that polynomial.
+\CRef{thm:powerint}{Power Formula} to integrate that polynomial.
 
 \begin{exmp}\label{exmp:trigint2}
 \noindent Evaluate $~\displaystyle\int \sin^3 x~\dx~$.\vspace{1mm}
@@ -589,18 +596,25 @@ odd power.
 \par\noindent\emph{Solution:} Replace $\cos^2 x$ by $1 - \sin^2 x$, then let
 $u=\sin\,x$ so that $\du=\cos\,x\;\dx$:
 \begin{align*}
-\int \sin^2 x\;\cos^3 x~~\dx ~&=~ \int \sin^2 x ~(\cos^2 x) \;\cos\,x~\dx\\[6pt]
+\int \sin^2 x\;\cos^3 x~~\dx ~&=~ \int \sin^2 x ~(\cos^2 x) \;\cos\,x~\dx\\
 &=~ \int \underbracket[0.3pt]{\sin^2 x ~(1 - \sin^2 x)\vphantom{\frac{1}{2}}}_{p(u)}
-    \;\underbracket[0.3pt]{\cos\,x~\dx\vphantom{\frac{1}{2}}}_{\du}\\[3pt]
-&=~ \int (u^2 - u^4)\;\du\\[6pt]
-&=~ \frac{1}{3}\,u^3 ~-~ \frac{1}{5}\,u^5 ~+~ C\\[4pt]
+    \;\underbracket[0.3pt]{\cos\,x~\dx\vphantom{\frac{1}{2}}}_{\du}\\
+&=~ \int (u^2 - u^4)\;\du\\
+&=~ \frac{1}{3}\,u^3 ~-~ \frac{1}{5}\,u^5 ~+~ C\\
 &=~ \frac{1}{3}\,\sin^3 x ~-~ \frac{1}{5}\,\sin^5 x ~+~ C
 \end{align*}
 \end{exmp}
 \divider
 \vspace{2mm}
 For even powers of $\sin\,x$ or $\cos\,x$. You would replace $\sin^2 x$ or
-$\cos^2 x$ with either
+$\cos^2 x$ with either\footnote{
+\begin{tabular}{p{0.47\linewidth}|p{0.47\linewidth}}
+  $\cos\,2x = \cos^2\,x - \sin^2\,x = \cos^2\,x - (1-\cos^2\,x) = 2\cos^2\,x-1$&
+  $\cos\,2x = \cos^2\,x - \sin^2\,x = (1-\sin^2\,x) - \sin^2\,x = 1-2\sin^2\,x$\\
+  $\Rightarrow~ \cos^2 x ~=~ \frac{1 \;+\; \cos\,2x}{2}$&
+  $\Rightarrow~ \sin^2 x ~=~ \frac{1 \;-\; \cos\,2x}{2}$\\
+\end{tabular}
+}
 \[
 \sin^2 x ~=~ \frac{1 \;-\; \cos\,2x}{2} \quad\quad\text{or}\quad\quad
 \cos^2 x ~=~ \frac{1 \;+\; \cos\,2x}{2} ~,
@@ -724,7 +738,7 @@ R_x(\tau) ~=~ \frac{A^2}{2}\,\cos\,\omega\tau ~.
 }
 \newpage
 %Begin Section 6.3
-\section{Trigonometric Substitutions}
+\section{Trigonometric Substitutions}\label{sec:trig-sub}
 One of the fundamental formulas in geometry is for the area $A$ of a circle of
 radius r: $A = \pi r^2$. The calculus-based proof of that formula uses a
 definite integral evaluated by means of a \textbf{trigonometric substitution},
@@ -893,7 +907,7 @@ Similarly, the substitution $u = a\,\sec\,\theta$ yields this formula:
  \frac{a^2}{2}\;\ln\;\Abs{u + \sqrt{u^2 - a^2}\,} ~+~ C
 \end{equation}}
 The proof of each formula requires this result from Example
-\ref{exmp:intparts7} in Section 6.1:
+\ref{exmp:intparts7} in Section~\ref{sec:int-by-parts}:
 
 \statethm{thm:intsec3}{
 \begin{equation}\label{eqn:intsec3}
@@ -905,7 +919,7 @@ The above substitutions can be used even if no square roots are present.
 \begin{exmp}\label{exmp:trigsub2}
 \noindent Evaluate $~\displaystyle\int \frac{\dx}{(1 + x^2)^2}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} Notice that this integral cannot be evaluated by
-using the Power Formula with the substitution $u=1+x^2$ (why?). Integration by
+using the \CRef{thm:powerint}{Power Formula} with the substitution $u=1+x^2$ (why?). Integration by
 parts does not look promising, either. So try a trigonometric substitution. The
 integrand contains a term of the form $a^2 + u^2$ (with $a=1$ and $u=x$), so use
 the substitution $x=\tan\,\theta$. Then $\dx = \sec^2 \theta\,\dtheta$ and so
@@ -916,10 +930,8 @@ the substitution $x=\tan\,\theta$. Then $\dx = \sec^2 \theta\,\dtheta$ and so
 &=~ \int \cos^2 \theta~\dtheta\\[6pt]
 &=~ \int \frac{1 + \cos\,2\theta}{2}\,\dtheta\\[6pt]
 &=~ \frac{\theta}{2} ~+~ \frac{1}{4}\,\sin\,2\theta ~+~ C\\[6pt]
-&=~ \frac{\theta}{2} ~+~ \frac{1}{2}\,\sin\,\theta\;\cos\,\theta ~+~ C
+&=~ \frac{\theta}{2} ~+~ \frac{1}{2}\,\sin\,\theta\;\cos\,\theta ~+~ C\quad\left(\because~\sin\,2\theta = 2\,\sin\,\theta\;\cos\,\theta\right)
 \end{align*}
-by the trigonometric double-angle identity
-$\sin\,2\theta = 2\,\sin\,\theta\;\cos\,\theta$.
 \parpic[r]{\begin{tikzpicture}[every node/.style={font=\small}]
  \draw[linecolor,line width=1.5pt] (0,0) -- (2.5,1.5)
   node[black,midway,above,sloped] {$\sqrt{1 + x^2}$} -- (2.5,0)
@@ -931,7 +943,7 @@ $\sin\,2\theta = 2\,\sin\,\theta\;\cos\,\theta$.
 \end{tikzpicture}}
 The simplest way to get expressions for $\sin\,\theta$ and $\cos\,\theta$ in
 terms of $x$ is to draw a right triangle with an angle $\theta$ such that
-$\tan\,\theta = x = \frac{x}{1}$, as in the drawing on the right. The hypotenuse
+$\tan\,\theta = x = \frac{x}{1}$ (to undo the trigonometric substitution made earlier), as in the drawing on the right. The hypotenuse
 must then be $\sqrt{1+x^2}$ (by the Pythagorean Theorem), which makes it easy to
 read off the values of $\sin\,\theta$ and $\cos\,\theta$:
 \[
@@ -959,7 +971,7 @@ trigonometric substitution.
 \begin{exmp}\label{exmp:trigsub3}
 \noindent Evaluate $~\displaystyle\int \frac{\dx}{(4x^2 + 8x - 5)^{3/2}}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} This integral cannot be evaluated by using the
-Power Formula, so try a trigonometric substitution. Complete the square on the
+\CRef{thm:powerint}{Power Formula}, so try a trigonometric substitution. Complete the square on the
 expression $4x^2 + 8x - 5$:
 \[
 4x^2 ~+~ 8x ~-~ 5 ~=~ 4\,(x^2 + 2x) ~-~ 5
@@ -989,7 +1001,7 @@ Then $2\,\dx = 3\,\sec\,\theta\;\tan\,\theta\;\dtheta$ and so:
  \draw[linecolor] (0:1) arc (0:30.9:1);
 \end{tikzpicture}}
 \noindent To get an expression for $\csc\,\theta$ in terms of $x$, draw a right
-triangle with an angle $\theta$ such that $\sec\,\theta = \frac{2(x+1)}{3}$, as
+triangle with an angle $\theta$ such that $\sec\,\theta = \frac{2(x+1)}{3}$ (to undo the trigonometric substitution made earlier), as
 in the drawing on the right. The side opposite $\theta$ must then be
 $\sqrt{4x^2 + 8x - 5}$ (by the Pythagorean Theorem), and hence:
 \[
@@ -1007,7 +1019,7 @@ knowing $\sec\,\theta$.
 \divider
 \vspace{2mm}
 
-The following integrals from Section 5.4 might be helpful for the exercises:
+The following integrals from Section~\ref{sec:int-by-sub} might be helpful for the exercises:
 
 \statecomment{\vspace{-5mm}\begin{align}
 \int\,\tan\,u~\du ~&=~ \ln\;\abs{\sec\,u} ~+~ C\label{eqn:inttanu}\\[6pt]
@@ -1150,6 +1162,7 @@ the denominator.
 
 Start with the most basic case, similar to the example above:
 
+\phantomsection\label{cmnt:part-frac-case-1}
 \statecomment{\textbf{Case 1 - Distinct linear factors:} A rational function
 $\frac{p(x)}{q(x)}$ such that degree$\,(p(x)) < $ degree$\,(q(x))$, where
 $q(x)$ is a product of $n > 1$ distinct linear factors
@@ -1190,6 +1203,7 @@ Thus,
 If one linear factor in the denominator is repeated more than once, and all
 other factors are distinct, then use the following decomposition:
 
+\phantomsection\label{cmnt:part-frac-case-2}
 \statecomment{\textbf{Case 2 - One repeated linear factor + distinct linear
 factors:} A rational function $\frac{p(x)}{q(x)}$ such
 that degree$\,(p(x)) < $ degree$\,(q(x))$, where $q(x)$ is a product of $n > 1$
@@ -1204,7 +1218,7 @@ can be written as a sum of partial fractions
 \frac{B_1}{a_1x+b_1} ~+~ \cdots ~+~ \frac{B_n}{a_nx+b_n}
 \]
 for some constants $A_1$, $A_2$, $\ldots$ , $A_m$ and $B_1$, $\ldots$ ,
-$B_n$. Those constants can be solved for by the same method as in Case 1.}
+$B_n$. Those constants can be solved for by the same method as in \CRef{cmnt:part-frac-case-1}{Case 1}.}
 
 \begin{exmp}\label{exmp:partfrac2}
 \noindent Evaluate $~\displaystyle\int \frac{x^2 + x - 1}{x^3 + x^2}\;\dx~$.\vspace{1mm}
@@ -1231,13 +1245,13 @@ Thus,
 \divider
 \vspace{2mm}
 
-Case 2 can be extended to more than one repeated factor---the partial
+\CRef{cmnt:part-frac-case-2}{Case 2} can be extended to more than one repeated factor---the partial
 fraction decomposition would then have more terms similar to those for the
 first repeated factor.
 \newpage
 \begin{exmp}\label{exmp:partfrac3}
 \noindent Evaluate $~\displaystyle\int \frac{\dx}{x^2\,(x+1)^2}~$.\vspace{1mm}
-\par\noindent\emph{Solution:} Expanding Case 2 to two repeated factors,
+\par\noindent\emph{Solution:} Expanding \CRef{cmnt:part-frac-case-2}{Case 2} to two repeated factors,
 \begin{align*}
 \frac{1}{x^2\,(x+1)^2} ~&=~ \frac{A}{x} ~+~ \frac{B}{x^2} ~+~ \frac{C}{x+1}
  ~+~ \frac{D}{(x+1)^2}\\[4pt]
@@ -1269,6 +1283,7 @@ contain linear terms. A factor of the form $ax^2 + bx + c$ is considered
 quadratic only if it cannot be factored into a product of linear terms (i.e. has
 no real roots) and $a \ne 0$.
 
+\phantomsection\label{cmnt:part-frac-case-3}
 \statecomment{\textbf{Case 3 - Distinct quadratic factors:} A rational function
 $\frac{p(x)}{q(x)}$ such that degree$\,(p(x)) < $ degree$\,(q(x))$, and
 $q(x)$ is a product of $n > 1$ distinct quadratic factors
@@ -1281,12 +1296,12 @@ can be written as a sum of partial fractions
  ~+~ \cdots ~+~ \frac{A_nx+B_n}{a_nx^2+b_nx+c_n}
 \]
 for some constants $A_1$, $A_2$, $\ldots$ , $A_n$ and $B_1$, $B_2$, $\ldots$ ,
-$B_n$. Those constants can be solved for by the same method as in Case 1.}
+$B_n$. Those constants can be solved for by the same method as in \CRef{cmnt:part-frac-case-1}{Case 1}.}
 \newpage
 \begin{exmp}\label{exmp:partfrac4}
 \noindent Evaluate $~\displaystyle\int \frac{\dx}{(x^2+1)\,(x^2+4)}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} Neither $x^2 + 1$ nor $x^2 + 4$ has real roots,
-so by Case 3,
+so by \CRef{cmnt:part-frac-case-3}{Case 3},
 \begin{align*}
 \frac{1}{(x^2+1)\,(x^2+4)} ~&=~ \frac{Ax+B}{x^2+1} ~+~ \frac{Cx+D}{x^2+4}\\[4pt]
 &=~ \frac{(Ax+B)\,(x^2+4) ~+~ (Cx+D)\,(x^2+1)}{(x^2+1)\,(x^2+4)}\\[4pt]
@@ -1307,7 +1322,7 @@ Thus,
  \frac{-\frac{1}{3}}{x^2+4}\right)~\dx\\[6pt]
 &=~ \frac{1}{3}\,\tan^{-1} x ~-~ \frac{1}{6}\,\tan^{-1}\left(\frac{x}{2}\right) ~+~ C_0
 \end{align*}
-by formula (\ref{eqn:atanint}) in Section 5.4.
+by formula (\ref{eqn:atanint}) in Section~\ref{sec:int-by-sub}.
 \end{exmp}
 \divider
 \vspace{2mm}
@@ -1315,6 +1330,7 @@ by formula (\ref{eqn:atanint}) in Section 5.4.
 A repeated quadratic factor is handled in the same way as a repeated linear
 factor:
 
+\phantomsection\label{cmnt:part-frac-case-4}
 \statecomment{\textbf{Case 4 - One repeated quadratic factor + distinct
 quadratic factors:} A rational function $\frac{p(x)}{q(x)}$ such
 that degree$\,(p(x)) < $ degree$\,(q(x))$, where $q(x)$ is a product of $n > 1$
@@ -1330,12 +1346,12 @@ can be written as a sum of partial fractions
 \]
 for some constants $A_1$, $\ldots$ , $A_m$, $B_1$, $\ldots$ , $B_m$,
 $C_1$, $\ldots$ , $C_n$, and $D_1$, $\ldots$ , $D_n$. Those constants can be
-solved for by the same method as in Case 1.}
+solved for by the same method as in \CRef{cmnt:part-frac-case-1}{Case 1}.}
 \newpage
 \begin{exmp}\label{exmp:partfrac5}
 \noindent Evaluate $~\displaystyle\int \frac{\dx}{(x^2+1)^2\,(x^2+4)}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} Neither $x^2 + 1$ nor $x^2 + 4$ has real roots,
-and $x^2 + 1$ is repeated, so by Case 4,
+and $x^2 + 1$ is repeated, so by \CRef{cmnt:part-frac-case-4}{Case 4},
 \begin{align*}
 \frac{1}{(x^2+1)^2\,(x^2+4)} ~&=~ \frac{Ax+B}{x^2+1} ~+~ \frac{Cx+D}{(x^2+1)^2} ~+~
  \frac{Ex+F}{x^2+4}\\[4pt]
@@ -1367,13 +1383,17 @@ Thus,
 \int \frac{\dx}{(x^2+1)^2\,(x^2+4)} ~&=~ \int \left(\frac{-\frac{1}{9}}{x^2+1} ~+~
  \frac{\frac{1}{3}}{(x^2+1)^2} ~+~ \frac{\frac{1}{9}}{x^2+4}\right)~\dx\\[6pt]
 &=~ -\frac{1}{9}\,\tan^{-1} x ~+~
-     \frac{1}{3}\,\left(\frac{1}{2}\,\tan^{-1} x ~+~ \frac{x}{2\,(x^2 + 1)}\right) ~+~
+     \frac{1}{3}\,
+     \underbracket[0.3pt]{\left(\frac{1}{2}\,\tan^{-1} x ~+~ \frac{x}{2\,(x^2 + 1)}\right)}
+     _{\begin{minipage}[t]{0.194\linewidth}
+         \tiny
+         From Example \ref{exmp:trigsub2} in Section~\ref{sec:trig-sub}
+     \end{minipage}}
+     ~+~
      \frac{1}{18}\,\tan^{-1}\left(\frac{x}{2}\right) ~+~ C_0\\[6pt]
 &=~ \frac{1}{18}\,\tan^{-1} x ~+~ \frac{x}{6\,(x^2 + 1)} ~+~
     \frac{1}{18}\,\tan^{-1}\left(\frac{x}{2}\right) ~+~ C_0
 \end{align*}
-where the middle integral on the right is from Example \ref{exmp:trigsub2} in
-Section 6.3.
 \end{exmp}
 \divider
 \vspace{2mm}
@@ -1382,7 +1402,7 @@ When a rational function has a numerator with degree larger than its
 denominator, dividing the numerator by the denominator leaves the sum of a
 polynomial and a new rational function perhaps satisfying the conditions for
 Cases 1-4. When the numerator and denominator have the same degree, a trick like
-this might be easier.
+this might be easier:
 \[
 \frac{x^2 + 2}{(x+1)\,(x+2)} ~=~ \frac{(x^2 + 3x + 2) - 3x}{(x+1)\,(x+2)}
 ~=~ \frac{x^2 + 3x + 2}{(x+1)\,(x+2)} ~-~ \frac{3x}{(x+1)\,(x+2)}
@@ -1474,11 +1494,11 @@ Bantam Books, 1986.}\index{Leibniz integral rule}\index{differentiation!under
 the integral sign} This powerful and useful method is best explained with a
 simple example.
 
-Recall from Section 5.4 that
+Recall from \CRef{thm:inteax}{the generalization} of Example~\ref{exmp:subst2} in Section~\ref{sec:int-by-sub}, that
 \begin{equation}
-\int e^{\alpha x}\;\dx ~=~ \tfrac{1}{\alpha}\,e^{\alpha x} ~+~ C\label{eqn:diffinteax}
+\int e^{\alpha x}\;\dx ~=~ \tfrac{1}{\alpha}\,e^{\alpha x} ~+~ C\quad\left(\text{for any constant $a \ne 0$}\right)\label{eqn:diffinteax}
 \end{equation}
-for any constant $\alpha \ne 0$. This antiderivative involves the variable $x$
+This antiderivative involves the variable $x$
 and the constant $\alpha$. The idea behind the Leibniz rule is to reverse those
 roles: view $\alpha$ as the variable and $x$ as a constant. The antiderivative
 is then seen as a function of $\alpha$, and so its derivative can be taken with
@@ -1488,19 +1508,42 @@ that this is valid when the derivative of the integrand is a continuous function
 of $\alpha$, which will always be the case in this book. See pp.121-122 in
 \textsc{Sokolnikoff, I.S.}, \emph{Advanced Calculus}, New York: McGraw-Hill Book
 Company, Inc., 1939.}
-\[
+\begin{equation}\label{leibniz-rule:first-example-RHS}
+\underbracket[0.3pt]{
 \frac{d}{\dalpha} \int e^{\alpha x}\;\dx ~=~
-\int \frac{d}{\dalpha}\,(e^{\alpha x})~\dx ~=~ \int x\,e^{\alpha x}\;\dx
-\]
-However, differentiating the right side of formula (\ref{eqn:diffinteax})
-shows that
-\[
+\int \frac{d}{\dalpha}\,(e^{\alpha x})~\dx
+}_{\begin{minipage}[t]{0.3\linewidth}
+    \scriptsize
+    This closely parallels the following immediate consequence of the
+    definition of the anti-derivative (see
+    Section~\ref{sec:indefinite-integral}):\\
+    Since $\ddx\,\left(\int\,f(x)\,\dx\right) = f(x)$\\
+    and $\int\,f'(x)\,\dx = f(x) + C$,\\
+    $\therefore~\ddx\,\left(\int\,f(x)\,\dx\right) = \int\,\left(\frac{d}{\dx}\,f(x)\right)\,\dx - C$
+\end{minipage}}
+~=~ \int x\,e^{\alpha x}\;\dx
+\end{equation}
+On the other hand, differentiating \emph{through} equation
+(\ref{eqn:diffinteax}) with respect to $\alpha$ shows that
+\begin{equation}\label{leibniz-rule:first-example-LHS}
+\underbracket[0.3pt]{
 \frac{d}{\dalpha} \int e^{\alpha x}\;\dx ~=~
-\frac{d}{\dalpha} \left(\tfrac{1}{\alpha}\,e^{\alpha x} ~+~ C\right) ~=~
-\frac{\alpha\,\left(x\,e^{\alpha x}\right) ~-~ 1\,\cdot\,e^{\alpha x}}{\alpha^2} ~=~
+\frac{d}{\dalpha} \left(\tfrac{1}{\alpha}\,e^{\alpha x} ~+~ C\right)
+}_{\begin{minipage}[t]{0.335\linewidth}
+    \tiny
+    $d/\dalpha$ through RHS of (\ref{eqn:diffinteax}) rather than LHS,
+    as in (\ref{leibniz-rule:first-example-RHS}).
+\end{minipage}}
+~=~
+\underbracket[0.3pt]{
+  \frac{\alpha\,\left(x\,e^{\alpha x}\right) ~-~ 1\,\cdot\,e^{\alpha x}}{\alpha^2}
+}_{\begin{minipage}[t]{0.185\linewidth}\tiny Product Rule (with respect to $\alpha$)\end{minipage}}
+~=~
 \tfrac{1}{\alpha}\,x\,e^{\alpha x} ~-~ \tfrac{1}{\alpha^2}\,e^{\alpha x}
-\]
-Thus,
+\end{equation}
+Thus, since (\ref{leibniz-rule:first-example-RHS}) and
+(\ref{leibniz-rule:first-example-LHS}) both equal $\frac{d}{\dalpha}
+\int e^{\alpha x}\;\dx$, the corresponding final terms imply that
 \[
 \int x\,e^{\alpha x}\;\dx ~=~
 \tfrac{1}{\alpha}\,x\,e^{\alpha x} ~-~ \tfrac{1}{\alpha^2}\,e^{\alpha x} ~+~ C
@@ -1553,7 +1596,7 @@ to differentiate with respect to some constant (e.g. $\alpha$) in the integrand.
 \begin{exmp}\label{exmp:intleibniz1}
 \noindent Use the Leibniz rule to evaluate
 $~\displaystyle\int \frac{\dx}{(1 + x^2)^2}~$.\vspace{1mm}
-\par\noindent\emph{Solution:} By formula (\ref{eqn:atanint}) in Section 5.4,
+\par\noindent\emph{Solution:} By formula (\ref{eqn:atanint}) in Section~\ref{sec:int-by-sub},
 \[
 \int\,\frac{\dx}{a^2 + x^2} ~=~ \tfrac{1}{a}\,\tan^{-1}\left(\tfrac{x}{a}\right) ~+~ C
 \]
@@ -1573,7 +1616,7 @@ That general formula is useful in itself. In particular, for $a=1$,
 \[
 \int \frac{\dx}{(1 + x^2)^2} ~=~ \tfrac{1}{2}\,\tan^{-1} x ~+~ \frac{x}{2\,(1 + x^2)} ~+~ C ~,
 \]
-which agrees with the result from Example \ref{exmp:trigsub2} in Section 6.3.\\
+which agrees with the result from Example \ref{exmp:trigsub2} in Section~\ref{sec:trig-sub}.\\
 Notice that there was no generic constant (e.g. $a$ or $\alpha$) in the
 statement of the problem. When that happens, you will need to figure out where
 the constant \emph{should} be in order to use the Leibniz rule.
@@ -1588,58 +1631,61 @@ integrals.
 \noindent Show that
 $~\displaystyle\int_0^{\infty} e^{-x^2} \,\dx ~=~ \tfrac{1}{2}\sqrt{\pi}~$.\vspace{1mm}
 \par\noindent\emph{Solution:} Let $I = \int_0^{\infty} e^{-x^2} \,\dx$. The
-integral is convergent, since by Exercise \ref{exer:exple1px} in Section 4.4,
-for all $x$
+integral is convergent, since
 \[
-e^{x^2} ~\ge~ 1 ~+~ x^2 \quad\Rightarrow\quad
-0 ~\le~ e^{-x^2} ~\le~ \frac{1}{1 + x^2}
+\underbracket[0.3pt]{e^{x^2} ~\ge~ 1 ~+~ x^2}
+_\text{\tiny See Exercise~\ref{exer:exple1px} in Section~\ref{sec:mvt}}
+\quad\Rightarrow\quad
+\frac{1}{e^{x^2}} ~\le~ \frac{1}{1 ~+~ x^2}
+\quad\Rightarrow\quad
+0 ~\le~ e^{-x^2} ~\le~ \frac{1}{1 ~+~ x^2}
+\qquad\text{for all $x$}
 \]
-implies $I$ is convergent by the Comparison Test, since
+implies $I$ is convergent by \CRef{thm:impropercomptest}{the Comparison Test} from Section~\ref{sec:improper-integrals}, as
 $\int_0^{\infty} \frac{1}{1 + x^2}\,\dx$ is convergent (and equals
-$\tfrac{1}{2}\pi$) by Example \ref{exmp:improper5} in Section 5.5. For
-$\alpha \ge 0$, define
-\[
-\phi(\alpha) ~=~ \int_0^{\infty} \,\frac{\alpha\,e^{-\alpha^2 x^2}}{1 + x^2} \,\dx ~.
-\]
+$\tfrac{1}{2}\pi$) by Example \ref{exmp:improper5} in Section~\ref{sec:improper-integrals}.
+\begin{flalign*}
+\text{Now, for $\alpha \ge 0$, define:}\qquad\qquad\qquad\qquad\phi(\alpha) ~=~ \int_0^{\infty} \,\frac{\alpha\,e^{-\alpha^2 x^2}}{1 + x^2} \,\dx&&
+\end{flalign*}
 Then clearly $\phi(0) = 0$, and differentiating under the integral sign shows
 \[
-\phi'(\alpha) ~=~ \int_0^{\infty} \,\frac{-2\alpha^2 e^{-\alpha^2 x^2} + e^{-\alpha^2 x^2}}{1 + x^2}~\dx
-\qquad\Rightarrow\qquad
-\phi'(0) ~=~ \int_0^{\infty} \frac{\dx}{1 + x^2} ~=~ \tfrac{1}{2}\pi ~.
+\phi'(\alpha) ~=~ \int_0^{\infty} \,\frac{-2 x^2 \alpha^2 e^{-\alpha^2 x^2} + e^{-\alpha^2 x^2}}{1 + x^2}~\dx
+\quad\Rightarrow\quad
+\phi'(0) ~=~ \int_0^{\infty} \frac{\dx}{1 + x^2} ~=~ \tfrac{1}{2}\pi
 \]
 The substitution $y = \alpha x$, so that $\dy = \alpha\,\dx$, shows
 $\phi(\alpha)$ can be written as
 \[
 \phi(\alpha) ~=~ \int_0^{\infty} \,\frac{e^{-y^2}}{1 + \left(\tfrac{y}{\alpha}\right)^2} \,\dy
-\qquad\Rightarrow\qquad
-0 ~\le~ \lim_{\alpha \to \infty}~ \phi(\alpha) ~\le~ I ~<~ \infty ~.
+\quad\Rightarrow\quad
+0 ~\le~ \lim_{\alpha \to \infty}~ \phi(\alpha) ~\le~ I ~<~ \infty
 \]
 Also, for $\alpha > 0$,
 \begin{align*}
 \frac{d}{\dalpha}\,\left(\frac{1}{\alpha}\,e^{-\alpha^2}\,\phi(\alpha)\right) ~&=~
 \frac{d}{\dalpha}\,\int_0^{\infty} \,\frac{e^{-\alpha^2 (1+x^2)}}{1 + x^2} \,\dx
 ~=~ \int_0^{\infty} \,\frac{-2\alpha\,(1+x^2)\, e^{-\alpha^2 (1+x^2)}}{1 + x^2}~\dx\\[6pt]
-&=~ -2\alpha\, e^{-\alpha^2}\,\int_0^{\infty} e^{-\alpha^2 x^2}~\dx \quad\text{,
-now substitute $u = \alpha x$ and $\du = \alpha \dx$ to get}\\[6pt]
+&=~ -2\alpha\, e^{-\alpha^2}\,\int_0^{\infty} e^{-\alpha^2 x^2}~\dx \qquad\qquad\quad(\text{now
+substitute $u = \alpha x$ and $\du = \alpha \dx$ to get})\\[6pt]
 &=~ -2\alpha\, e^{-\alpha^2}\,\frac{1}{\alpha}\,\int_0^{\infty} e^{-u^2} \,\du
-~=~ -2\, e^{-\alpha^2}\,I \quad\text{, and so integrating both sides yields}\\[6pt]
-\int_0^{\infty} \frac{d}{\dalpha}\,\left(\frac{1}{\alpha}\,e^{-\alpha^2}\,\phi(\alpha)\right)~\dalpha ~&=~
--2I\,\int_0^{\infty} e^{-\alpha^2} \,\dalpha ~=~ -2I^2 ~.
+~=~ -2\, e^{-\alpha^2}\,I \qquad(\text{and so integrating both sides yields})\\[6pt]
+&\int_0^{\infty} \frac{d}{\dalpha}\,\left(\frac{1}{\alpha}\,e^{-\alpha^2}\,\phi(\alpha)\right)~\dalpha ~=~
+-2I\,\int_0^{\infty} e^{-\alpha^2} \,\dalpha ~=~ -2I^2
 \end{align*}
-However, by the Fundamental Theorem of Calculus.
+However, by the Fundamental Theorem of Calculus:
 \begin{align*}
 \int_0^{\infty} \frac{d}{\dalpha}\,\left(\frac{1}{\alpha}\,e^{-\alpha^2}\,\phi(\alpha)\right)~\dalpha ~&=~
 \frac{1}{\alpha}\,e^{-\alpha^2}\,\phi(\alpha)~\Biggr|_0^{\infty}
 ~=~ \left(\lim_{\alpha \to \infty}~\frac{\phi(\alpha)}{\alpha \,e^{\alpha^2}}\right) ~-~
     \left(\lim_{\alpha \to 0}~\frac{\phi(\alpha)}{\alpha\,e^{\alpha^2}}\right)\\[6pt]
 &=~ 0 ~-~ \left(\lim_{\alpha \to 0}~\frac{\phi(\alpha)}{\alpha\,e^{\alpha^2}}\right)
- ~\to~ \frac{0}{0} \quad\text{, so by L'H\^{o}pital's Rule}\\[6pt]
+ ~\to~ \frac{0}{0} \qquad\qquad\qquad\qquad\qquad(\text{so by L'H\^{o}pital's Rule})\\[6pt]
 &=~ -\lim_{\alpha \to 0}~\frac{\phi'(\alpha)}{e^{\alpha^2} + 2\alpha^2\,e^{\alpha^2}}
-~=~ -\frac{\phi'(0)}{1+0} ~=~ -\tfrac{1}{2}\pi ~.
+~=~ -\frac{\phi'(0)}{1+0} ~=~ -\tfrac{1}{2}\pi
 \end{align*}
 Thus,
 \[
--2I^2 ~=~ -\tfrac{1}{2}\pi \qquad\Rightarrow\qquad I ~=~ \tfrac{1}{2}\sqrt{\pi}
+-2I^2 ~=~ -\tfrac{1}{2}\pi \quad\Rightarrow\quad I ~=~ \tfrac{1}{2}\sqrt{\pi}
 \]
 which is the desired result.
 \end{exmp}
@@ -1706,7 +1752,7 @@ B(x,y) ~=~ \int_0^1 t^{x-1}\,(1-t)^{y-1}\,\dt
 \newpage
 Another application of substitutions in integrals is in the evaluation of
 \textbf{fractional derivatives}.\index{fractional derivative} Recall from
-Section 1.6 that the zero-th derivative of a function is just the function
+Section~\ref{sec:higher-order-derivatives} that the zero-th derivative of a function is just the function
 itself, and that derivatives of order $n$ are well-defined for integer values
 $n \ge 1$. It turns out that derivatives of fractional orders (e.g.
 $n=\frac{1}{2}$) can
@@ -1727,9 +1773,10 @@ derivative} of order $\alpha$ of a function $f(x)$ is
 \frac{d^{1/2}}{\dx^{1/2}}\,(x) ~=~ 
 \frac{1}{\Gamma\,(1-1/2)}\;\ddx\,\int_0^x \frac{t}{(x-t)^{1/2}}\,\dt ~=~
 \frac{1}{\sqrt{\pi}}\;\ddx\,\int_0^x \frac{t~\dt}{\sqrt{x-t}}
+\quad\left(\because~\Gamma\,\left(\tfrac{1}{2}\right) ~=~ \sqrt{\pi}
+~\text{by Example \ref{exmp:intgamma1}}\right)
 \]
-since $\Gamma\,\left(\tfrac{1}{2}\right) ~=~ \sqrt{\pi}$ by Example
-\ref{exmp:intgamma1}. Use the substitution $u=\sqrt{x-t}$,
+Use the substitution $u=\sqrt{x-t}$,
 so that $t=x-u^2$ and $\dt=-2u\,\du$. Then $t=0~\Rightarrow~u=\sqrt{x}~$ and
 $t=x~\Rightarrow~u=0$, so
 \begin{align*}
@@ -1764,7 +1811,7 @@ Academic Press, 1974.}
 \frac{d^{\alpha}}{\dx^{\alpha}}\,\left(\frac{d^{n}}{\dx^{n}}\,f(x)\right)
 \]
 \newpage
-Recall from Section 6.3 that the trigonometric substitution
+Recall from Section~\ref{sec:trig-sub} that the trigonometric substitution
 $x=r\,\cos\,\theta$---or its sister substitution $x=r\,\sin\,\theta$---was
 motivated by trying to find the area of a circle of radius $r$. To simplify
 matters, let $r=1$ so that points on the unit circle can be identified with the
@@ -1996,13 +2043,13 @@ derivation, see pp.79-80 in \textsc{Corral, M.}, \emph{Trigonometry},
 \cos\,\theta}\,\dtheta~$.\vspace{1mm}
 \par\noindent\emph{Solution:} Though you could use the half-angle substitution
 $t = \tan\,\tfrac{1}{2}\theta$, it is easier to use the half-angle identity
-(\ref{eqn:halftan1}) directly, since
+(Equation~\ref{eqn:halftan1}) directly, since
 \[
 \int \frac{\sin\,\theta}{1 \;+\; \cos\,\theta}\,\dtheta ~=~
 \int \tan\,\tfrac{1}{2}\theta~\dtheta ~=~
 2\,\ln\,\Abs{\sec\,\tfrac{1}{2}\theta} ~+~ C
 \]
-by formula (\ref{eqn:inttanu}) in Section 6.3.
+by formula (\ref{eqn:inttanu}) in Section~\ref{sec:trig-sub}.
 \end{exmp}\vspace{-2mm}
 \divider
 \newpage
@@ -2156,7 +2203,7 @@ $\displaystyle\int_0^{\infty} \dfrac{u^{x-1}}{1 + u}\,\du =
 \newpage
 %Begin Section 6.6
 \section{Numerical Integration Methods}
-Section 5.2 showed how to obtain exact values for definite integrals of some
+Section~\ref{sec:definite-integral} showed how to obtain exact values for definite integrals of some
 simple functions (low-degree polynomials) by using areas of rectangles. For
 functions with no closed-form antiderivative, the rectangle method typically
 produces an approximate value of the definite integral---the more rectangles,
