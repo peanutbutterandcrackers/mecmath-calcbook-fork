@@ -1,6 +1,6 @@
 \chapter{Applications of Derivatives}
 %Begin Section 4.1
-\section{Optimization}
+\section{Optimization}\label{sec:optimization}
 Many physical problems involve \emph{optimization}: finding either a maximum or
 minimum value of some quantity.\index{maximum}\index{minimum} Optimization
 problems often have a \emph{constraint} involving two variables which allows you
@@ -318,11 +318,12 @@ Section~\ref{sec:indefinite-integral}---are:
 \end{align*}
 The goal is to find $\theta$ that maximizes the length $L$ shown in Figure
 \ref{fig:minmax3}. First write $y$ as a function of $x$:
-\begin{gather*}
-x ~=~ (v_0 \cos\,\theta)t ~\Rightarrow~ t ~=~ \frac{x}{v_0 \cos\,\theta}\\
+\begin{gather}
+x ~=~ (v_0 \cos\,\theta)t ~\Rightarrow~ t ~=~ \frac{x}{v_0 \cos\,\theta} \nonumber\\
 ~\Rightarrow~ y ~=~ -\frac{1}{2}gt^2 ~+~ (v_0 \sin\,\theta)t ~=~ -\frac{1}{2}g\left(\frac{x}{v_0 \cos\,\theta}\right)^2
  ~+~ (v_0 \sin\,\theta) \cdot \frac{x}{v_0 \cos\,\theta} ~=~ -\frac{gx^2}{2v_0^2 \cos^2\,\theta} ~+~ x\frac{\sin\,\theta}{\cos\,\theta}
-\end{gather*}
+\label{eqn:exmp_minmax3}
+\end{gather}
 Since $L$ is the value of $x>0$ that makes $y=0$:
 \[
 0 ~=~ -\frac{gL^2}{2v_0^2 \cos^2\,\theta} ~+~ L\frac{\sin\,\theta}{\cos\,\theta}

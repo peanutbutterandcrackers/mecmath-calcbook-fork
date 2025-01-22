@@ -1,6 +1,6 @@
 \chapter{Analytic Geometry and Plane Curves}
 %Begin Section 7.1
-\section{Ellipses}
+\section{Ellipses}\label{sec:ellipses}
 If you were to ask a random person ``What is a circle?'' a typical response
 would be to kick the can down the road: ``Something that's round.'' There is a
 simple definition:\index{circle}\index{circle!definition}
@@ -167,26 +167,58 @@ the definition of the ellipse.
  \node[below] at (-1.1,-0.1) {$(-c,0)$};
  \fill (1.1,0) circle (2.5pt);
  \node[below] at (1.1,-0.1) {$(c,0)$};
+ \fill (-2.2,0) circle (2.5pt);
+ \node[below left] at (-2.2,-0.1) {$(-a,0)$};
+ \fill (2.2,0) circle (2.5pt);
+ \node[below right] at (2.2,-0.1) {$(a,0)$};
+ \fill (0,1.2) circle (2.5pt);
+ \node[above left] at (0,1.2) {$(b,0)$};
+ \fill (0,-1.2) circle (2.5pt);
+ \node[below left] at (0,-1.2) {$(-b,0)$};
 \end{tikzpicture}}
-In the $xy$-plane, let the foci of an ellipse be the points $(\pm c,0)$ for some
-$c>0$, so that the center is the origin $(0,0)$ and the $x$-axis is the
-principal axis, as in the figure on the right. Denote by $2a$ the constant sum
-$d_1+d_2$ of the distances from points $(x,y)$ on the ellipse to the foci, with
-$a > 0$. Notice that $a>c$, since the distance $2c$ between the foci must be
-less than $d_1+d_2 = 2a$. Then by the distance formula,
+In the $xy$-plane, let the foci of an ellipse be the points $(\pm
+c,0)$ for some $c>0$, so that the center is the origin $(0,0)$ and the
+$x$-axis is the principal axis, as in the figure on the right. Denote
+by $(\pm a,0)$ with $a > 0$ the vertexes, by $b$ the length of the
+semi-major axes, and by $k$ the constant sum $d_1+d_2$ of the
+distances from points $(x,y)$ on the ellipse to the foci. Notice that
+$a>c$. Then by the distance formula,
 \begin{align*}
-d_1 ~+~ d_2 ~&=~ 2a\\
-\sqrt{(x+c)^2 + y^2} ~+~ \sqrt{(x-c)^2 + y^2} ~&=~ 2a\\
+d_1 ~+~ d_2 ~&=~ k\\
+\sqrt{(x+c)^2 + y^2} ~+~ \sqrt{(x-c)^2 + y^2} ~&=~ 2a
+~\left(~
+\begin{minipage}[c]{0.567\linewidth}
+  \small
+  Since $(a,0)$ is a point on the ellipse, it must satisfy $d_1 ~+~
+  d_2 ~=~ \sqrt{(x+c)^2 + y^2} ~+~ \sqrt{(x-c)^2 + y^2} ~=~ k$
+  i.e. $\sqrt{(a+c)^2 + 0^2} ~+~ \sqrt{(a-c)^2 + 0^2} = k
+  \allowbreak\Rightarrow \abs{(a+c)} ~+~ \abs{a-c} = k
+  \allowbreak\Rightarrow (a+c) ~+~ (a-c) = k ~(\because a > c)
+  \allowbreak\Rightarrow 2a = k$.
+\end{minipage}
+~\right)\\
 \left(\sqrt{(x-c)^2 + y^2}\right)^2 ~&=~ \left(2a ~-~ \sqrt{(x+c)^2 + y^2}\right)^2\\
 (x-c)^2 ~+~ \cancel{y^2} ~&=~ 4a^2 ~-~ 4a\,\sqrt{(x+c)^2 + y^2} ~+~ (x+c)^2 ~+~ \cancel{y^2}\\
 4a\,\sqrt{(x+c)^2 + y^2} ~&=~ 4a^2 ~+~ (x+c)^2 ~-~ (x-c)^2\\
 \cancel{4}a\,\sqrt{(x+c)^2 + y^2} ~&=~ \cancel{4}a^2 ~+~ \cancel{4}xc\\
 \sqrt{(x+c)^2 + y^2} ~&=~ a ~+~ \tfrac{c}{a}x\\
 x^2 ~+~ \cancel{2cx} ~+~ c^2 ~+~ y^2 ~&=~ a^2 ~+~ \cancel{2cx} ~+~ \tfrac{c^2}{a^2}x^2\\
-\left(1 - \tfrac{c^2}{a^2}\right)\,x^2 ~+~ y^2 ~&=~ a^2 ~-~ c^2\\[4pt]
-\frac{x^2}{a^2} + \frac{y^2}{a^2 - c^2} ~&=~ 1\\[4pt]
+\left(1 - \tfrac{c^2}{a^2}\right)\,x^2 ~+~ y^2 ~&=~ a^2 ~-~ c^2\\
+\frac{x^2}{a^2} + \frac{y^2}{a^2 - c^2} ~&=~ 1
+~\left(~
+\begin{minipage}[c]{0.58\linewidth}
+  \small
+  Since $(0,b)$ is a point on the ellipse, it must satisfy $d_1 ~+~
+  d_2 ~=~ \sqrt{(x+c)^2 + y^2} ~+~ \sqrt{(x-c)^2 + y^2} ~=~ k ~=~ 2a$
+  i.e. $ \sqrt{(0+c)^2 + b^2} ~+~ \sqrt{(0-c)^2 + b^2} = 2a
+  \allowbreak\Rightarrow \cancel{2}\sqrt{c^2 + b^2} = \cancel{2}a
+  \allowbreak\Rightarrow \abs{c^2 + b^2} = a^2
+  \allowbreak\Rightarrow c^2 + b^2 = a^2
+  \allowbreak\Rightarrow b^2 = a^2 - c^2$.
+\end{minipage}
+~\right)\\
 \frac{x^2}{a^2} + \frac{y^2}{b^2} ~&=~ 1
-\quad\text{where $b^2 = a^2 - c^2$ (and so $a > b > 0$)}\quad\checkmark
+\quad\text{$\because~b^2 = a^2 - c^2$ (and so $a > b > 0$)}\quad\checkmark
 \end{align*}
 \newpage
 \piccaption[]{\label{fig:ellipab}}\parpic[r]{\begin{tikzpicture}[>=latex,every node/.style={font=\small}]
@@ -278,7 +310,7 @@ ellipse. See Figure \ref{fig:ecc}.
 Earth's elliptical orbit around the Sun is almost circular: the eccentricity is
 0.017. Only the orbits of Venus and Neptune (both at 0.007) have a lower
 eccentricity among the nine planets in the solar system, while Pluto's (0.252)
-has the highest.
+is the highest.
 
 It is left as an exercise to show that the ellipse
 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ with $a>b>0$ can be written in terms of
@@ -294,15 +326,15 @@ $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$.\vspace{1mm}
 area will be four times the area in the first quadrant. Solving for $y$ in the
 equation of the ellipse gives\index{ellipse!area}
 \[
-y^2 ~=~ b^2 ~-~ \frac{b^2 x^2}{a^2} \quad\Rightarrow\quad
+y^2 ~=~ b^2\left(1 ~-~ \frac{x^2}{a^2}\right) \quad\Rightarrow\quad
 y ~=~ b\,\sqrt{1 - \frac{x^2}{a^2}} ~=~ \frac{b}{a}\,\sqrt{a^2 - x^2}
 \]
 for the upper hemisphere. Thus,
 \begin{align*}
-\text{Area} ~&=~ 4\,\int_0^a y~\dx ~=~ \frac{4b}{a}\,\int_0^a \sqrt{a^2 - x^2}~\dx\\[6pt]
+\text{Area} ~&=~ 4\,\int_0^a y(x)~\dx ~=~ \frac{4b}{a}\,\int_0^a \sqrt{a^2 - x^2}~\dx\\[6pt]
 &=~ \frac{4b}{a}\,\left(\frac{a^2}{2}\,\sin^{-1} \left(\frac{x}{a}\right) ~+~
  \frac{1}{2}\,x\,\sqrt{a^2 - x^2} ~\Biggr|_0^a\right)
- \quad\text{(by formula (\ref{eqn:sqrta2u2sin}) in Section 6.3)}\\[6pt]
+ \quad\text{(by formula (\ref{eqn:sqrta2u2sin}) in Section~\ref{sec:trig-sub})}\\[6pt]
 &=~\frac{4b}{a}\,\left(\frac{a^2}{2}\,\frac{\pi}{2} ~+~ 0 ~-~ (0 ~+~ 0)\right)\\[6pt]
 &=~ \pi\,ab
 \end{align*}
@@ -328,7 +360,7 @@ A remarkable feature of the ellipse is the \textbf{reflection property}:
 other focus}.\index{ellipse!reflection property} Figure \ref{fig:ellipreflect}
 shows light emanating from the focus $F_1$ and reflecting off a point $P$ on the
 ellipse to the other focus $F_2$. Fermat's Principle from Example
-\ref{exmp:minmax4} in Section 4.1 showed that the incoming angle $\theta_1$
+\ref{exmp:minmax4} in Section~\ref{sec:optimization} showed that the incoming angle $\theta_1$
 (angle of incidence) of light from point A will equal the outgoing angle
 $\theta_2$ (angle of reflection) to point B for light reflecting off a flat
 reflective surface at point $P$, as in Figure \ref{fig:fermat2}(a). Fermat's
@@ -446,7 +478,7 @@ indicated path from $F_1$ to $P$ to $F_2$ satisfies Fermat's Principle. First,
 let $P=(x_0,y_0)$ be a point on the ellipse
 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$, with $a>b>0$. Assume that $P$ is not a
 vertex (i.e. $y_0 \ne 0$), otherwise the reflection property holds trivially.
-By Exercise \ref{exer:elliptan} in Section 3.4, the equation of the tangent line
+By Exercise \ref{exer:elliptan} in Section~\ref{sec:implicit-differentiation}, the equation of the tangent line
 to the ellipse at $P=(x_0,y_0)$ is
 \begin{equation}\label{eqn:elliptan}
  \frac{x x_0}{a^2} ~+~ \frac{y y_0}{b^2} ~=~ 1 ~,
@@ -479,7 +511,7 @@ Therefore,
 $P=(x_0,y_0)$ is given by
 \begin{align*}
 (F_1P)^2 ~&=~ (x_0 + ea)^2 ~+~ y_0^2\\
-&=~ x_0^2 ~+~ 2eax_0 ~+~ e^2a^2 ~+~ (1-e^2)\,(a^2 - x_0^2)
+(F_1P)^2 ~&=~ x_0^2 ~+~ 2eax_0 ~+~ e^2a^2 ~+~ (1-e^2)\,(a^2 - x_0^2)
 \quad\text{(by formula (\ref{eqn:ellipe}))}\\
 (F_1P)^2 ~&=~ a^2 ~+~ 2eax_0 ~+~ e^2x_0^2 ~=~ (a + ex_0)^2\\
 F_1P ~&=~a + ex_0 ~.
@@ -518,13 +550,14 @@ translation), Santa Fe, NM: Green Lion Press, 2002.} by the Law of Sines, and
 with $\theta =\angle F_2NP$ as in the figure on the right,
 \[
 \frac{\sin\,\alpha_2}{F_2N} ~=~ \frac{\sin\,\theta}{F_2P} ~=~
-\frac{\sin\,(180\Degrees - \theta)}{F_2P} ~=~
+\frac{\sin\,(\pi - \theta)}{F_2P} ~=~
 \frac{\sin\,(180\Degrees - \theta)}{F_1P}\,\cdot\,\frac{F_1P}{F_2P} ~=~
+\frac{\sin\,\alpha_1}{F_1N}\,\cdot\,\frac{F_1P}{F_2P} ~=~
 \frac{\sin\,\alpha_1}{F_1N}\,\cdot\,\frac{F_1N}{F_2N} ~=~
 \frac{\sin\,\alpha_1}{F_2N}
 \]
 and thus $\sin\,\alpha_2 = \sin\,\alpha_1$, so that
-$\alpha_2 = \alpha_1$ (since $0\Degrees < \alpha_1,\,\alpha_2 < 90\Degrees$).
+$\alpha_2 = \alpha_1$ (since $0\Degrees < \{\alpha_1,\alpha_2\} < 90\Degrees$).
 $\quad\checkmark$\vspace{1mm}
 
 \divider
@@ -692,7 +725,7 @@ y ~=~ mx ~\pm~ \sqrt{a^2 m^2 \;+\; b^2} ~.
 As with ellipses, you have seen parabolas (e.g. $y=x^2$) and some of their
 applications (e.g. projectile trajectories), but perhaps without knowing their
 purely geometric definition. The alternative definition of an ellipse described
-in Exercise \ref{exer:ellipdirectrix} in Section 7.1 is, in fact, similar to the
+in Exercise \ref{exer:ellipdirectrix} in Section~\ref{sec:ellipses} is, in fact, similar to the
 definition of the parabola:\index{parabola}\index{parabola!definition}
 
 \statedefn{defn:parabola}{A \textbf{parabola} is the set of all points in a
@@ -931,45 +964,42 @@ parabola.\index{trajectory envelope}\vspace{1mm}
  \node[below] at (-3.5,-2.25) {$0$};
  \node[below] at (3.5,-2.25) {$\frac{v_0^2}{g}$};
 \end{tikzpicture}}
-\par\noindent\emph{Solution:} Recall from Example \ref{exmp:minmax3} in Section
-4.1 that if the object is launched at an angle $0<\theta<\frac{\pi}{2}$ with the
+\par\noindent\emph{Solution:} Recall from Equation~\ref{eqn:exmp_minmax3} in Example~\ref{exmp:minmax3} in Section~\ref{sec:optimization}
+that if the object is launched at an angle $0<\theta<\frac{\pi}{2}$ with the
 ground, then the height $y$ attained by the object as a function of the
-horizontal distance $x$ that it travels is given by
+horizontal distance $x$ that it travels is
 \[
 y ~=~ -\frac{gx^2}{2v_0^2 \cos^2\,\theta} ~+~ x\tan\,\theta ~.
 \]
 The curve is a parabola, with the figure on the right showing these
 parabolic trajectories for 500 values of the angle $\theta$. Clearly each
-parabola intersects at least one other.The maximum
+parabola intersects at least one other. The maximum
 horizontal distance $\frac{v_0^2}{g}$ occurs only for $\theta=\frac{\pi}{4}$, as
 was shown in Example \ref{exmp:minmax3}. The maximum vertical height
 $\frac{v_0^2}{2g}$ is attained when the object is launched straight up (i.e.
 $\theta = \frac{\pi}{2}$), as was shown in Exercise \ref{exer:projmax0} in
-Section 5.1. By symmetry only the angles $0<\theta\le\frac{\pi}{2}$ in the same
+Section~\ref{sec:indefinite-integral}. By symmetry only the angles $0<\theta\le\frac{\pi}{2}$ in the same
 vertical plane need be considered. So in the above figure, imagine if the
 trajectories for all possible angles were included, filling up a region that
-does appear to have a parabolic boundary. This will now be shown to be true.
+would appear to have a parabolic boundary. This will now be shown to be true.
 
 First, it turns out that all the parabolas for $0<\theta<\frac{\pi}{2}$ have the
 same directrix $y=\frac{v_0^2}{2g}$. To see why, recall from Exercise
-\ref{exer:projmaxangle} in Section 4.1 that the maximum height reached by the
+\ref{exer:projmaxangle} in Section~\ref{sec:optimization} that the maximum height reached by the
 object is $\frac{v_0^2\,\sin^2 \theta}{2g}$, which is thus the $y$-coordinate of
-the vertex of the parabola. That vertex is midway between the focus and the
-directrix. The parabola is of the form $4py = x^2 + bx$, where $b$ is a constant
+the vertex of each of the parabolas. That vertex is midway between the focus and the
+directrix. Each of the parabolas are of the form $4py = x^2 + bx$, where $b$ is a constant
 that does not affect the distance between the vertex and directrix\footnote{This
-will be discussed further in Section 7.4.}, and $4p$ is a constant with $p<0$
+will be discussed further in Section~\ref{sec:translations-and-rotations} (Example~\ref{exmp:ptrans1}).}, and $4p$ is a constant with $p<0$
 such that the directrix is $-p$ units above the vertex (since $p<0$), just as in
-the case $4py=x^2$. The equation of the parabola then shows that
-\[
-\frac{1}{4p} ~=~ -\frac{g}{2v_0^2 \cos^2\,\theta} \quad\Rightarrow\quad
-p ~=~ -\frac{v_0^2 \cos^2\,\theta}{2g}
-\]
-so that the directrix is at
+the case $4py=x^2$ with $p<0$, as shown in Figure \ref{fig:parabolap}(a). The equation of the parabola then shows that
 \begin{align*}
-y ~&=~ \text{$y$-coordinate of the vertex} ~+~ (-p)\\
-&=~ \frac{v_0^2\,\sin^2 \theta}{2g} ~+~ -\left(-\frac{v_0^2 \cos^2\,\theta}{2g}\right) ~=~
-\frac{v_0^2}{2g}(\sin^2 \theta ~+~ \cos^2\,\theta)\\
-y ~&=~ \frac{v_0^2}{2g}
+\frac{1}{4p} ~&=~ -\frac{g}{2v_0^2 \cos^2\,\theta} \quad\Rightarrow\quad
+p ~=~ -\frac{v_0^2 \cos^2\,\theta}{2g}\\
+\text{so that the directrix is at:}\quad y ~&=~ \text{$y$-coordinate of the vertex} ~+~ (-p)\\
+&=~ \frac{v_0^2\,\sin^2 \theta}{2g} ~+~ -\left(-\frac{v_0^2 \cos^2\,\theta}{2g}\right) \quad\left(\because~\text{Exercise
+\ref{exer:projmaxangle} in Section~\ref{sec:optimization}}\right)\\
+&=~ \frac{v_0^2}{2g}(\sin^2 \theta ~+~ \cos^2\,\theta) ~=~ \frac{v_0^2}{2g}
 \end{align*}
 It is perhaps surprising that all the parabolic trajectories share the same
 directrix $y=\frac{v_0^2}{2g}$, which is independent of the angle $\theta$. Note
@@ -978,8 +1008,8 @@ and focus $\left(\frac{v_0^2}{2g}(\sin^2 \theta - \cos^2\,\theta)\right)$
 \emph{do} depend on $\theta$. The common directrix is the key to the remainder
 of the proof.
 \newpage
-\noindent Now let $P$ be a point in the first quadrant of the $xy$-plane below
-the common directrix $y=\frac{v_0^2}{2g}$, denoted by $D$. Then $P$ can be
+\noindent Now let $P$ be a point in the first quadrant below the common directrix
+of the parabolic trajectories, $y=\frac{v_0^2}{2g}$, denoted by $D$. Then $P$ can be
 either inside, outside, or on the envelope, as in Figure \ref{fig:envelope3}:
 
 \begin{figure}[ht]
@@ -1023,16 +1053,18 @@ either inside, outside, or on the envelope, as in Figure \ref{fig:envelope3}:
  \label{fig:envelope3}
 \end{figure}
 
-\noindent The origin $O=(0,0)$ is on each trajectory, so by definition
-of a parabola the foci for all the trajectories must be a distance
-$\frac{v_0^2}{2g}$ from $O$, i.e. the distance from $O$ to $D$. That is, the
-foci of all the trajectories must lie on the circle $C_0$ of radius
-$\frac{v_0^2}{2g}$ centered at $O$. If $P$ is any other point inside the
-envelope, so that it lies on at least one trajectory, then it must be a distance
-$r>0$ below the line $D$. By definition of a parabola, $P$ must be the same
-distance from the foci of any trajectories it belongs to. That is, the foci must
-be on a circle $C$ of radius $r$ centered at $P$ and touching the directrix $D$,
-as in Figure \ref{fig:envfoci3}:
+\noindent The origin $O=(0,0)$ is on each trajectory, at a distance of
+$\frac{v_0^2}{2g}$ from the common directrix $D$, so by
+\CRef{defn:parabola}{definition of a parabola} the foci for each
+trajectory must also be the same distance away from $O$. That is, the
+focus of each trajectory must lie \emph{on} the circle $C_0$ of radius
+$v_0^2/\left(2g\right)$ centered at $O$. If $P$ is a point inside the
+envelope---meaning it lies on at least one trajectory---then it must
+be a distance $r>0$ below the line $D$, and---by
+\CRef{defn:parabola}{definition of a parabola}---must also be the same
+distance $r$ from the focus of the trajectory it belongs to. That is,
+the foci must be on a circle $C$ of radius $r$ centered at $P$ and
+touching the directrix $D$, as in Figure \ref{fig:envfoci3}:
 
 \begin{figure}[ht]
  \centering
@@ -1202,8 +1234,8 @@ definition of the ellipse.\index{hyperbola}\index{hyperbola!definition}
 
 \statedefn{defn:hyperbola}{A \textbf{hyperbola} is the set of all points in a
 plane such that the ratio of the distance from a fixed point (a \textbf{focus})
-to the distance from a fixed line (a \textbf{directrix}) is a constant $e>1$,
-called the \textbf{eccentricity} of the hyperbola.}\index{hyperbola!directrix}
+to the distance from a fixed line (a \textbf{directrix}) is a constant $e>1$
+(called the \textbf{eccentricity} of the hyperbola).}\index{hyperbola!directrix}
 
 \piccaption[]{\label{fig:hyper1x}}\parpic[r]{\begin{tikzpicture}[>=latex,every node/.style={font=\small}]
   \begin{scope}[color=linecolor,line width=1.5pt]
@@ -1217,14 +1249,14 @@ called the \textbf{eccentricity} of the hyperbola.}\index{hyperbola!directrix}
    \node [black] at (1.1,1.1) {$y = \frac{1}{x}$};
   \end{scope}
  \end{tikzpicture}}
-It will be shown in Section 7.4 that the curve $y=\frac{1}{x}$ is a hyperbola,
+It will be shown in Section~\ref{sec:translations-and-rotations} that the curve $y=\frac{1}{x}$ is a hyperbola,
 which has two branches (see Figure \ref{fig:hyper1x}). In general a
 hyperbola resembles a ``wider'' or less ``cupped'' parabola, and it has two
 symmetric branches (and hence two foci and two directrices) as well as two
 asymptotes.
 
-The ratio of distances referred to in the definition of the hyperbola also
-appears in the second definition of the ellipse (where the ratio is smaller than
+The ratio of distances referred to in the \CRef{defn:hyperbola}{definition of the hyperbola} also
+appears in the \CRef{exer:ellipdirectrix}{second definition of the ellipse} (where the ratio is smaller than
 1) and in the definition of the parabola (where the ratio equals 1). In all
 three cases that ratio is the eccentricity. See Figure \ref{fig:ecccompare}(a)
 for the comparisons.\index{hyperbola!focus}\index{hyperbola!eccentricity}
@@ -1304,23 +1336,34 @@ always the same constant $e>1$ (the eccentricity).
  \fill (P) circle (2.5pt);
  \node[below left] at (-0.1,0) {$0$};
  \node[right] at (P) {$~(x,y)$};
+ \fill (1,0) circle (2.5pt);
+ \node[above right] at (1,-0.1) {$(a,0)$};
  \end{tikzpicture}}
-To derive the equation of a hyperbola with eccentricity $e>1$, assume the focus
+To derive the equation of a hyperbola with eccentricity $e>1$ and vertex
+(point on the hyperbola closest to the directrix) at $(a,0)$,
+assume\footnote{These magic numbers are the simplest ones that satisfy the condition for a hyperbola:
+$\frac{d_1}{d_2}=\frac{ea-a}{a-\frac{a}{e}}=\frac{\cancel{ea-a}}{\frac{\cancel{ea-a}}{e}}=e>1$, and are found---if $(f,0)$ is assumed the focus and $x=d$ the directrix (a sketch on a paper, left as an exercise for the reader, will be helpful here)---by solving the system of equations: $\frac{f-a}{a-d}=e$ and $\frac{f}{a}=e$, for focus $f$ and directrix $d$.} the focus
 is on the $x$-axis at $(ea,0)$, with $a>0$, and the line $x=\frac{a}{e}$ is the
 directrix, as in Figure \ref{fig:hypereqn}. Pick a point $(x,y)$ whose distances
 $d_1$ and $d_2$ from the focus $(ea,0)$ and directrix $x=\frac{a}{e}$,
-respectively, satisfy the condition for a hyperbola:\\$\frac{d_1}{d_2}=e>1$.
+respectively, satisfy the condition for a hyperbola: $\frac{d_1}{d_2}=e>1$.
 Then
+{
+\setlength{\abovedisplayskip}{0.0em}
+\setlength{\belowdisplayskip}{0.0em}
+\addtolength{\jot}{-0.25em}
 \begin{align*}
 d_1^2 ~&=~ e^2 d_2^2\\
 (x-ea)^2 ~+~ (y-0)^2 ~&=~ e^2\,\left(\left(x-\frac{a}{e}\right)^2 ~+~ (y-y)^2\right)\\
-x^2 ~-~ \cancel{2eax} ~+~ e^2a^2 ~+~ y^2 ~&=~ e^2x^2 ~-~ \cancel{2eax} ~+~ a^2\\[4pt]
+x^2 ~-~ \cancel{2eax} ~+~ e^2a^2 ~+~ y^2 ~&=~ e^2x^2 ~-~ \cancel{2eax} ~+~ a^2\\
 (e^2 - 1)\,x^2 ~-~ y^2 ~&=~ (e^2 - 1)\,a^2\\
 %\frac{x^2}{a^2} ~-~ \frac{y^2}{(e^2 - 1)\,a^2} ~&=~ 1\\[4pt]
-\frac{x^2}{a^2} ~-~ \frac{y^2}{b^2} ~&=~ 1
-\end{align*}\vspace{-8mm}
+\frac{x^2}{a^2} ~-~ \frac{y^2}{b^2} ~&=~ 1, \quad\text{where $b^2 = (e^2 - 1)\,a^2 > 0$.}
+\end{align*}
+}
 \picskip{0}
-\noindent where $b^2 = (e^2 - 1)\,a^2 > 0$. The
+\vspace{-2em}
+\noindent The
 hyperbola thus has two branches ($x=\pm \frac{a}{b}\sqrt{y^2 + b^2}$), as
 in Figure \ref{fig:hyperparts}. Let $c=ea$, so that $c>a$ and $b^2 = c^2-a^2$.
 By symmetry the hyperbola has two foci $(\pm c,0)$ and two directrices
@@ -1328,6 +1371,8 @@ $x=\pm\frac{a^2}{c}$, and the lines $y=\pm \frac{b}{a}x$ are
 asymptotes.\index{hyperbola!asymptotes}
 The \textbf{vertexes}\index{hyperbola!vertex} are the points on the
 hyperbola closest to the directrices.
+{
+\setlength{\belowcaptionskip}{-1.2em}
 \begin{figure}[h]
  \centering
  \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
@@ -1365,6 +1410,7 @@ hyperbola closest to the directrices.
   with $b^2 = c^2 - a^2$}
  \label{fig:hyperparts}
 \end{figure}
+}
 
 \noindent The \textbf{center}\index{hyperbola!center} is the point midway
 between the foci. The \textbf{transverse axis}\index{transverse axis} and
@@ -1525,7 +1571,7 @@ PF_1 - PF_2 ~=~ (L - AP) ~-~ PF_2 ~=~ L ~-~ (AP + PF_2) ~=~ L ~-~ (L - d) ~=~ d
 \]
 Reverse the roles of $F_1$ and $F_2$ to draw the other branch of the hyperbola.
 
-By Exercise \ref{exer:hyptan} in Section 3.4, the tangent
+By Exercise \ref{exer:hyptan} in Section~\ref{sec:implicit-differentiation}, the tangent
 line to the hyperbola $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ at a point
 $(x_0,y_0)$ is
 \begin{equation}\label{eqn:hypertan}
@@ -1629,7 +1675,7 @@ Thus, since $\tan\,\theta$ is the slope of the tangent line $L$ (i.e.
 $\frac{b^2x_0}{a^2y_0}$), and $\tan\,\alpha_1 = \frac{y_0}{x_0 + c}$, then by
 the subtraction formula for the tangent function
 \begin{align*}
-\tan\,\theta_2 ~&=~ \frac{\tan\,\theta ~-~ \tan\,\alpha_1}{1 ~+~ \tan\,\theta\;\tan\,\alpha_1} ~=~
+\tan\,\theta_2 ~&=~ \tan\,(\theta - \alpha_1) ~=~ \frac{\tan\,\theta ~-~ \tan\,\alpha_1}{1 ~+~ \tan\,\theta\;\tan\,\alpha_1} ~=~
  \frac{\frac{b^2x_0}{a^2y_0} ~-~ \frac{y_0}{x_0 ~+~ c}}{1 ~+~
  \frac{b^2x_0}{a^2y_0}\;\cdot\;\frac{y_0}{x_0 ~+~ c}} ~=~
  \frac{\frac{b^2 x_0^2 ~-~ a^2 y_0^2 ~+~ b^2 x_0 c}{\cancel{a^2 y_0\,(x_0 ~+~
@@ -1647,10 +1693,13 @@ $\triangle F_2PA$ equals $180\Degrees$,
 \tan\,\theta_1 ~=~ -\tan\,(\theta + \alpha_2) ~.
 \]
 \newpage
-\noindent Thus, since $\tan\,\alpha_2 = -\tan\,(180\Degrees - \alpha_2) =
--\frac{y_0}{x_0-c}$,
+\noindent Thus, since $\tan\,\alpha_2 = -\tan\,(\pi - \alpha_2) =
+-\tan\,(180\Degrees - \alpha_2) = -\frac{y_0-0}{x_0-c} =
+-\frac{y_0}{x_0-c}$ from Figure~\ref{fig:hyperreflpt1},\footnote{ This
+agrees with the more straightforward $\tan\,\alpha_2 =
+\frac{0-y_0}{c-x_0} = -\frac{y_0}{x_0-c}$.  }
 \begin{align*}
-\tan\,\theta_1 ~&=~ -\frac{\tan\,\theta ~+~ \tan\,\alpha_2}{1 ~-~ \tan\,\theta\;\tan\,\alpha_2} ~=~
+\tan\,\theta_1 ~&=~ -\tan\,(\theta + \alpha_2) ~=~ -\frac{\tan\,\theta ~+~ \tan\,\alpha_2}{1 ~-~ \tan\,\theta\;\tan\,\alpha_2} ~=~
  -\frac{\frac{b^2x_0}{a^2y_0} ~+~ \frac{-y_0}{x_0 ~-~ c}}{1 ~-~
  \frac{b^2x_0}{a^2y_0}\;\cdot\;\frac{-y_0}{x_0 ~-~ c}} ~=~
  -\frac{\frac{b^2 x_0^2 ~-~ a^2 y_0^2 ~-~ b^2 x_0 c}{\cancel{a^2 y_0\,(x_0 ~-~
@@ -1660,7 +1709,7 @@ $\triangle F_2PA$ equals $180\Degrees$,
 ~=~ \tan\,\theta_2 ~,
 \end{align*}
 i.e. $\theta_1 = \theta_2$
-(since $0\Degrees < \theta_1,\,\theta_2 < 90\Degrees$). $\checkmark\quad$
+(since $0\Degrees < \{\theta_1,\theta_2\} < 90\Degrees$). $\checkmark\quad$
 Note: The case $x_0=c$ is left as an exercise.\vspace{1mm}
 
 \divider
@@ -1745,15 +1794,18 @@ Figure \ref{fig:conics}(c), is a hyperbola.
 \piccaption[]{\label{fig:spheretan}}\parpic[r]{\begin{tikzpicture}[every node/.style={font=\small}]
  \shade[ball color=spherecolor,opacity=0.5] (0,0) circle (1.25);
  \draw[line width=0.2pt] (-1.25,0) arc (180:360:1.25 and 0.3);
- \draw[dashed,line width=0.2pt] (1.25,0) arc (0:180:1.25 and 0.3);
+ \draw[densely dashdotted,line width=0.2pt] (1.25,0) arc (0:180:1.25 and 0.3);
  \fill (0,0) circle (2.5pt);
  \node[right] at (0,0) {$O$};
  \fill (135:1.25) circle (2.5pt);
  \node[above] at (135:1.25) {$P_1$};
  \fill (225:1.25) circle (2.5pt);
  \node[below] at (225:1.25) {$P_2$};
- \draw (0,0) -- (225:1.25) -- ++(135:1.25) node[left] {$Q$} -- (0,0);
- \draw (0,0) -- (135:1.25) -- ++(225:1.25);
+ \draw (225:1.25) -- ++(135:1.25) node[left] {$Q$};
+ \draw (135:1.25) -- ++(225:1.25);
+ \draw [densely dotted] (0,0) -- (225:1.25);
+ \draw [dashed] (0,0) -- (180:1.7);
+ \draw [densely dotted] (0,0) -- (135:1.25);
  \draw[shift={(135:1.25)}] (225:0.2) -- ++(-45:0.2) -- ++(45:0.2);
  \draw[shift={(225:1.25)}] (45:0.2) -- ++(135:0.2) -- ++(225:0.2);
  \fill (-1.76,0) circle (2.5pt);
@@ -1775,8 +1827,9 @@ Pythagorean Theorem.
  \filldraw[fill=inner,fill opacity=0.5] (3.464,-2) -- (0,4) -- (-3.464,-2);
  \draw[dashed] (3.464,-2) -- (-3.464,-2);
  \draw[shift={(0,1)}] (-1.732,0) arc (-180:0:1.732 and 0.3);
- \draw[dashed,shift={(0,1)}] (1.732,0) arc (0:180:1.732 and 0.3);
- \draw (-3.5,0.5) -- (3,0.5) -- (4,1.5) node[pos=0.8,right] {$D$} -- (-1.5,3.4)
+ \draw[densely dashdotdotted,shift={(0,1)}] (1.732,0) arc (0:180:1.732 and 0.3);
+ \draw[ultra thick] (4,1.5) -- (3,0.5);
+ \draw (-3.5,0.5) -- (3,0.5) -- (4,1.5) node[pos=0.8,right] {$\boldsymbol{D}$} -- (-1.5,3.4)
   -- (-2.5,2.4) -- (3,0.5);
  \draw (3,0.5) -- (-3.5,0.5) -- (-2.5,1.5) -- (4,1.5);
  \draw[name path=e,fill=conicfillcolor,rotate=-15,shift={(-0.42,2.1)},fill opacity=0.5]
@@ -1793,21 +1846,24 @@ Pythagorean Theorem.
  \coordinate (A) at (-0.2,0.8);
  \coordinate (B) at (3.3,0.8);
  \fill (B) circle (2.5pt);
+ \draw pic ["\scriptsize$\alpha$", fill=blue!30, angle radius=7.0mm, angle eccentricity=0.85, draw, -] {angle=P--B--A};
  \draw[dashed] (P) -- (A) -- (B) node[right] {$G$};
  \draw (B) -- (P);
  \draw[dashed] (A) -- (Q);
  \node at (-2.1,2.45) {$P_c$};
  \node at (-3,0.67) {$P_0$};
  \node[above right] at (A) {$A$};
- \node at (2.5,0.9) {$\alpha$};
- \node[above right] at (Q) {$\beta$};
  \node[above right] at (-2.9,-1.2) {$\beta$};
  \node[above] at (-0.3,2.5) {$C$};
+ \draw pic ["\tiny$\beta$", fill=blue!30, angle radius=2.7mm, draw, -] {angle=A--Q--P};
+ \fill (Q) circle (2.5pt);
+ \draw pic [fill=blue!30, angle radius=0.8mm, draw] {right angle=Q--A--P};
 \end{tikzpicture}}
-For the case of a right circular double cone (i.e. the base of each nappe is a
-circle in a plane perpendicular to the axis of the cone\footnote{The proof can
-be extended to oblique double cones. See \S 364 in \textsc{Salmon, G.S.},
-\emph{A Treatise on Conic Sections}, London: Longmans, Green and Co., 1929.}),
+For the case of a right circular double cone\footnote{The proof can be
+extended to oblique double cones. See \S 364 in \textsc{Salmon, G.S.},
+\emph{A Treatise on Conic Sections}, London: Longmans, Green and Co.,
+1929.} (i.e. the circular base of each nappe is in a plane
+perpendicular to the axis of the cone),
 let $\beta$ be the complement of the angle that the cone makes with its axis, as
 in Figure \ref{fig:conicproof}. So $\beta$ is the angle the cone makes with any
 circular base of the cone. This constant angle $\beta$, with $0\Degrees < \beta
@@ -1919,7 +1975,7 @@ and asymptote, and find the eccentricity $e$.
 }
 \newpage
 %Begin Section 7.4
-\section{Translations and Rotations}
+\section{Translations and Rotations}\label{sec:translations-and-rotations}
 For convenience the ellipses, parabolas and hyperbolas in the previous sections
 were centered at the origin and had their foci on one of the coordinate axes.
 In general the center and foci of those curves can be moved anywhere by means of
@@ -1934,9 +1990,18 @@ In general the center and foci of those curves can be moved anywhere by means of
   \draw[black!60] (0.1,1) -- (-0.1,1) node[black,left] {$k$};
   \draw[black!60] (1,0.1) -- (1,-0.1) node[black,below] {$h$};
   \fill (2.8,2.4) circle (1.5pt);
-  \node[above right,align=left] at (2.8,2.5) {$P=(x,y)$\\$P'=(x',y')$};
-  \draw[<->] (1,2.4) -- (2.8,2.4) node[midway,fill=white] {$x-h$};
-  \draw[<->] (2.8,2.4) -- (2.8,1) node[midway,fill=white] {$y-k$};
+  \node[right,align=left] at (2.8,2.4) {
+    {\small
+      \addtolength{\jot}{-0.4em}
+      $\begin{aligned}
+        P~&=(x,y)\\
+        P'&=(x',y')\\
+        &=(x-h,y-k)
+      \end{aligned}$
+    }%
+  };
+  \draw[<->,densely dashed] (1,2.4) -- (2.8,2.4) node[midway,fill=white,inner sep=0mm] {$x-h$};
+  \draw[<->,densely dashed] (2.8,2.4) -- (2.8,1) node[midway,fill=white,inner sep=0mm] {$y-k$};
   \node[below left] at (0,0) {$O$};
   \node[below left] at (1,1) {$O'$};
  \end{tikzpicture}}
@@ -2079,7 +2144,14 @@ is the line $y=k-p=\frac{4ac - b^2 - 1}{4a}$.
   \draw[dashed,black!60,line width=1pt,->] (0,0) -- (110:3) node[rotate=20,above] {$y'$};
   \draw[dashed,black!60,line width=1pt] (0,0) -- (290:0.5);
   \fill (45:2.5) circle (2.5pt);
-  \node[above right,align=left] at (45:2.5) {$P=(x,y)$\\$P'=(x',y')$};
+  \node[above right,align=left] at (45:2.5) {
+    {\addtolength{\jot}{-0.4em}
+      $\begin{aligned}
+        P~&=(x,y)\\
+        P'&=(x',y')\\
+      \end{aligned}$
+    }%
+  };
   \node at (10:0.9) {$\theta$};
   \node[rotate=30] at (32.5:0.9) {$\alpha - \theta$};
   \node[left] at (30:2.3) {$\alpha$};
@@ -2219,7 +2291,8 @@ the second-degree equation of the rotated conic section to be found. Conversely,
 to transform a second-degree equation in $x$ and $y$ into a ``standard'' conic
 section equation in terms of $x'$ and $y'$ (to simplify sketching the graph),
 the ``reverse'' rotation equations for $x$ and $y$ in terms of $x'$ and $y'$ are
-needed:
+needed:\footnote{Found by switching the coordinate systems and making
+the substitution $\theta \mapsto -\,\theta$ in the original equations.}
 \begin{align}
 x ~&=~ x'\,\cos\,\theta ~-~ y'\,\sin\,\theta\label{eqn:xprotate}\\
 y ~&=~ x'\,\sin\,\theta ~+~ y'\,\cos\,\theta\label{eqn:yprotate}
@@ -2234,7 +2307,7 @@ section. Since $B \ne 0$ and $A \ne C$, the rotation angle $\theta$ would
 be given by $\tan\,2\theta = \frac{B}{A-C} = \frac{4}{-3}$, with
 $0\Degrees < \theta < 90\Degrees$. Then $2\theta$ is in the second quadrant, so
 that $\sin\,2\theta = \frac{4}{5}$ and $\cos\,2\theta = \frac{-3}{5}$. Use a
-half-angle identity to find $\theta$:
+half-angle identity (see Equation~\ref{eqn:halftan1}, Section~\ref{sec:misc-integration-methods}) to find $\theta$:
 \[
 \tan\,\theta ~=~ \frac{\sin\,2\theta}{1 + \cos\,2\theta} ~=~
 \frac{\frac{4}{5}}{1 + \frac{-3}{5}} ~=~ 2
@@ -2344,7 +2417,7 @@ the exact locations of the foci, vertexes, directrices, and asymptotes.
 }
 \newpage
 %Begin Section 7.5
-\section{Hyperbolic Functions}
+\section{Hyperbolic Functions}\label{sec:hyperbolic-functions}
 In some textbooks you might see the sine and cosine functions called
 \emph{circular functions}\index{function!circular}\index{circular functions},
 since any point on the unit circle $x^2+y^2=1$ can be defined in terms of those
@@ -3085,8 +3158,8 @@ hyperbola in Figure \ref{fig:hyprotate}(c). Then:
 }
 \newpage
 %Begin Section 7.6
-\section{Parametric Equations}
-Recall that Section 6.5 presented two different ways to ``identify'' or
+\section{Parametric Equations}\label{sec:parametric-equations}
+Recall that Section~\ref{sec:misc-integration-methods} presented two different ways to ``identify'' or
 represent points on the unit circle---by angle and by slope, as in Figure
 \ref{fig:paramcircle}:
 
@@ -3246,7 +3319,7 @@ for $-\infty < t < \infty$ describe one branch of a hyperbola.\vspace{1mm}
 x^2 ~-~ y^2 ~=~ \cosh^2 t ~-~ \sinh^2 t ~=~ 1
 \]
 for all $t$, then the points $(x,y) = (\cosh\,t,\sinh\,t)$ lie on the unit
-hyperbola $x^2-y^2=1$. This was in fact shown in Section 7.5, where $t$ is twice
+hyperbola $x^2-y^2=1$. This was in fact shown in Section~\ref{sec:hyperbolic-functions}, where $t$ is twice
 the area of the shaded region in the above figure for $t>0$. For $t<0$ the
 shaded region is reflected below the $x$-axis. Since $\cosh\,t \ge 1$ and
 $\sinh\,t$ can take any value, then the entire right branch of the hyperbola is
@@ -3398,7 +3471,7 @@ $\dx=x'(t)\,\dt$, so that
 ~=~ \frac{\Dydt}{\Dxdt}
 \end{equation}
 when $\dxdt \ne 0$. The second derivative $\frac{d^2y}{\dx^2}$ can then be found
-via the Chain Rule:
+via the \CRef{thm:chainrule}{Chain Rule}:
 \begin{equation}\label{eqn:paramderiv2}
 \ddt\,\left(\dydx\right) ~=~ \left(\ddx\,\left(\dydx\right)\right)\,\cdot\,\dxdt ~=~
 \frac{d^2y}{\dx^2} \,\cdot\,\dxdt \quad\Rightarrow\quad
@@ -3929,7 +4002,7 @@ a function: $r=r(\theta)$. Then by formula (\ref{eqn:polartorect}),
 $x=r(\theta)\,\cos\,\theta$ and $y=r(\theta)\,\sin\,\theta$ are now parametric
 equations for the curve in the parameter $\theta$. Thus, by the Product Rule
 and formulas\index{derivative!polar coordinates}
-(\ref{eqn:paramderiv1}) and (\ref{eqn:paramderiv2}) from Section 7.6, with
+(\ref{eqn:paramderiv1}) and (\ref{eqn:paramderiv2}) from Section~\ref{sec:parametric-equations}, with
 $\dx=x'(\theta)\,\dtheta$ and\index{polar coordinates!derivatives}
 $\dy=y'(\theta)\,\dtheta$:
 
@@ -4128,7 +4201,7 @@ A ~=~ \int_{0}^{2\pi} \tfrac{1}{2}\,r^2 \dtheta ~=~
 \pi R^2 ~~.\quad\checkmark
 \]
 Note the simplicity of this integral compared to the trigonometric substitution
-required when using Cartesian coordinates, as in Section 6.3. Notice also that
+required when using Cartesian coordinates, as in Section~\ref{sec:trig-sub}. Notice also that
 using a larger interval---say $\ival{0}{4\pi}$---for $\theta$ would result in an
 incorrect area ($4\pi R^2$) even though the region inside the curve is the same.
 \end{exmp}
