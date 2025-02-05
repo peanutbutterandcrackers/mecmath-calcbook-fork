@@ -1,7 +1,7 @@
-\chapter{Applications of Integrals}
+\chapter{Applications of Integrals}\label{ch:appl-of-integrals}
 %Begin Section 8.1
 \section{Area Between Curves}
-The ``area under a curve'' was defined in Chapter 5 as the area below some curve
+The ``area under a curve'' was defined in Chapter~\ref{ch:integral} as the area below some curve
 $y=f(x)$ and above the $x$-axis over some interval. That was a special case of
 the \textbf{area between curves}\index{area between curves}, where in general
 one curve $y=f_1(x)$ is not necessarily always above another curve $y=f_2(x)$
@@ -202,17 +202,23 @@ use a horizontal width function.
 \noindent Find the area of the region bounded by $x=y^2-2$ and $y=x$.
 \parpic[r]{\begin{tikzpicture}[>=latex,every node/.style={font=\small},scale=0.75]
  \fill[fill=fillcolor] (2,2) -- plot[domain=2:-1,samples=100] ({(\x)^2 - 2},\x) -- cycle;
- \draw[->,black!60,line width=1pt] (0,-1.3) -- (0,2.2) node[above] {$y$};
+ \draw[->,black!60,line width=1pt] (0,-1.3) -- (0,2.5) node[above] {$y$};
  \draw[->,black!60,line width=1pt,anchor=base] (-2.5,0) -- (3,0) node[right] {$x$}
   node[black,shift={(0.2,-0.4)}] at (0,0) {$0$}
   node[black,shift={(-0.25,-0.4)}] at (-2,0) {$-2$}
   node[black,shift={(0,-0.4)}] at (-1,0) {$-1$}
+  node[black,shift={(0,-0.4)}] at (1,0) {$1$}
   node[black,shift={(0,-0.4)}] at (2,0) {$2$};
  \draw[<->] (-1.75,0.5) -- (0.4,0.5) node[pos=0.55,above,yshift=-0.1cm] {$w(y)$};
  \draw[linecolor,line width=1.5pt] (2,2) -- plot[domain=2.2:-1.2,samples=100] ({(\x)^2 - 2},\x);
  \draw[linecolor2,line width=1.5pt] (-1.2,-1.2) -- (2.3,2.3);
  \draw[black!60] (-1,0.1) -- (-1,-0.1);
  \draw[black!60] (2,0.1) -- (2,-0.1);
+ \draw[black!60] (1,0.1) -- (1,-0.1);
+ \draw[black!60] (-2,0.1) -- (-2,-0.1);
+ \draw[black!60] (-0.1,-1) -- (0.1,-1);
+ \draw[black!60] (-0.1,1) -- (0.1,1);
+ \draw[black!60] (-0.1,2) -- (0.1,2);
  \node[right] at (1.2,1) {$y=x$};
  \node[left] at (-0.55,1.5) {$x=y^2-2$};
 \end{tikzpicture}}
@@ -285,9 +291,9 @@ A ~=~ \int_{\alpha}^{\beta} \tfrac{1}{2}\,\Abs{r_1^2 - r_2^2}~\dtheta
    plot (xy polar cs:angle=\x r, radius={2 - 2*cos(\x r)});
  \draw[linecolor,line width=1.5pt,domain=pi/6:pi/3,samples=500,smooth]
    plot (xy polar cs:angle=\x r, radius={2 + 2*cos(\x r)});
- \node[above right] at (60:3) {$r=1+\cos \theta$};
+ \node[above right] at (60:3) {$r_1=1+\cos \theta$};
  \node[below left] at (0,0) {$O$};
- \node[right] at (25:0.4) {$r=1-\cos \theta$};
+ \node[right] at (25:0.4) {$r_2=1-\cos \theta$};
 \end{tikzpicture}}
 \noindent Find the area between $r=1+\cos\,\theta$ and
 $r=1-\cos\,\theta$ for $\frac{\pi}{6} \le \theta \le \frac{\pi}{3}$.\vspace{1mm}
@@ -638,8 +644,8 @@ By properties of summations, divide the entire sum by the constant $b-a$
 and multiply each term in the sum by $b-a$ to get:
 \newpage
 \[
-\avg{f} ~\approx~ \frac{1}{b-a}\,\sum_{i=1}^n f(x_i)\,\cdot\,\frac{b-a}{n} ~=~
-\frac{1}{b-a}\,\sum_{i=1}^n f(x_i)\,\Delta x_i
+\avg{f} ~\approx~ \sum_{i=1}^n \frac{f(x_i)}{n} ~=~ \sum_{i=1}^n \frac{f(x_i)}{n}\,\cdot\,\frac{b-a}{b-a} ~=~
+\frac{1}{b-a}\,\sum_{i=1}^n f(x_i)\,\cdot\,\frac{b-a}{n} ~=~ \frac{1}{b-a}\,\sum_{i=1}^n f(x_i)\,\Delta x_i
 \]
 Note that the last summation on the right is just a Riemann sum for the
 definite integral $\int_a^b f(x)\,\dx$, with the points $x_i^*$ chosen to be the
@@ -716,23 +722,29 @@ $\frac{x^2}{25} + \frac{y^2}{9} = 1$ to the point $(4,0)$.\vspace{1mm}
 \par\noindent\emph{Solution:} Let $d$ represent the distance from any point
 $(x,y)$ on the ellipse to the point $(4,0)$, as in Figure \ref{fig:avgellipse}.
 If $(x,y)$ is on the ellipse $\frac{x^2}{25} + \frac{y^2}{9} = 1$ then
-$y^2 = 9(1 - \frac{x^2}{25}) = \frac{9}{25}(25-x^2)$. So by the distance 
+$y^2 = 9\left(1 - \frac{x^2}{25}\right) = \frac{9}{25}\left(25-x^2\right)$. So by the distance
 formula, $d$ is given by
 \picskip{0}
 
 \vspace{-23mm}
 \begin{align*}
 d^2 ~&=~ (x-4)^2 ~+~ (y-0)^2 ~=~ (x-4)^2 ~+~ y^2\\
-&=~ (x-4)^2 ~+~ \frac{9}{25}(25-x^2)\\[6pt]
-&=~ \frac{25(x-4)^2 ~+~ 9(25-x)^2}{25}
+&=~ (x-4)^2 ~+~ \frac{9}{25}\left(25-x^2\right)\\[6pt]
+&=~ \frac{25(x-4)^2 ~+~ 9(25-x^2)}{25}
 ~=~ \frac{25x^2 ~-~ 200x ~+~ 400 ~+~ 225 ~-~ 9x^2}{25}\\[6pt]
 &=~ \frac{16x^2 ~-~ 200x ~+~ 625}{25}\\[6pt]
 d^2 ~&=~ \frac{(4x - 25)^2}{25} \quad\text{, and so taking square roots gives}\\[6pt]
-d ~&=~ \pm\,\frac{4x - 25}{5} ~=~ -\frac{4x - 25}{5} ~=~ \frac{25 - 4x}{5}
+d ~&=~ \pm\,\frac{4x - 25}{5} ~=~ -\frac{4x - 25}{5} ~=~ \frac{25 - 4x}{5} ~\text{, for $-5 \le x \le 5$}\quad
+\left(~
+\begin{minipage}[c]{0.33\linewidth}
+  \small
+  since $d = (4x-25)/5 < 0$ on $\ival{-5}{5}$ and
+  distance cannot be negative.
+\end{minipage}
+~\right)
 \end{align*}
 
-\noindent for $-5 \le x \le 5$, since $d = (4x-25)/5 < 0$ on $\ival{-5}{5}$ and the
-distance cannot be negative. Note that by symmetry of the ellipse about the
+\noindent Note that by symmetry of the ellipse about the
 $x$-axis, only the upper half of the ellipse is needed for the average distance,
 since the lower half just duplicates the distances. Hence, the average distance is
 
@@ -900,10 +912,10 @@ $\ival{0}{2\pi/\Omega}$ of oscillation is
 }
 \newpage
 %Begin Section 8.3
-\section{Arc Length and Curvature}
+\section{Arc Length and Curvature}\label{sec:arc-length-and-curvature}
 Just like the area of a plane region can be found using calculus, so too can the
-length of a plane curve. Along the way the mystery mentioned in a footnote in
-Chapter 1 will finally be solved: what is the length of the hypotenuse of a
+length of a plane curve. Along the way the mystery mentioned in \CRef{ftnt:non-pythagorean}{a footnote} in
+Chapter~\ref{ch:derivative} will finally be solved: what is the length of the hypotenuse of a
 right triangle with infinitesimal sides?\index{arc length}
 
 For a function $y=f(x)$ denote by $s$ the length of the piece of that curve over
@@ -1068,7 +1080,7 @@ s ~&=~ \frac{4}{a}\,\int_0^{\pi/2} \sqrt{\frac{a^4 \,-\, (a^2-b^2)\,a^2 \sin^2 \
         {\cancel{1 - \sin^2 \theta}}}~\cancel{\cos\,\theta}~\dtheta\\[4pt]
 &=~ 4a\,\int_0^{\pi/2} \sqrt{1 - \frac{a^2 - b^2}{a^2}\,\sin^2 \theta}~\dtheta\\[3pt]
 s ~&=~ 4a\,\int_0^{\pi/2} \sqrt{1 - e^2\,\sin^2 \theta}~\dtheta
-\quad\text{(since $e^2 = \frac{c^2}{a^2} = \frac{a^2 - b^2}{a^2}$)}
+\quad\left(\text{since $e^2 = \frac{c^2}{a^2} = \frac{a^2 - b^2}{a^2}$}\right)
 \end{align*}
 The last integral is a special case of the \textbf{elliptic integral of the
 second kind}
@@ -1202,7 +1214,7 @@ s ~=~ \int_0^{2\pi} \sqrt{r^2 + \left(\frac{\dr}{\dtheta}\right)^2}~\dtheta
  \draw[black!60] (-0.1,1) -- (0.1,1);
  \node[right] at (0.75,0.5) {$y=x^2$};
 \end{tikzpicture}}
-In Chapter 4 you saw one simple measure of curvature: the second derivative.
+In Chapter~\ref{ch:appl-of-derivs} you saw one simple measure of curvature: the second derivative.
 From Figure \ref{fig:x2curvature} it is clear that the parabola $y=x^2$ is less
 curved at the point $(1,1)$ than at the origin, yet $\frac{d^2y}{\dx^2}=2$ at
 each point. So the second derivative---the rate of change of the slopes $\dydx$
@@ -1211,8 +1223,8 @@ information is needed. It turns out that the rate of change of the \emph{angles}
 of the tangent lines is the key to curvature.\index{curvature}
 \picskip{1}
 First consider a curve with arc length $s$ between two points $A$ and $B$ on the
-curve. Let $\alpha$ be the angle between the tangent lines to the curve at $A$
-and $B$, as in Figure \ref{fig:avgcurvature}(a).
+curve. Let $\alpha$ be the angle between the tangent line to the curve at $A$
+and the tangent line to the curve at $B$, as in Figure \ref{fig:avgcurvature}(a).
 
 \begin{figure}[ht]
  \centering
@@ -1298,8 +1310,8 @@ Curvature can be viewed as the instantaneous rate of change of \emph{direction}
 of a curve, but with respect to arc length (i.e. distance traveled) instead of
 time.
 
-For a curve $y=f(x)$, recall from formula (\ref{eqn:tangentangle}) in Section
-3.1 that $\phi = \phi(x) = \tan^{-1} f'(x)$ at each point
+For a curve $y=f(x)$, recall from formula (\ref{eqn:tangentangle}) in Section~\ref{sec:tangent-lines}
+that $\phi = \phi(x) = \tan^{-1} f'(x)$ at each point
 $(x,f(x))$ on the curve. Thus, by the Chain Rule:
 \[
 \kappa ~=~ \frac{\dphi}{\ds} ~=~ \frac{d\,(\tan^{-1} f'(x))}{\ds} ~=~
@@ -1309,7 +1321,7 @@ So since $\ds=\sqrt{1 + (f'(x))^2}\,\dx$ by formula (\ref{eqn:arclength}), then:
 
 \statethm{thm:curvaturefcn}{The curvature $\kappa$ of a curve $y=f(x)$ is:
 \begin{equation}\label{eqn:curvaturefcn}
-\kappa ~=~ \frac{f''(x)}{(1 \;+\; (f'(x))^2)^{3/2}}
+\kappa ~=~ \frac{f''(x)}{\left(1 \;+\; \left(f'\left(x\right)\right)^2\right)^{3/2}}
 \end{equation}}
 
 \noindent The above formula makes $\kappa$ a function of $x$. Note also that
@@ -1331,7 +1343,7 @@ So $y=x^2$ has more curvature at the origin than at $(1,1)$.
 \newpage
 For a parametric curve $x=x(t)$, $y=y(t)$, the curvature $\kappa$ will be a
 function of the parameter $t$. Since $\dydx = \frac{y'(t)}{x'(t)}$ by formula
-(\ref{eqn:paramderiv1}) in Section 7.6, then by formula (\ref{eqn:paramderiv2}):
+(\ref{eqn:paramderiv1}) in Section~\ref{sec:parametric-equations}, then by formula (\ref{eqn:paramderiv2}):
 \[
 \frac{d^2y}{\dx^2} ~=~ \frac{\Ddt\,\left(\Dydx\right)}{\Dxdt} ~=~
 \frac{\Ddt\,\left(\dfrac{y'(t)}{x'(t)}\right)}{x'(t)} ~=~
@@ -1473,7 +1485,7 @@ elliptic functions}.\index{Jacobian elliptic functions}\index{function!elliptic}
 \end{enumerate}}
 \newpage
 %Begin Section 8.4
-\section{Surfaces and Solids of Revolution}
+\section{Surfaces and Solids of Revolution}\label{sec:surfaces-and-solids-of-revolution}
 Long before calculus was invented the ancient Greeks (e.g. Archimedes)
 discovered the formulas for the volume and surface area of familiar
 three-dimensional objects such as the sphere.\footnote{See Propositions 33 and
@@ -1503,9 +1515,10 @@ dimensions, as in Figure \ref{fig:surfarea}(a).
   \draw[->,black!60,line width=1pt,anchor=base] (0,0) -- (4,0) node[right] {$x$}
    node[black,shift={(0,-0.4)}] at (1,0) {$a$}
    node[black,shift={(0,-0.4)}] at (3,0) {$b$};
-  \draw (1,0.6) arc (90:270:0.2 and 0.6);
-  \draw[dashed] (1,0.6) arc (90:-90:0.2 and 0.6);
-  \draw (3,1.2) arc (90:450:0.3 and 1.2);
+  \draw[thick] (1,0.6) arc (90:270:0.2 and 0.6);
+  \draw[densely dashed] (1,0.6) arc (90:-90:0.2 and 0.6);
+  \draw[thick] (3,1.2) arc (90:270:0.3 and 1.2);
+  \draw[densely dashed] (3,-1.2) arc (270:450:0.3 and 1.2);
   \draw[linecolor,line width=1.5pt] (1,0.6) parabola (3,1.2);
   \draw[black!60] (1,0.1) -- (1,-0.1);
   \draw[black!60] (3,0.1) -- (3,-0.1);
@@ -1529,21 +1542,25 @@ dimensions, as in Figure \ref{fig:surfarea}(a).
   \coordinate (D)  at (intersection-2);
   \shadedraw[top color=insideo,bottom color=insideo,middle color=insidei]
    (A) -- (B) arc (90:270:0.3 and 0.815) -- (D) -- (C) arc (270:90:0.3 and 0.75);
-  \draw[dashed] (D) arc(-90:90:0.24 and 0.815);
-  \draw[dashed] (C) arc(-90:90:0.24 and 0.75);
+  \draw[densely dashed] (D) arc(-90:90:0.24 and 0.815);
+  \draw[densely dashed] (C) arc(-90:90:0.24 and 0.75);
   \draw (1,-0.6) parabola (3,-1.2);
   \draw[->,black!60,line width=1pt] (0,-1.2) -- (0,1.5) node[above] {$y$};
   \draw[->,black!60,line width=1pt,anchor=base] (0,0) -- (4,0) node[right] {$x$}
    node[black,shift={(0,-0.4)}] at (1,0) {$a$}
-   node[black,shift={(0,-0.4)}] at (2.05,0) {$x$}
    node[black,shift={(0,-0.4)}] at (3,0) {$b$};
-  \draw (1,0.6) arc (90:270:0.2 and 0.6);
-  \draw[dashed] (1,0.6) arc (90:-90:0.2 and 0.6);
-  \draw (3,1.2) arc (90:450:0.3 and 1.2);
+  \draw[thick] (1,0.6) arc (90:270:0.2 and 0.6);
+  \draw[densely dashed] (1,0.6) arc (90:-90:0.2 and 0.6);
+  \draw[thick] (3,1.2) arc (90:270:0.3 and 1.2);
+  \draw[densely dashed] (3,-1.2) arc (270:450:0.3 and 1.2);
   \draw[linecolor,line width=1.5pt] (1,0.6) parabola (3,1.2);
   \draw[black!60] (1,0.1) -- (1,-0.1);
   \draw[black!60] (3,0.1) -- (3,-0.1);
-  \draw[black!60] (2.05,0.1) -- (2.05,-0.1);
+  \draw[black!60] (1.7,0.1) -- (1.7,-0.1);
+  \node at (2.07,0.75) {$\circ$};
+  \node[right,inner sep=0,shift={(0.07,0.05)}] at (2.07,0.75) {\tiny$\left(x+\dx,f(x+\dx)\right)$};
+  \node at (1.9,0.71) {$\circ$};
+  \node[above left,inner sep=0] at (1.9,0.71) {\tiny$\left(x,f(x)\right)$};
   \fill (1,0.6) circle (2.5pt);
   \fill (3,1.2) circle (2.5pt);
   \node[left] at (2.3,1.2) {$y=f(x)$};
@@ -1551,8 +1568,8 @@ dimensions, as in Figure \ref{fig:surfarea}(a).
  \quad
  \subfloat[][\enskip Side view of frustrum]{
  \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
-  \draw[->|] (0.7,0) -- (0.7,0.9) node[fill=white,midway] {$f(x)$};
-  \draw[->|] (1.8,0) -- (1.8,1.1) node[fill=white,midway,xshift=0.4cm] {$f(x+\dx)$};
+  \draw[|<->|] (0.7,0) -- (0.7,0.9) node[fill=white,midway,inner sep=0.5mm] {$f(x)$};
+  \draw[|<->|] (1.8,0) -- (1.8,1.1) node[fill=white,midway,inner sep=0.5mm,xshift=0.4cm] {$f(x+\dx)$};
   \draw[->,black!60,line width=1pt] (0,-1.2) -- (0,1.5) node[above] {$y$};
   \draw[->,black!60,line width=1pt,anchor=base] (0,0) -- (3,0) node[right] {$x$};
   \draw (1.05,0.9) -- (1.05,-0.9) -- (1.5,-1.1) -- (1.5,1.1);
@@ -1571,7 +1588,7 @@ dimensions, as in Figure \ref{fig:surfarea}(a).
  \draw[->,dashed] (0.5,0) -- (1.5,0) node[midway,fill=white] {$r_2$};
  \draw[->,dashed] (0.5,1) -- (1.3,1) node[midway,fill=white] {$r_1$};
  \draw (-0.3,1) -- (-0.5,0) arc (180:360:1 and 0.25) -- (1.3,1) node[midway,right] {$l$};
- \draw[dashed] (1.5,0) arc (0:180:1 and 0.3);
+ \draw[dashdotted] (1.5,0) arc (0:180:1 and 0.3);
  \draw (0.5,1) ellipse (0.8 and 0.2);
 \end{tikzpicture}}
 \noindent To find the total lateral surface area $S$, pick $x$ in
@@ -1583,16 +1600,21 @@ of length $\ds$ over that interval, so that the infinitesimal surface is a
 parallel to the base circle. From geometry\footnote{See pp.136-137 in
 \textsc{Welchons A.M. and W.R. Krickenberger}, \emph{Solid Geometry}, Boston:
 Ginn \& Co., 1936.} you might recall the formula for the lateral surface area of
-the frustrum in Figure \ref{fig:frustrum}: $\pi\,(r_1+r_2)\,l$.
+the frustrum in Figure \ref{fig:frustrum}:
+$\pi\,(r_1+r_2)\,l$.\footnote{One could also imagine cutting the
+frustrum vertically and flattening it to get a trapezoid of height
+$l$, and side-lengths (from the circumference of the circles)
+$2 \pi r_1$ and $2 \pi r_2$ and using the formula for the area of
+a trapezoid, $\frac{1}{2}(s_1+s_2)h$, to retrieve this
+formula.}
 Use that formula with $r_1=f(x)$, $r_2=f(x+\dx)=f(x)+\dy$, and
-$l=\ds=\sqrt{1 + (f'(x))^2}\,\dx$ (by formula (\ref{eqn:arclength}) in Section
-8.3) as in Figure \ref{fig:surfarea}(c), so that $d\!S$ is
+$l=\ds=\sqrt{1 + (f'(x))^2}\,\dx$ (by formula (\ref{eqn:arclength}) in Section~\ref{sec:arc-length-and-curvature})
+as in Figure \ref{fig:surfarea}(c), so that $d\!S$ is
 \begin{align*}
 d\!S ~&=~ \pi\,(f(x) + (f(x)+\dy))\,\sqrt{1 + (f'(x))^2}\,\dx\\
 &=~ 2\,\pi\,f(x)\,\sqrt{1 + (f'(x))^2}\,\dx ~+~ \pi\,\sqrt{1 + (f'(x))^2}\,\dy\,\dx\\
-&=~ 2\,\pi\,f(x)\,\sqrt{1 + (f'(x))^2}\,\dx ~+~ 0
+&=~ 2\,\pi\,f(x)\,\sqrt{1 + (f'(x))^2}\,\dx ~+~ 0 \qquad\left(\because \dy\,\dx = f'(x)\,(\dx)^2 = 0\right)
 \end{align*}
-since $\dy\,\dx = f'(x)\,(\dx)^2 = 0$.
 The surface area $S$ is then the sum of all the areas $d\!S$:
 
 \statethm{thm:surfarea}{The surface area $S$ of the surface of revolution
@@ -1721,18 +1743,21 @@ consists of the surface of revolution as before along with its interior.
   \draw[->,black!60,line width=1pt] (0,-1.2) -- (0,1.5) node[above] {$y$};
   \draw[->,black!60,line width=1pt,anchor=base] (0,0) -- (4,0) node[right] {$x$}
    node[black,shift={(0,-0.4)}] at (1,0) {$a$}
-   node[black,shift={(0,-0.4)}] at (2.05,0) {$x$}
    node[black,shift={(0,-0.4)}] at (3,0) {$b$};
   \draw (A) -- (B) arc (90:270:0.3 and 0.815) -- (D) -- (C) arc (270:90:0.3 and 0.75);
-  \draw[dashed] (D) arc(-90:90:0.24 and 0.815);
-  \draw[dashed] (C) arc(-90:90:0.24 and 0.75);
-  \draw (1,0.6) arc (90:270:0.2 and 0.6);
-  \draw[dashed] (1,0.6) arc (90:-90:0.2 and 0.6);
-  \draw (3,1.2) arc (90:450:0.3 and 1.2);
+  \draw[densely dashed] (D) arc(-90:90:0.24 and 0.815);
+  \draw[densely dashed] (C) arc(-90:90:0.24 and 0.75);
+  \draw[thick] (1,0.6) arc (90:270:0.2 and 0.6);
+  \draw[densely dashed] (1,0.6) arc (90:-90:0.2 and 0.6);
+  \draw[thick] (3,1.2) arc (90:270:0.3 and 1.2);
+  \draw[densely dashed] (3,-1.2) arc (270:450:0.3 and 1.2);
   \draw[linecolor,line width=1.5pt] (1,0.6) parabola (3,1.2);
   \draw[black!60] (1,0.1) -- (1,-0.1);
   \draw[black!60] (3,0.1) -- (3,-0.1);
-  \draw[black!60] (2.05,0.1) -- (2.05,-0.1);
+  \node at (2.07,0.75) {$\circ$};
+  \node[right,inner sep=0,shift={(0.07,0.05)}] at (2.07,0.75) {\tiny$\left(x+\dx,f(x+\dx)\right)$};
+  \node at (1.9,0.71) {$\circ$};
+  \node[above left,inner sep=0] at (1.9,0.71) {\tiny$\left(x,f(x)\right)$};
   \fill (1,0.6) circle (2.5pt);
   \fill (3,1.2) circle (2.5pt);
   \node[left] at (2.3,1.2) {$y=f(x)$};
@@ -1740,10 +1765,10 @@ consists of the surface of revolution as before along with its interior.
  \quad
  \subfloat[][\enskip Infinitesimal strip]{
  \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
-  \draw[->|] (0.7,0) -- (0.7,1.5) node[fill=white,midway] {$f(x)$};
-  \draw[->|] (2.2,0) -- (2.2,2.1) node[fill=white,pos=0.3,xshift=0.3cm] {$f(x+\dx)$};
+  \draw[|<->|] (0.7,0) -- (0.7,1.5) node[fill=white,inner sep=0.5mm,midway] {$f(x)$};
+  \draw[|<->|] (2.2,0) -- (2.2,2.1) node[fill=white,inner sep=0.5mm,pos=0.3,xshift=0.3cm] {$f(x+\dx)$};
   \fill[black!30] (1.05,0) -- (1.05,1.5) -- (1.5,1.5) -- (1.5,0) -- cycle;
-  \draw[dashed] (1.05,1.5) -- (1.5,1.5);
+  \draw[densely dashed] (1.05,1.5) -- (1.5,1.5);
   \draw (1.05,0) -- (1.05,1.5);
   \draw (1.5,0) -- (1.5,2.1);
   \draw[<->,black!60,line width=1pt] (0,2.2) node[above] {$y$} |- (3,0) node[right] {$x$};
@@ -1836,7 +1861,7 @@ V ~&=~ \int_{-r}^r \pi\,(f(x))^2~\dx ~=~
 
 Instead of memorizing formula (\ref{eqn:volumedisc}), try to remember the more
 generic approach of revolving an infinitesimal rectangular strip around an axis,
-which might not be the $x$-axis. The idea is to find the radius $r$ and height
+which might not always be the $x$-axis. The idea is to find the radius $r$ and height
 $h$---typically $\dx$ or $\dy$---of the disc swept out by that strip, so that
 the disc's volume is $d\!V = \pi r^2 h$. Then integrate $d\!V$ over the
 appropriate interval to find the volume $V$ of the entire solid.
@@ -1942,10 +1967,10 @@ as in Figure \ref{fig:shellmethod}(a).
  \quad
  \subfloat[][\enskip Infinitesimal strip]{
  \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
-  \draw[->|] (0.7,0) -- (0.7,1.5) node[fill=white,midway] {$f(x)$};
-  \draw[->|] (2.2,0) -- (2.2,2.1) node[fill=white,pos=0.3,xshift=0.2cm] {$f(x+\dx)$};
+  \draw[|<->|] (0.7,0) -- (0.7,1.5) node[fill=white,inner sep=0.5mm,midway] {$f(x)$};
+  \draw[|<->|] (2.2,0) -- (2.2,2.1) node[fill=white,inner sep=0.5mm,pos=0.3,xshift=0.2cm] {$f(x+\dx)$};
   \fill[black!30] (1.05,0) -- (1.05,1.5) -- (1.5,1.5) -- (1.5,0) -- cycle;
-  \draw[dashed] (1.05,1.5) -- (1.5,1.5);
+  \draw[densely dashed] (1.05,1.5) -- (1.5,1.5);
   \draw (1.05,0) -- (1.05,1.5);
   \draw (1.5,0) -- (1.5,2.1);
   \draw[<->,black!60,line width=1pt] (0,2.2) node[above] {$y$} |- (3,0) node[right] {$x$};
@@ -2033,7 +2058,9 @@ V ~=~ \int_0^1 d\!V ~=~ \int_0^1 2\,\pi\,x\,\Abs{f(x)}~\dx ~=~
 The volume $d\!V$ in formula (\ref{eqn:volumeshell}) can be generalized to
 $d\!V = 2 \pi r h w$, where $r$ is the distance from the axis of
 revolution to a generic vertical strip of infinitesimal width $w$ in the region,
-and $h$ is the height of the strip.
+and $h$ is the height of the strip: $V ~=~ \int_a^b d\!V ~=~ \int_a^b
+2\,\pi\,\underbracket[0.3pt]{x}_{r}\,\underbracket[0.3pt]{\Abs{f(x)}}_{h}~\underbracket[0.3pt]{\dx}_{w}$.
+\vspace{-0.8em}
 \begin{exmp}\label{exmp:shell1}
 \noindent Suppose the region bounded by the curves $y=x^2$ and $y=x$ is revolved
 around the $y$-axis. Find the volume of the resulting solid of
@@ -2223,7 +2250,7 @@ density. Take the area of the region as its mass, which makes sense
 given the uniform density. For the region between two curves
 $y=f_1(x)$ and $y=f_2(x)$ over $\ival{a}{b}$, with $f_1(x) \ge f_2(x)$, take a
 vertical slice of width $\dx$ at some $x$, as in Figure \ref{fig:cogregion}(a).
-By the same arguments used in Section 8.4, all the area from that strip comes
+By the same arguments used in Section~\ref{sec:surfaces-and-solids-of-revolution}, all the area from that strip comes
 from the rectangle of height $f_1(x)-f_2(x)$ and width $\dx$ (see the shaded
 rectangle in Figure \ref{fig:cogregion}(b)).\index{lamina}
 
@@ -2288,11 +2315,16 @@ clearly its geometric center, whose coordinates are\index{moment}
 $\left(x+\frac{1}{2}\dx,\frac{1}{2}(f_1(x)+f_2(x))\right)$. The entire mass of
 the strip can be treated as if it is concentrated at that point. The
 \textbf{moment} $m_x$ of the strip about the $x$-axis is its mass times the
-position of its center of gravity relative to the $x$-axis (i.e. its $y$
-coordinate):
+position of its center of gravity relative to the $x$-axis (i.e. the $y$
+coordinate of its center of gravity):
 \[
-m_x ~=~ (f_1(x)-f_2(x))\,\dx\,\cdot\,(\tfrac{1}{2}\,(f_1(x)+f_2(x))) ~=~
-\tfrac{1}{2}\,((f_1(x))^2 - (f_2(x))^2)\,\dx
+m_x ~=~ \underbracket[0.3pt]{\left(f_1(x)-f_2(x)\right)\,\dx}
+_{\begin{minipage}[c]{0.2\linewidth}
+    \tiny
+    The area of the lamina is its mass.
+\end{minipage}}
+\,\cdot\quad\left(\tfrac{1}{2}\,\left(f_1(x)+f_2(x)\right)\right) ~=~
+\tfrac{1}{2}\,\left(\left(f_1(x)\right)^2 - \left(f_2(x)\right)^2\right)\,\dx
 \]
 Similarly the moment $m_y$ of the strip about the $y$-axis is its mass times the
 $x$ coordinate of its center of gravity:
@@ -2470,9 +2502,9 @@ For example, suppose you use the value halfway between $F(x)$ and $F(x+\dx)$ as
 the value of $F$: $\frac{1}{2}\,(F(x)+F(x+\dx))$. Then the work $d\!W$ as force
 times displacement is:
 \begin{align*}
-d\!W ~&=~ \frac{1}{2}\,(F(x) + F(x+\dx))~\dx ~=~
-\frac{1}{2}\,(F(x) + F(x)+ F'(x)\,\dx)~\dx\\[4pt]
-&=~ F(x)\,\dx ~+~ \frac{1}{2}\,F'(x)\,\cancelto{0}{(\dx)^2}\\
+d\!W ~&=~ \frac{1}{2}\,\left(F(x) + F(x+\dx)\right)~\dx ~=~
+\frac{1}{2}\,\left(F(x) + F(x)+ \df\right)~\dx\\[4pt]
+&=~ \frac{1}{2}\,\left(F(x) + F(x)+ F'(x)\,\dx\right)~\dx ~=~ F(x)\,\dx ~+~ \frac{1}{2}\,F'(x)\,\cancelto{0}{(\dx)^2}\\
 &=~ F(x)\,\dx
 \end{align*}
 Define the total work $W$ over $\ival{a}{b}$ as the sum of all the $d\!W$:
@@ -2489,7 +2521,7 @@ forces considered here, which act in a single dimension (e.g. along the
 $x$-axis), by convention the direction of the force is indicated by its sign:
 positive in the direction toward $+\infty$, negative in the direction toward
 $-\infty$. So a force of $3$ N acts in the opposite direction as a force of $-3$
-N, but they have the same magnitude $\abs{3}=3$.\index{vector}\index{scalar}
+N, but they have the same magnitude $\abs{\pm 3}=3$.\index{vector}\index{scalar}
 
 Second, work is not a vector---it is a \textbf{scalar}, meaning it has a
 magnitude but no direction. That magnitude can have any sign, though. Work is
@@ -2543,6 +2575,7 @@ to restore the spring to its equilibrium position, and the law holds only for a
 limited range of $x$. For a spring laid horizontally imagine it lies on the
 $x$-axis with the equilibrium position at $x=0$, as in the figure on the right.
 \begin{enumerate}[\bfseries (a)]
+\itemsep0em
 \item Find the spring constant $k$ if a force of 2 N stretches the spring by
 4 cm.
 \item Use part (a) to find the work performed by compressing the spring 3 cm.
@@ -2550,17 +2583,25 @@ $x$-axis with the equilibrium position at $x=0$, as in the figure on the right.
 
 \picskip{0}
 
-\par\noindent\emph{Solution:} (a) The force required to stretch the spring by an
+\par\noindent\emph{Solution:}
+\begin{enumerate}[\bfseries (a)]
+\itemsep0em
+\item The force required to stretch the spring by an
 amount $x$ is $F=kx$, since that force must counter the restoring force. Thus,
 $k=\frac{F}{x}=\frac{2 \text{N}}{4 \text{cm}}=\frac{2 \text{N}}{0.04 \text{m}}=
-50$ N/m.\\
-(b) By part (a) the force required to compress the string to position $x$ is
+50$ N/m.
+\item By part (a) the force required to compress the string to position $x$ is
 $F(x)=kx=50x$, since again it must counter the restoring force. Thus, since
 $3$ cm is $0.03$ m, the work $W$ performed is:
+{
+  \setlength{\abovedisplayskip}{0.3em}
+  \setlength{\belowdisplayskip}{0em}
 \[
 W ~=~ \int_0^{-0.03} F(x)~\dx ~=~ \int_0^{-0.03} 50x~\dx ~=~ 25x^2~\Biggr|_0^{-0.03}
 ~=~ 25\,(-0.03)^2 ~-~ 0 ~=~ 0.0225~\text{Nm}
 \]
+}
+\end{enumerate}
 \end{exmp}
 \divider
 \newpage
@@ -2577,7 +2618,7 @@ is the set  $S = \lbrace TT, TH, HT, HH \rbrace$, where $H$ is heads and $T$ is
 tails (e.g. $HT$ means the first penny came up heads and the second came up
 tails). Figure \ref{fig:probability}(a) shows a bar chart of the
 probabilities---as numbers between 0 and 1---with $P(X=x)$ denoting the
-probability of the \textbf{event}\index{event} that $X$ equals the number $x$.
+probability of the \textbf{event}\index{event} that $X$---the number of heads that result when two evenly balanced pennies are flipped---equals the number $x$.
 Notice that the sum of the probabilities is 1, and $P(X=x)=0$ if $x$ is not 0,
 1, or 2.\index{probability density function}\index{random variable!continuous}
 
@@ -2636,8 +2677,8 @@ that:\vspace{1mm}
 \end{enumerate}}
 
 Notice that since $P(X=a)=0$ then $P(a \le X < b) = P(a < X < b)$. In general,
-$<$ and $\le$ are interchangeable for events involving continuous random
-variables (as well as $>$ and $\ge$). In the remainder of this section it will
+$<$ and $\le$ (as well as $>$ and $\ge$) are interchangeable for events involving continuous random
+variables. In the remainder of this section it will
 be assumed that all random variables are continuous, for which the sample space
 is typically all of $\Reals$ or some interval, finite or infinite
 (e.g. $(0,\infty)$).
