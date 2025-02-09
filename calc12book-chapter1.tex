@@ -174,7 +174,7 @@ can solve. The basic idea is to use simpler regions---rectangles---whose areas
 are known, then use those to approximate the area inside the curved
 region. One such method is to draw more and more rectangles of diminishing
 widths \emph{inside} the curved region,\footnote{It will be
-shown later (in Chapter 5) that the rectangles do not have to be completely
+shown later (in Chapter~\ref{ch:integral}) that the rectangles do not have to be completely
 inside the region.} so that the sums of their areas approach the area of the
 curved region. Figure \ref{fig:area} shows an example with four
 rectangles to approximate the area under a curve $y=f(x)$ over an interval
@@ -650,7 +650,7 @@ represents a line of slope $m = 2$, so its derivative is 2 for all $x$. Figure
 \newpage
 Linear functions have a constant derivative---the constant being the slope of the
 line. The converse turns out to be true: a function with a constant derivative
-must be a linear function.\footnote{This will be proved in Chapter 5.} What
+must be a linear function.\footnote{This will be proved in Chapter~\ref{ch:integral}.} What
 types of functions do not have constant derivatives? The previous section
 discussed such a function: the parabola $s(t) = -16t^2 + 100$, whose derivative
 $s'(t) = -32t$ is clearly not a constant function. In general, functions that
@@ -1585,7 +1585,7 @@ let $P(n)$ be the statement: $\ddx\,\left(x^n\right) ~=~ n\,x^{n-1}$.
  \item Assuming $P(n)$ is true for some $n \ge 0$, show that $P(n+1)$ is true.\\Assuming
  that $\ddx\,\left(x^n\right) ~=~ n\,x^{n-1}$, show that
  $\ddx\,\left(x^{n+1}\right) ~=~ (n + 1)\,x^{(n+1)-1} ~=~ (n + 1)\,x^n$. It was
- shown in Section 1.2 that $\ddx\,(x) = 1$, so:
+ shown in Section~\ref{sec:derivative-limit-approach} that $\ddx\,(x) = 1$, so:
  \begin{align*}
   \ddx\,\left(x^{n+1}\right) ~&=~ \ddx\,\left( x \cdot x^n \right)\\[4pt]
   &=~ x \cdot \ddx\,\left(x^n\right) ~+~ x^n \cdot \ddx\,\left(x\right) \quad\text{(by the Product Rule)}\\[4pt]
@@ -1818,7 +1818,7 @@ to $x$ is:
 \end{displaymath}}
 
 Using the Chain Rule, the Power Rule can be extended to include exponents that
-are rational numbers:\footnote{It will be shown in Chapter 2 how to define any
+are rational numbers:\footnote{It will be shown in Chapter~\ref{ch:derivatives-of-common-functions} how to define any
 real number as an exponent. The Power Rule extends to that case as well.}
 \statethm{thm:xr}{\begin{displaymath}
  \ddx\,\left(x^r\right) ~=~ r\,x^{r-1} \quad\text{for any rational number $r$}
@@ -2177,7 +2177,7 @@ The \textbf{zero-th derivative}\index{derivative!zero-th} $f^{(0)}(x)$ of a
 function $f(x)$ is defined to be the function $f(x)$ itself:
 $f^{(0)}(x) = f(x)$. There is a way to define \textbf{fractional derivatives},
 e.g. the \emph{one-half derivative} $f^{(1/2)}(x)$, which will be discussed
-in Chapter 6.
+in Chapter~\ref{ch:methods-of-integration}.
 
 An immediate consequence of the definition of higher order derivatives is:
 \statethm{thm:mnderiv}{\begin{center}$\dfrac{d^{m+n}}{\dx^{m+n}}\,(f(x)) ~=~

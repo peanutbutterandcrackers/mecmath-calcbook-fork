@@ -1,4 +1,4 @@
-\chapter{Derivatives of Common Functions}
+\chapter{Derivatives of Common Functions}\label{ch:derivatives-of-common-functions}
 %Begin Section 2.1
 \section{Inverse Functions}
 The derivatives calculated in the previous chapter were mostly for polynomials
@@ -97,7 +97,7 @@ say, increases and then decreases (as in Figure \ref{fig:horizontalrule}(b))
 then the horizontal rule would be violated around that ``turning point.'' For
 differentiable functions a positive derivative means the function is increasing,
 while a negative derivative means the function is decreasing (this will be
-proved in Chapter 3).
+proved in Chapter~\ref{ch:topics-in-differential-calculus}).
 
 However, a function can still be one-to-one even if
 its derivative is zero only at isolated points (i.e. not identically zero over
@@ -209,10 +209,13 @@ and hence:
 \quad
 \left(
 \because
-\begin{aligned}[t]
-  &\text{$f(x)=y \Rightarrow f^{-1}(f(x))=f^{-1}(y)=x$,}\\
-  &\text{and switch $x$ and $y$ in the end.}
-\end{aligned}
+~
+\begin{minipage}[c]{0.4\linewidth}
+  $f(x)=y \Rightarrow f^{-1}(f(x))=f^{-1}(y)=x$, and switch the roles
+  of $x$ and $y$ in the resulting $\left(f^{-1}\right)'(y) ~=~
+  \frac{1}{f'(f^{-1}(y))}$.
+\end{minipage}
+~
 \right)
 \end{align*}}
 \divider
@@ -835,7 +838,7 @@ The approximate value of $e$ is $e ~=~ 2.71828182845905\ldots$ (often called the
 The limit in this definition means that as $x$ becomes arbitrarily large---approaching
 infinity ($\infty$)---the values of $\left( 1 ~+~ \frac{1}{x} \right)^x$
 approach a number, denoted by $e$. More decimal places for $e$ can be obtained
-by making $x$ sufficiently large.\footnote{It will be shown in Chapter 9 that
+by making $x$ sufficiently large.\footnote{It will be shown in Chapter~\ref{ch:infinite-sequences-and-series} that
 this limit does in fact exist.} For example, when $x=5 \times 10^6$ the value is
 2.718281555200129. For extremely large values of $x$, that
 is, when $x \gg 1$ (the symbol $\gg$ means ``much larger than''),\index{$\gg$}
@@ -848,7 +851,7 @@ is, when $x \gg 1$ (the symbol $\gg$ means ``much larger than''),\index{$\gg$}
 \end{displaymath}
 so letting $h = 1/x$, and noting that $h = 1/x \to 0$ if and only if
 $x \to \infty$, yields the useful limit:\footnote{This is admittedly a
-``hand waving'' argument. In Chapter 3 a more exact method will be discussed for
+``hand waving'' argument. In Chapter~\ref{ch:topics-in-differential-calculus} a more exact method will be discussed for
 proving limits like this one.}
 \statethm{thm:limeh}{\begin{equation}\label{eqn:elimh0}
 \lim_{h \to 0}~\frac{e^h ~-~ 1}{h} ~=~ 1
@@ -895,7 +898,7 @@ some physical quantity at time $t$, for some constants $A$ and $k$. Then
 which says that \emph{the instantaneous rate of change of the quantity is
 directly proportional to the amount present at that instant}. It turns out that
 many physical quantities exhibit that behavior, some of which will be discussed
-shortly. Conversely, in Chapter 5 it will be shown that any solution to the
+shortly. Conversely, in Chapter~\ref{ch:integral} it will be shown that any solution to the
 differential equation\index{differential equation}
 $\dydt = ky$ must be of the form $y = Ae^{kt}$ for some constant $A$. This is
 what gives the exponential function its special significance.
@@ -1414,6 +1417,6 @@ since $\bm{1} \cdot 2^2 \;+\; \bm{1} \cdot 2^1 \;+\;
 \resume{enumerate}[{[\bfseries 1.]}]
  \item Show that for all constants $k$ the function $y = A a^{\frac{kx}{\ln\,a}}$
   satisfies the differential equation $\dydx = ky$. Does this contradict the
-  statement made in Section 2.3 that the only solution to that differential
+  statement made in Section~\ref{sec:exponential-and-natural-logarithm-functions} that the only solution to that differential
   equation is of the form $y = A e^{kx}$? Explain your answer.
 \end{enumerate}}
