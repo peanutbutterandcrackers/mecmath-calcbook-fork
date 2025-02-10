@@ -620,9 +620,9 @@ $\delta_2 > 0$ such that
 \indent Now let $\delta = \min(\delta_1, \delta_2)$. Then $\delta > 0$ and
 \begin{align*}
  0 < \abs{x - a} < \delta \quad&\Rightarrow\quad
- 0 < \abs{x - a} < \delta_1 \qquad\text{and}\quad 0 < \abs{x - a} < \delta_2 &\left(\because \delta = \min(\delta_1, \delta_2)\right)\\
+ 0 < \abs{x - a} < \delta_1 \qquad\text{and}\quad 0 < \abs{x - a} < \delta_2 \quad\left(\because \delta = \min(\delta_1, \delta_2)\right)\\
  &\Rightarrow\quad \abs{f(x) ~-~ L_1} < \epsilon/2 \quad\text{and}\quad
- \abs{g(x) ~-~ L_2} < \epsilon/2 &\left(\text{as deduced previously}\right)\\
+ \abs{g(x) ~-~ L_2} < \epsilon/2 \quad\left(\text{as deduced previously}\right)\\
  &\Rightarrow\quad \left(\abs{f(x) ~-~ L_1} ~+~ \abs{g(x) ~-~ L_2}\right) ~<~ \left(\epsilon/2 ~+~ \epsilon/2\right)\\
  &\Rightarrow\quad \underbrace{\abs{(f(x) ~-~ L_1) ~+~ (g(x) ~-~ L_2)}
    ~\le~ \left(\abs{f(x) ~-~ L_1} ~+~ \abs{g(x) ~-~
@@ -1072,7 +1072,9 @@ $\infty - \infty$. This is an example of an
 (as will be discussed shortly); it does \emph{not} have to equal $0$ (i.e. the
 $\infty$'s do not necessarily ``cancel out''). The trick here is to use the
 conjugate of $\sqrt{x + 1} \,-\, \sqrt{x}$, so that
-\vspace{-0.7em}
+{
+  \setlength{\abovedisplayskip}{0em}
+  \setlength{\belowdisplayskip}{0em}
 \[
 \lim_{x \to \infty}~\left(\sqrt{x + 1} \,-\, \sqrt{x}\right) ~=~
 \lim_{x \to \infty}~\left(\sqrt{x + 1} \,-\, \sqrt{x}\right) \cdot
@@ -1081,10 +1083,10 @@ conjugate of $\sqrt{x + 1} \,-\, \sqrt{x}$, so that
 ~=~ \lim_{x \to \infty}~\frac{1}{\sqrt{x + 1} \,+\, \sqrt{x}}
 ~=~ 0
 \]
-\vspace{-0.7em}
+}
 since the numerator is $1$ and both terms in the sum in the denominator approach
 $\infty \left( \text{i.e.} \displaystyle \lim_{x \to \infty} 1/x = 0\right)$.
-\vspace{-0.3em}
+\vspace{-0.625em}
 \end{exmp}
 \divider
 
@@ -1541,7 +1543,7 @@ $y$:
 \begin{align*}
 \ln\,y ~&=~ \ln\,\left(\lim_{x \to 0+}~x^x\right)\\[4pt]
 &=~ \lim_{x \to 0+}~\ln\,x^x \quad\left[\text{working backwards through Equation~\ref{eqn:lim-cont-comp}:}~\displaystyle f\left(\lim_{x \to a}~g(x)\right) ~=~ \lim_{x \to a}~f(g(x))\right]\\[4pt]
-&=~ \lim_{x \to 0+}~x\;\ln\,x \quad\left(\text{using logarithmic property to simplify the indeterminate form}\right)\quad\to\quad 0 \cdot (-\infty)\\
+&=~ \lim_{x \to 0+}~x\;\ln\,x \quad\left[\text{using logarithmic property to simplify the indeterminate form}\right]\quad\to\quad 0 \cdot (-\infty)\\
 &=~ \lim_{x \to 0+}~\frac{\ln\,x}{1/x} \quad\to\quad\frac{-\infty}{\infty}\\[6pt]
 &=~ \lim_{x \to 0+}~\frac{1/x}{-1/x^2} \quad\left(\text{by L'H\^{o}pital's Rule}\right) ~=~ \lim_{x \to 0+}~(-x) ~=~ 0
 \end{align*}
@@ -1549,13 +1551,22 @@ Thus, $\displaystyle\lim_{x \to 0+}~x^x ~=~ y ~=~ e^{\ln\,y} ~=~ e^0 ~=~ 1$.
 \end{exmp}
 \divider
 \newpage
+{
+  \setlength{\parskip}{-0.15em}
+  \setlength{\abovedisplayskip}{0em}
+  \setlength{\belowdisplayskip}{0em}
+  \setlength{\abovecaptionskip}{0em}
+  \setlength{\belowcaptionskip}{0em}
+  % https://tex.stackexchange.com/a/24468
+  \setlength{\floatsep}{-2em}
+  \setlength{\intextsep}{0em}
+  \setlength{\textfloatsep}{0em}
+
 \noindent There is an important relationship between differentiability and
 continuity:
-\vspace{-0.5em}
 \statecomment{\begin{center}
 Every differentiable function is continuous.
 \end{center}}
-\vspace{-0.5em}
 \noindent Proof: If a function $f$ is differentiable at $x = a$ then
 $f'(a) = \displaystyle\lim_{x \to a}~$$\frac{f(x) - f(a)}{x - a}$ exists, so
 \[
@@ -1581,25 +1592,20 @@ differentiable (at $x = 0$).
 Continuous curves can have sharp edges and cusps, but differentiable curves
 cannot---they must be ``smooth''.
 This fact is worth restating in it's logically equivalent, and perhaps more illuminating, contrapositive form:
-\vspace{-0.5em}
 \statecomment{\begin{center}
     If a function is not continuous, then it is not differentiable.
 \end{center}}
-\vspace{-0.5em}
-
 Two other important theorems\footnote{The full proofs require some advanced
 results. See pp.97-98 and p.558 in \textsc{Taylor, A.E. and W.R. Mann},
 \emph{Advanced Calculus}, 2nd ed., New York: John Wiley \& Sons, Inc., 1972.}
 about continuous functions are:
-\vspace{-0.5em}
 \statethm{thm:evt}{\textbf{Extreme Value Theorem}: If $f$ is a continuous
 function on a closed interval $\ival{a}{b}$ then $f$ attains both a maximum
 value and a minimum value on that interval.}
-\vspace{-1.09em}
+\vspace{-1em}
 \statethm{thm:ivt}{\textbf{Intermediate Value Theorem}: If $f$ is a continuous
 function on a closed interval $\ival{a}{b}$ then $f$ attains every value between
 $f(a)$ and $f(b)$.}\vspace{-3mm}
-\vspace{-0.5em}
 \begin{figure}[ht]
 \begin{minipage}[b]{6.5cm}
  \begin{center}
@@ -1659,7 +1665,6 @@ $f(a)$ and $f(b)$.}\vspace{-3mm}
  \label{fig:ivt}
 \end{minipage}
 \end{figure}
-\vspace{-0.5em}
 \noindent Figure \ref{fig:evt} shows why a closed interval is required for the
 Extreme Value Theorem, as $f$ attains neither a maximum nor minimum on the open
 interval $(c,d)$\footnote{The real numbers can't be listed in a
@@ -1673,6 +1678,7 @@ Figure \ref{fig:ivt} the function $f$ skips the value $k$ between $f(c)=1$ and
 $f(d)=2$ because $f$ is not continuous over all of $\ival{c}{d}$. On
 $\ival{a}{b}$ the value $k$ is attained by $f$ at $x = x_0$, i.e. $f(x_0) = k$,
 since $f$ is continuous on $\ival{a}{b}$.
+}
 \newpage
 \begin{exmp}\label{exmp:ivt}
 \noindent Show that there is a solution to the equation $\cos\,x = x$.\vspace{1mm}

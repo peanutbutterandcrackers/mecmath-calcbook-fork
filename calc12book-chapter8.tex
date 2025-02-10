@@ -1235,8 +1235,8 @@ and the tangent line to the curve at $B$, as in Figure \ref{fig:avgcurvature}(a)
   \coordinate (A2) at (2.5,0.53125);
   \coordinate (B1) at (1,0);
   \coordinate (B2) at (2,2);
-  \draw[name path=t1] (A1) -- (A2);
-  \draw[name path=t2] (B1) -- (B2);
+  \draw[name path=t1,red] (A1) -- (A2);
+  \draw[name path=t2,red] (B1) -- (B2);
   \coordinate (P) at (intersection of A1--A2 and B1--B2);
   \tkzMarkAngle[size=0.7,color=black](A2,P,B2)
   \tkzLabelAngle[pos=0.5](A2,P,B2){$\alpha$}
@@ -1257,8 +1257,8 @@ and the tangent line to the curve at $B$, as in Figure \ref{fig:avgcurvature}(a)
   \coordinate (A2) at (2.5,0.24375);
   \coordinate (B1) at (1.33,0);
   \coordinate (B2) at (2,2);
-  \draw[name path=t1] (A1) -- (A2);
-  \draw[name path=t2] (B1) -- (B2);
+  \draw[name path=t1,red] (A1) -- (A2);
+  \draw[name path=t2,red] (B1) -- (B2);
   \coordinate (P) at (intersection of A1--A2 and B1--B2);
   \tkzMarkAngle[size=0.5,color=black](A2,P,B2)
   \tkzLabelAngle[pos=0.3](A2,P,B2){$\alpha$}
