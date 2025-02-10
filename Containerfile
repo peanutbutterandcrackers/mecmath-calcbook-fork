@@ -1,4 +1,4 @@
-FROM fedora:38
+FROM fedora:41
 RUN dnf -y upgrade
 RUN dnf -y install texlive-scheme-basic texlive-koma-script
 RUN dnf -y install texlive-nomencl texlive-fancybox texlive-braket \
