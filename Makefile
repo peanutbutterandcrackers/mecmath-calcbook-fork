@@ -22,6 +22,25 @@ scratch-calc12book: scratch.tex scratch-calc12book.tex
 scratch-loop: scratch*.tex
 	ls $^ | entr -sr 'make scratch'
 
+###Diff PDF: Generate a diff-pdf between current state and COMMITISH.
+diff-pdf: COMMITISH := "upstream"
+diff-pdf: TMPDIR := $(shell mktemp -d)
+diff-pdf: calc12book.tex
+	git worktree add --detach ${TMPDIR} ${COMMITISH}
+	latexdiff --flatten ${TMPDIR}/$^ $^ > diff.tex
+	git worktree remove ${TMPDIR}
+	# Ignore exit status because there are errors yet to be debugged.
+	# See diff.log for details. Undefined control sequence. Probably
+	# due to expanding \input{} files or something, AFAIUI.
+	-latex -interaction=batchmode diff.tex
+	-makeindex -s myindex.ist -o diff.ind diff.idx
+	-latex -interaction=batchmode diff.tex
+	-makeindex diff.nlo -s nomencl.ist -o diff.nls
+	-latex -interaction=batchmode diff.tex
+	-latex -interaction=batchmode diff.tex
+	dvips -Pps -t letter -G0 -z diff.dvi -o
+	ps2pdf -dALLOWPSTRANSPARENCY -dMaxSubsetPct=100 -dSubsetFonts=true -dEmbedAllFonts=true -dPDFSETTINGS=/printer -dCompatibilityLevel=1.4 diff.ps
+
 ### Environment (Uses Containers)
 env: container_env
 

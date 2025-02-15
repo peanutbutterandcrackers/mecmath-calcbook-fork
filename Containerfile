@@ -14,4 +14,5 @@ RUN mktexlsr
 RUN dnf -y install ghostscript make
 RUN dnf -y install entr
 RUN dnf -y install texlive-multirow
+RUN dnf -y install git texlive-latexdiff texlive-ulem # for `make diff-pdf`
 CMD bash
