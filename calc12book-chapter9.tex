@@ -89,8 +89,8 @@ In other words, a sequence $\seq{a_n}$ converges to $L$ if the terms $a_n$ can
 be made arbitrarily close to $L$ for $n$ sufficiently large. In most cases the
 formal definition will not be needed, since by formula (\ref{eqn:seqfcn}) the
 same rules and formulas from Chapters \ref{ch:derivative} and \ref{ch:topics-in-differential-calculus} for the limit of a function $f(x)$
-as $x$ approaches $\infty$ apply to sequences (e.g. sums and products of limits,
-L'H\^{o}pital's Rule). All you have to do is replace $x$ by $n$.
+as $x$ approaches $\infty$ apply to sequences (e.g. \CRef{thm:limitrules}{sums and products of limits},
+\CRef{thm:lhopital}{L'H\^{o}pital's Rule}). All you have to do is replace $x$ by $n$.
 
 \begin{exmp}
 \noindent For integers $n \ge 1$ define $a_n = \frac{1}{2^n}$. Find
@@ -210,11 +210,11 @@ Now subtract $rs_n$ from $s_n$:
 \begin{align*}
 s_n - rs_n ~&=~ a + ar + ar^2 + ar^3 + \cdots + ar^n -
                (ar + ar^2 + ar^3 + ar^4 + \cdots + ar^n + ar^{n+1})\\
-s_n - rs_n ~&=~ a - ar^{n+1} \quad\text{so that}\\
+s_n - rs_n ~&=~ a - ar^{n+1} \quad\Rightarrow\quad s_n\,(1-r) = a\,(1 - r^{n+1}) \quad\text{so that}\\
 \lim_{n \to \infty} s_n ~&=~ \lim_{n \to \infty} \frac{a\,(1 - r^{n+1})}{1 -r} ~=~ \frac{a}{1-r}
+\quad\left(\text{since $r^{n+1} \rightarrow 0$ as $n \to \infty$ when $\abs{r} < 1$}\right)
 \end{align*}
-since $r^{n+1} \rightarrow 0$ as $n \to \infty$ when $\abs{r} < 1$. Thus:
-
+Thus:
 \statethm{thm:geomprogsum}{For $a \ne 0$ and $\abs{r} < 1$ the geometric
 progression $\displaystyle\sum_{n=0}^{\infty} ar^n$ is convergent:\vspace{-2mm}
 \begin{equation}\label{eqn:geomprogsum}
@@ -439,9 +439,11 @@ listed below. In all cases changing or removing a finite number of terms in a
 sequence does not affect its convergence or divergence:\index{Comparison Test}
 
 \statethm{thm:seqtests}{\begin{enumerate}[\bfseries 1.]
+\label{thm:seqtests:monotone-bounded-test}
 \item \textbf{Monotone Bounded Test}: A sequence that is bounded and
 \emph{monotone}---i.e. either always increasing or always decreasing---is
 convergent.\index{sequence!Monotone Bounded Test}\index{Monotone Bounded Test}
+\label{thm:seqtests:comparison-test}
 \item \textbf{Comparison Test}: If $\seq{b_n}$ diverges to $\infty$ and if
 $\seq{a_n}$ is a sequence such that $a_n \ge b_n$ for all $n > N$ for some $N$,
 then $\seq{a_n}$ also diverges to $\infty$.\\Likewise, if $\seq{c_n}$ diverges
@@ -464,16 +466,17 @@ also diverges to $-\infty$.\index{sequence!Comparison Test}
  \fill (2,0) circle (1.5pt);
  \draw[black!60] (3.4,0.3) -- (3.4,-0.1);
 \end{tikzpicture}}
-\noindent The Comparison Test makes sense intuitively, since something larger
-than a quantity going to infinity must also go to infinity. The Monotone Bounded
-Test can be understood by thinking of a bound on a sequence as a wall that the
+\noindent The \CRef{thm:seqtests:comparison-test}{Comparison Test} makes sense intuitively, since something larger
+than a quantity going to infinity must also go to infinity. The \CRef{thm:seqtests:monotone-bounded-test}{Monotone Bounded
+Test} can be understood by thinking of a bound on a sequence as a wall that the
 sequence can never pass, as in Figure \ref{fig:mbtest}. The increasing sequence
 $\seq{a_n}$ in the figure moves toward $M$ but can never pass it. The sequence
 thus cannot diverge to
 $\infty$, and it cannot fluctuate back and forth since it always increases. Thus
 it must converge somewhere before or at $M$.\footnote{For a proof see pp.48-49
 in \textsc{Buck, R.C.}, \emph{Advanced Calculus}, 2nd ed., New York: McGraw-Hill
-Book Co., 1965.} Notice that the Monotone Bounded Test tells you only that the
+Book Co., 1965.} Notice that the \CRef{thm:seqtests:monotone-bounded-test}{Monotone Bounded
+Test} tells you only that the
 sequence converges, not what it converges to.
 
 \begin{exmp}
@@ -496,74 +499,37 @@ The sequence is also bounded, since $0 < a_n$ and
 a_n ~=~ \frac{1}{2} \,\cdot\, \frac{3}{4} \,\cdot\, \frac{5}{6} \,\cdots\,
 \frac{2n-1}{2n} ~<~ 1 \quad\text{for $n\ge 1$}\quad\left(~\begin{minipage}{0.24\linewidth}since each fraction in the product is less than 1.\end{minipage}~\right)
 \]
-Thus, by the Monotone
-Bounded Test the sequence is convergent.\\Note that for a decreasing sequence
-only the lower bound is needed for the Monotone Bounded Test, not the upper
+Thus, by the \CRef{thm:seqtests:monotone-bounded-test}{Monotone Bounded Test}
+the sequence is convergent.\\Note that for a decreasing sequence
+only the lower bound is needed for the \CRef{thm:seqtests:monotone-bounded-test}{Monotone Bounded
+Test}, not the upper
 bound. Similarly, for an increasing sequence only the upper bound matters.
 \end{exmp}
 \divider
 \newpage
-\noindent Some tests for convergence of a series are listed below:
 
-\statethm{thm:seriestests}{\begin{enumerate}[\bfseries 1.]
-\item \textbf{n-th Term Test}: If\index{series!n-th Term Test}
-$\sum a_n$ converges then $\displaystyle\lim_{n \to \infty} a_n = 0$.
-\item \textbf{Ratio Test}: For a series $\sum a_n$ of positive terms let
-\[
-R ~=~ \lim_{n \to \infty} \;\frac{a_{n+1}}{a_n} ~.
-\]
-Then\index{Ratio Test}\index{series!Ratio Test}
-\begin{enumerate}[\bfseries (a)]
-\item if $R < 1$ then the series converges,
-\item if $R > 1$ (including $R = \infty$) then the series diverges,
-\item if $R=1$ then the test fails.
-\end{enumerate}
-\item \textbf{Integral Test}: For a series\index{Integral Test}
-$\displaystyle\sum_{n=1}^{\infty} a_n$ of positive terms let $f(x)$ be a
-decreasing function on $\lival{1}{\infty}$ such that $f(n)=a_n$ for all integers
-$n\ge 1$. Then\index{series!Integral Test}
-\[
-\sum_{n=1}^{\infty} a_n \quad\text{and}\quad \int_1^{\infty} f(x)~\dx
-\]
-either both converge or both diverge.
-\item \textbf{p-series Test}: The series\index{p-series Test}
-$\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^p}$ converges for $p>1$, and
-diverges for $p \le 1$.\index{series!p-series Test}
-\item \textbf{Comparison Test}: If $0 \le a_n \le b_n$ for $n > N$ for some $N$,
-and if $\sum b_n$ is convergent then $\sum a_n$ is convergent. Similarly, if
-$0 \le b_n \le a_n$ for $n > N$ for some $N$, and if $\sum b_n$ is divergent
-then $\sum a_n$ is divergent.\index{$n$-th Term Test}
-\item \textbf{Limit Comparison Test}: For two series $\sum a_n$ and $\sum b_n$
-of positive terms let\index{Limit Comparison Test}
-\[
-L ~=~ \lim_{n \to \infty} \;\frac{a_n}{b_n} ~.
-\]
-Then\index{series!Limit Comparison Test}
-\begin{enumerate}[\bfseries (a)]
-\item if $0 < L < \infty$ then $\sum a_n$ and $\sum b_n$ either both converge or
-both diverge,\index{series!Telescoping Series Test}
-\item if $L = 0$ and $\sum b_n$ converges then $\sum a_n$ converges,
-\item if $L=\infty$ and $\sum b_n$ diverges then $\sum a_n$ diverges.
-\end{enumerate}
-\item \textbf{Telescoping Series Test}: Suppose\index{Telescoping Series Test}
-$\sum a_n = \sum (b_n - b_{n+1})$ for some sequence $\seq{b_n}$. Then
-$\sum a_n$ converges if and only if $b_n \rightarrow L$, in which case
-$\sum a_n = b_1 - L$.
-\end{enumerate}}
-\newpage
-Most of the above tests have fairly short proofs or at least
-intuitive explanations. For example, the n-th Term Test follows from the
-definition of convergence of a series: if $\sum a_n$ converges to a number $L$
+Now that we have covered tests to determine if a sequence converges,
+we shall proceed to discuss a few tests to determine the convergence
+of series.
+
+\statethm{thm:seriestests:n-th-term-test}{
+  \textbf{n-th Term Test}: If\index{series!n-th Term Test}
+  $\sum a_n$ converges then $\displaystyle\lim_{n \to \infty} a_n = 0$.
+}
+
+The \CRef{thm:seriestests:n-th-term-test}{n-th Term Test} follows from the
+\CRef{defn:seqlimit}{definition of convergence of a series}: if $\sum a_n$ converges to a number $L$
 then since each term $a_n = s_n - s_{n-1}$ is the difference of successive
 partial sums, taking the limit yields
 \[
 \lim_{n \to \infty} \,a_n ~=~ \lim_{n \to \infty} \,(s_n - s_{n-1}) ~=~ L - L ~=~ 0
 \]
-by definition of the convergence of a series. $~\checkmark$\\Since the n-th
-Term Test can never be used to prove convergence of a series, it is often stated
+by definition of the convergence of a series. $~\checkmark$\\Since the \CRef{thm:seriestests:n-th-term-test}{n-th
+Term Test} can never be used to prove convergence of a series, it is often stated
 in the following logically equivalent manner:
 
-\statethm{thm:nthtermtestdiv}{\textbf{n-th Term Test}: If
+\phantomsection\label{cmnt:nthtermtestdiv}
+\statecomment{\textbf{n-th Term Test}: If
 $\displaystyle\lim_{n \to \infty} a_n \ne 0$ then $\sum a_n$ diverges.}
 
 \begin{exmp}
@@ -574,19 +540,39 @@ divergent.\vspace{1mm}
 \[
 \lim_{n \to \infty} \;\frac{n}{2n+1} ~=~ \frac{1}{2} ~\ne ~ 0
 \]
-then by the n-th Term Test the series diverges.
+then by the \CRef{thm:seriestests:n-th-term-test}{n-th Term Test} the series diverges.
 \end{exmp}
 \divider
 \vspace{2mm}
 
-The Ratio Test takes a bit more effort to
+\statethm{thm:seriestests:ratio-test}{
+  \textbf{Ratio Test}: For a series $\sum a_n$ of positive terms let
+         {
+           \setlength{\abovedisplayskip}{0.3em}
+           \setlength{\belowdisplayskip}{0.3em}
+           \setlength{\itemsep}{0em}
+           \[
+           R ~=~ \lim_{n \to \infty} \;\frac{a_{n+1}}{a_n} ~.
+           \]
+         Then\index{Ratio Test}\index{series!Ratio Test}
+         \begin{enumerate}[\bfseries (a)]
+         \item if $R < 1$ then the series converges,
+         \item if $R > 1$ (including $R = \infty$) then the series diverges,
+         \item if $R=1$ then the test fails.
+         \end{enumerate}
+         }
+}
+
+The \CRef{thm:seriestests:ratio-test}{Ratio Test} takes a bit more effort to
 prove.\footnote{See pp.612-613 in \textsc{Taylor, A.E. and W.R. Mann},
 \emph{Advanced Calculus}, 2nd ed., New York: John Wiley \& Sons, Inc., 1972.}
-When the ratio $R$ in the Ratio Test is larger than 1 then that means the terms
-in the series do not approach 0, and thus the series diverges by the n-th Term
-Test. When $R=1$ the test fails, meaning it is inconclusive---another test would
+When the ratio $R$ in the \CRef{thm:seriestests:ratio-test}{Ratio Test} is larger than 1 then that means the terms
+in the series do not approach 0, and thus the series diverges by the \CRef{thm:seriestests:n-th-term-test}{n-th Term
+Test}. When $R=1$ the test fails, meaning it is inconclusive---another test would
 need to be used. When the test shows convergence it does not tell you what the
 series converges to, merely that it converges.
+
+\newpage
 
 \begin{exmp}
 \noindent Determine if $~\displaystyle\sum_{n=1}^{\infty} \,\dfrac{n}{2^n}~$ is
@@ -597,16 +583,29 @@ R ~=~ \lim_{n \to \infty} \;\frac{a_{n+1}}{a_n} ~=~
 \lim_{n \to \infty} \;\dfrac{\dfrac{n+1}{2^{n+1}}}{\dfrac{n}{2^n}} ~=~
 \lim_{n \to \infty} \;\dfrac{n+1}{2n} ~=~ \frac{1}{2} ~<~ 1 ~,
 \]
-so by the Ratio Test the series converges.
+so by the \CRef{thm:seriestests:ratio-test}{Ratio Test} the series converges.
 \end{exmp}
 \divider
-\newpage
-Figure \ref{fig:integraltest} shows why the Integral Test works.
+
+\statethm{thm:seriestests:integral-test}{
+\textbf{Integral Test}: For a series\index{Integral Test}
+$\displaystyle\sum_{n=1}^{\infty} a_n$ of positive terms let $f(x)$ be a
+decreasing function on $\lival{1}{\infty}$ such that $f(n)=a_n$ for all integers
+$n\ge 1$. Then\index{series!Integral Test}
+\[
+\sum_{n=1}^{\infty} a_n \quad\text{and}\quad \int_1^{\infty} f(x)~\dx
+\]
+either both converge or both diverge.
+}
+
+Figure \ref{fig:integraltest} shows why the \CRef{thm:seriestests:integral-test}{Integral Test} works.
 
 \begin{figure}[ht]
 \centering
 \subfloat[][\enskip $\displaystyle\int_1^{\infty} f(x)\;\dx ~>~ \displaystyle\sum_{n=2}^{\infty} a_n$]{
 \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
+ \fill [fill=fillcolor] (1,0) -- plot [domain=1:5.5,samples=300] (\x,
+       {2/\x}) -- (5.5,0) -- cycle;
  \draw[linecolor,line width=1.5pt,domain=1:5.5,samples=300] plot (\x, {2/\x});
  \draw (0,2) -- (1,2) -- (1,0) node[left,midway] {$a_1$};
  \draw (1,1) -- (2,1) -- (2,0) node[left,midway] {$a_2$};
@@ -626,6 +625,8 @@ Figure \ref{fig:integraltest} shows why the Integral Test works.
 \qquad
 \subfloat[][\enskip $\displaystyle\int_1^{\infty} f(x)\;\dx ~<~ \displaystyle\sum_{n=1}^{\infty} a_n$]{
 \begin{tikzpicture}[>=latex,every node/.style={font=\small}]
+ \fill [fill=fillcolor] (1,0) -- plot [domain=1:5.5,samples=300] (\x,
+       {2/\x}) -- (5.5,0) -- cycle;
  \draw[linecolor,line width=1.5pt,domain=1:5.5,samples=300] plot (\x, {2/\x});
  \draw (1,0) -- (1,2) node[right,pos=0.4] {$a_1$} -- (2,2) -- (2,0);
  \draw (2,0) -- (2,1) node[right,pos=0.4] {$a_2$} -- (3,1) -- (3,0);
@@ -658,6 +659,7 @@ the series diverges if the integral diverges. Notice how in both graphs the
 rectangles are either all below the curve or all protrude above the curve due to
 $f(x)$ being a decreasing function.
 
+\newpage
 \begin{exmp}\label{exmp:pseries}
 \noindent Show that the \emph{p-series}\index{p-series}
 $~\displaystyle\sum_{n=1}^{\infty} \,\dfrac{1}{n^p}~$
@@ -670,13 +672,13 @@ for all integers $n\ge 1$. For $p > 1$,
 \frac{-1}{(p-1)\,x^{p-1}}~\Biggr|_1^{\infty} ~=~ 0 ~-~
 \left(\frac{-1}{(p-1)\,(1)^{p-1}}\right) ~=~ \frac{1}{p-1} ~<~ \infty
 \]
-so the integral converges. Thus, by the Integral Test, the series converges for
-$p>1$. For $p=1$,\index{harmonic series}
+so the integral converges. Thus, by the \CRef{thm:seriestests:integral-test}{Integral Test}, the series converges for
+$p>1$.\newline\noindent For $p=1$,\index{harmonic series}
 \[
 \int_1^{\infty} f(x)~\dx ~=~ \int_1^{\infty} \frac{\dx}{x} ~=~
 \ln\,x~\Biggr|_1^{\infty} ~=~ \infty
 \]
-so the integral diverges. So by the Integral Test, the series diverges for
+so the integral diverges. So by the \CRef{thm:seriestests:integral-test}{Integral Test}, the series diverges for
 $p=1$. The \textbf{harmonic series}\index{series!harmonic}
 \[
 \sum_{n=1}^{\infty} \,\frac{1}{n} ~=~ 1 \;+\; \frac{1}{2} \;+\; \frac{1}{3}
@@ -684,20 +686,42 @@ $p=1$. The \textbf{harmonic series}\index{series!harmonic}
 \]
 thus diverges even though $a_n = \frac{1}{n} \rightarrow 0$ (which is hence not
 a sufficient condition for a series to converge).\vspace{1mm}
-
-\noindent Note that this example partly proves the p-series Test. The remaining
-case ($p < 1$) is left as an exercise.
 \end{exmp}
 \divider
-\newpage
-The divergence part of the Comparison Test is clear enough to understand, but
+
+\statethm{thm:seriestests:p-series-test}{
+  \textbf{p-series Test}: The series\index{p-series Test}
+  $\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^p}$ converges for $p>1$, and
+  diverges for $p \le 1$.\index{series!p-series Test}
+}
+
+Note that Example~\ref{exmp:pseries} partly proves the p-series Test. The remaining
+case ($p < 1$) is left as an exercise.
+
+
+\statethm{thm:seriestests:comparison-test}{
+  \textbf{Comparison Test}: If $0 \le a_n \le b_n$ for $n > N$ for some $N$,
+  and if $\sum b_n$ is convergent then $\sum a_n$ is convergent. Similarly, if
+  $0 \le b_n \le a_n$ for $n > N$ for some $N$, and if $\sum b_n$ is divergent
+  then $\sum a_n$ is divergent.\index{$n$-th Term Test}
+}
+
+The divergence part of the \CRef{thm:seriestests:comparison-test}{Comparison Test} is clear enough to understand, but
 for the convergence part with $0 \le a_n \le b_n$ for all $n$ larger than some
 $N$, ignore the (finite) number of terms before $a_N$ and $b_N$. Since
 $\sum b_n$ converges then its partial sums must be bounded. The partial sums for
 $\sum a_n$ then must also be bounded, since $0 \le a_n \le b_n$ for $n > N$. So
 since $a_n \ge 0$ means that the partial sums for $\sum a_n$ are increasing, by
-the Monotone Bounded Test the partial sums for $\sum a_n$ must converge, i.e.
+the \CRef{thm:seqtests:monotone-bounded-test}{Monotone Bounded
+Test} the partial sums for $\sum a_n$ must converge, i.e.
 $\sum a_n$ is convergent.
+
+\newpage
+
+{
+  \setlength{\parskip}{-0.19em}
+  \setlength{\abovedisplayskip}{0.33em}
+  \setlength{\belowdisplayskip}{0.33em}
 
 \begin{exmp}
 \noindent Determine if $~\displaystyle\sum_{n=1}^{\infty} \,\dfrac{1}{n^n}~$ is
@@ -707,13 +731,28 @@ convergent.\vspace{1mm}
 0 ~<~ \frac{1}{n^n} ~\le~ \frac{1}{n^2}
 \]
 for $n > 2$. Thus, since $\sum_{n=1}^{\infty} \frac{1}{n^2}$ converges (by the
-p-series Test with $p=2>1$, as in Example \ref{exmp:pseries}), the series
-$\sum_{n=1}^{\infty} \frac{1}{n^n}$ converges by the Comparison Test.
+\CRef{thm:seriestests:p-series-test}{p-series Test} with $p=2>1$, as in Example \ref{exmp:pseries}), the series
+$\sum_{n=1}^{\infty} \frac{1}{n^n}$ converges by the \CRef{thm:seriestests:comparison-test}{Comparison Test}.
 \end{exmp}
 \divider
 \vspace{2mm}
 
-For the Limit Comparison Test with $\frac{a_n}{b_n} \rightarrow L < \infty$ and
+\statethm{thm:seriestests:limit-comparison-test}{
+  \textbf{Limit Comparison Test}: For two series $\sum a_n$ and $\sum b_n$
+  of positive terms let\index{Limit Comparison Test}
+  \[
+  L ~=~ \lim_{n \to \infty} \;\frac{a_n}{b_n} ~.
+  \]
+  Then\index{series!Limit Comparison Test}
+  \begin{enumerate}[\bfseries (a)]
+  \item if $0 < L < \infty$ then $\sum a_n$ and $\sum b_n$ either both converge or
+    both diverge,
+  \item if $L = 0$ and $\sum b_n$ converges then $\sum a_n$ converges,
+  \item if $L=\infty$ and $\sum b_n$ diverges then $\sum a_n$ diverges.
+  \end{enumerate}
+}
+
+For the \CRef{thm:seriestests:limit-comparison-test}{Limit Comparison Test} with $\frac{a_n}{b_n} \rightarrow L < \infty$ and
 $L > 0$, by definition of the limit of a sequence, $\frac{a_n}{b_n}$ can be made
 arbitrarily close to $L$. In particular there is an integer $N$ such that
 \[
@@ -724,29 +763,37 @@ for all $n > N$. Then
 0 ~<~ a_n ~<~ \frac{3L}{2}\,b_n \quad\text{and $\quad\sum b_n$ converges}
 \quad\Rightarrow\quad \text{$\sum a_n$ converges}
 \]
-by the Comparison test. Likewise,
+by the \CRef{thm:seriestests:comparison-test}{Comparison test}. Likewise,
 \[
 0 ~<~ \frac{L}{2}\,b_n  ~<~ a_n \quad\text{and $\quad\sum b_n$ diverges}
 \quad\Rightarrow\quad \text{$\sum a_n$ diverges}
 \]
-by the Comparison Test again. The cases $L=0$ and $L=\infty$ are handled
+by the \CRef{thm:seriestests:comparison-test}{Comparison Test} again. The cases $L=0$ and $L=\infty$ are handled
 similarly.
+
 
 \begin{exmp}
 \noindent Determine if
 $~\displaystyle\sum_{n=1}^{\infty} \,\dfrac{n+3}{n \,\cdot\, 2^n}~$ is
 convergent.\vspace{1mm}
 \par\noindent\emph{Solution:} Since $\sum_{n=1}^{\infty} \frac{1}{2^n}$ is
-convergent (as part of a geometric progression) and
+convergent (as part of a \CRef{thm:geomprogsum}{geometric progression}---see Example~\ref{exmp:geomzeno}) and
 \[
 \lim_{n \to \infty} ~\frac{(n+3)/(n \,\cdot\, 2^n)}{1/2^n} ~=~
 \lim_{n \to \infty} ~\frac{n+3}{n} ~=~ 1
 \]
-then by the Limit Comparison Test
-$~\sum_{n=1}^{\infty} \frac{n+3}{n \,\cdot\, 2^n}$ is convergent..
+then by the \CRef{thm:seriestests:limit-comparison-test}{Limit Comparison Test}
+$~\sum_{n=1}^{\infty} \frac{n+3}{n \,\cdot\, 2^n}$ is convergent.
 \end{exmp}
 \divider
-\newpage
+\statethm{thm:seriestests:telescoping-series-test}{
+  \index{series!Telescoping Series Test}
+  \textbf{Telescoping Series Test}: Suppose\index{Telescoping Series Test}
+  $\sum a_n = \sum (b_n - b_{n+1})$ for some sequence $\seq{b_n}$. Then
+  $\sum a_n$ converges if and only if $b_n \rightarrow L$, in which case
+  $\sum a_n = b_1 - L$.
+}
+
 A series $\sum a_n$ is \textbf{telescoping}\index{series!telescoping} if
 $a_n = b_n - b_{n+1}$ for some sequence $\seq{b_n}$.\index{telescoping series}
 Assume the series $\sum a_n$ and sequence $\seq{b_n}$ both start at $n=1$. Then
@@ -760,7 +807,7 @@ for $n \ge 1$. Thus, since $b_1$ is a fixed number, $\lim_{n \to \infty} s_n$
 exists if and only if $\lim_{n \to \infty} b_{n+1}$ exists, i.e. $\sum a_n$
 converges if and only if $\seq{b_n}$ converges. So if $b_n \rightarrow L$ then
 $s_n \rightarrow b_1 - L$, i.e. $\sum a_n$ converges to $b_1 - L$, which proves the
-Telescoping Series Test. Note that the number $b_1$, as the first number in the
+\CRef{thm:seriestests:telescoping-series-test}{Telescoping Series Test}. Note that the number $b_1$, as the first number in the
 sequence $\seq{b_n}$, could be replaced by whatever the first number is, in case
 the index $n$ starts at a number different from 1.
 
@@ -773,14 +820,14 @@ convergent. If it converges then can you find its sum?\vspace{1mm}
 \frac{1}{n\,(n+1)} ~=~ \frac{1}{n} ~-~ \frac{1}{n+1} ~=~ b_n \;-\; b_{n+1}\,\left(\text{for the sequence $\seq{b_n}$ with
 $b_n = \frac{1}{n}$ for $n \ge 1$}\right)
 \]
-Thus, since $\seq{b_n}$ converges to 0, by the Telescoping Series Test the
+Thus, since $\seq{b_n}$ converges to 0, by the \CRef{thm:seriestests:telescoping-series-test}{Telescoping Series Test} the
 series also converges, to $b_1 - 0 = 1$.
 \end{exmp}\vspace{-1mm}
 \divider
 \vspace{2mm}
 
 \noindent Convergent series have the following properties (based on similar
-properties of limits):
+\CRef{thm:limitrules}{properties of limits}):
 
 \statethm{thm:seriesprops}{Let $\sum a_n$ and $\sum b_n$ be convergent series,
 and let $c$ be a number. Then:
@@ -792,6 +839,8 @@ $\sum ca_n = c \,\cdot\, \sum a_n$
 \end{enumerate}}
 \divider
 \vspace{2mm}
+}
+
 \startexercises\label{sec9dot2}
 {\small
 \probs{A}
@@ -856,7 +905,7 @@ convergent. If convergent then find its sum.
 a_n ~=~ \frac{1}{1!} \;+\; \frac{1}{2!} \;+\; \frac{1}{3!} \;+\; \frac{1}{4!} \;+\;
 \cdots \;+\; \frac{1}{n!}
 \]
-for $n \ge 1$. \emph{(Hint: Use the Monotone Bounded test by using a bound on
+for $n \ge 1$. \emph{(Hint: Use the \CRef{thm:seqtests:monotone-bounded-test}{Monotone Bounded Test} by using a bound on
 $\frac{1}{n!}$ for $n > 2$.)}
  \item Consider the series $~\bigsum{n = 1}{\infty}~ \dfrac{1}{2n-1} ~=~
 1 \;+\; \frac{1}{3} \;+\; \frac{1}{5} \;+\; \frac{1}{7} \;+\; \dotsb ~$.
@@ -903,7 +952,7 @@ Notice that this is the limit of the reciprocal of the sequence in Exercise
 }
 \newpage
 %Begin Section 9.3
-\section{Alternating Series}
+\section{Alternating Series}\label{sec:alternating-series}
 In the last section (see Example~\ref{exmp:pseries}) the harmonic series\index{series!harmonic}
 \[
 \sum_{n=1}^{\infty} \,\frac{1}{n} ~=~ 1 \;+\; \frac{1}{2} \;+\; \frac{1}{3}
@@ -927,7 +976,7 @@ decreasing to 0, then the series converges.}
 \noindent The condition for the test means that $\abs{a_{n+1}} \le \abs{a_n}$
 for all $n$ and $\abs{a_n} \rightarrow 0$ as $n \rightarrow \infty$. To see why
 the test works, consider the alternating series given above by formula
-(\ref{eqn:altharmonic}), with $a_n=\frac{-1^{n-1}}{n}$. The odd-numbered partial
+(\ref{eqn:altharmonic}), with $a_n=\frac{(-1)^{n-1}}{n}$. The odd-numbered partial
 sums $s_1$, $s_3$, $s_5$, $\ldots$, can be written as
 \[
 s_1 ~=~ 1 \quad,\quad
@@ -946,7 +995,8 @@ s_6 ~=~ 1 \;-\; \frac{1}{2} \;+\; \underbrace{\left(\frac{1}{3} - \frac{1}{4}\ri
 Thus the odd-numbered partial sums $\seq{s_{2n-1}}$ are decreasing from $s_1=1$,
 and the even-numbered ones $\seq{s_{2n}}$ are increasing from
 $s_2=1-\frac{1}{2}=\frac{1}{2}$, with $\frac{1}{2} < s_n < 1$ for all $n$, i.e. the
-partial sums are bounded. So by the Monotone Bounded Test, both sequences
+partial sums are bounded. So by the \CRef{thm:seqtests:monotone-bounded-test}{Monotone Bounded
+Test}, both sequences
 $\seq{s_{2n-1}}$ and $\seq{s_{2n}}$ must converge. Since
 $s_{2n} - s_{2n-1} = a_{2n} = \frac{-1}{2n}$ for all $n \ge 1$, then
 \[
@@ -964,14 +1014,14 @@ convergent.\vspace{1mm}
 \par\noindent\emph{Solution:} For the general term
 $a_n = \frac{(-1)^{n}}{\ln \,n}$, since $\ln\,(n+1) > \ln\,n$ for $n\ge 2$ and
 $\ln\,n \rightarrow \infty$ as $n \rightarrow \infty$, then $\abs{a_n}$
-decreases to 0 as $n \rightarrow \infty$. Thus, by the Alternating Series Test
+decreases to 0 as $n \rightarrow \infty$. Thus, by the \CRef{thm:altseriestest}{Alternating Series Test}
 the series converges.\index{series!conditional convergent}
 \end{exmp}
 \divider
 \vspace{2mm}
 
 The series $\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n}$ converges by the
-Alternating Series Test, though the series $\sum_{n=1}^{\infty} \frac{1}{n}$
+\CRef{thm:altseriestest}{Alternating Series Test}, though the series $\sum_{n=1}^{\infty} \frac{1}{n}$
 diverges. This makes $\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n}$ an example of a
 \textbf{conditionally convergent} series:\index{conditional convergence}
 
@@ -988,7 +1038,7 @@ absolutely convergent, since $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges.
 $~\displaystyle\sum_{n=1}^{\infty} \,\dfrac{(-1)^{n-1}}{n^2}~$ conditionally
 convergent or absolutely convergent?\vspace{1mm}
 \par\noindent\emph{Solution:} Since $\sum_{n=1}^{\infty} \frac{1}{n^2}$
-converges (by the p-series Test) then
+converges (by the \CRef{thm:seriestests:p-series-test}{p-series Test}) then
 $\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^2}$ is absolutely convergent.
 \end{exmp}
 \divider
@@ -1013,7 +1063,8 @@ $\sum a_n$ converges.
 
 The test can be stated in the following logically equivalent manner:
 
-\statethm{thm:absdiv}{\textbf{Absolute Convergence Test}: If $\sum a_n$ diverges
+\phantomsection\label{cmnt:absdiv}
+\statecomment{\textbf{Absolute Convergence Test}: If $\sum a_n$ diverges
 then $\sum \,\abs{a_n}$ diverges.}
 \newpage
 One unusual feature of a conditionally convergent series is that its terms can
@@ -1096,7 +1147,7 @@ Replacing the constant $r$ by a variable $x$ yields the power series
 1 \;+\; x \;+\; x^2 \;+\; x^3 \;+\; \cdots ~=~  \frac{1}{1-x}
 \end{equation}
 that converges to $\frac{1}{1-x}$ when $-1<x<1$. Note that the series diverges
-for $\abs{x}\ge 1$, by the n-th Term Test.
+for $\abs{x}\ge 1$, by the \CRef{thm:seriestests:n-th-term-test}{n-th Term Test}.
 
 In general a power series of the form
 $\sum f_n(x)$, where $f_n(x)=a_n (x-c)^n$ is a sequence of functions, has an
@@ -1121,13 +1172,13 @@ equal $\frac{1}{1-x}$.\index{power series!radius of convergence} This power
 series can be thought of as a polynomial of infinite degree.
 
 To find the interval of convergence of a power series $\sum f_n(x)$, you
-typically would use the Ratio Test on the absolute values of the terms (since
-the Ratio Test requires positive terms):
+typically would use the \CRef{thm:seriestests:ratio-test}{Ratio Test} on the absolute values of the terms (since
+the \CRef{thm:seriestests:ratio-test}{Ratio Test} requires positive terms):
 \begin{equation}\label{eqn:ratiotestpower}
 r(x) ~=~ \lim_{n \to \infty} \;\Biggl|\frac{f_{n+1}(x)}{f_n(x)}\Biggr|
 \end{equation}
 Note that the limit $r(x)$ in this case is a function of $x$. When taking the
-limit, though, treat $x$ as fixed. By the Ratio Test the power series will then
+limit, though, treat $x$ as fixed. By the \CRef{thm:seriestests:ratio-test}{Ratio Test} the power series will then
 converge for all $x$ such that $r(x) < 1$, and diverge when
 $r(x)>1$. When $r(x)=1$ the test is inconclusive, so you would have
 to check those cases individually to see if those values of $x$
@@ -1160,8 +1211,8 @@ r(x) ~=~ \lim_{n \to \infty} \;\Biggl|\frac{f_{n+1}(x)}{f_n(x)}\Biggr| ~=~
 for any fixed $x$. Thus, the series converges when $r(x) = \abs{x} < 1$ and
 diverges when $r(x) = \abs{x} > 1$.\\The cases $r(x) = \abs{x} = 1$ need to be
 checked individually. For $x=1$ the series is $\sum_{n=1}^{\infty} \frac{1}{n}$,
-which diverges. For $x=-1$ the series is
-$\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n}$, which converges. Thus, the interval of
+which diverges (see Example~\ref{exmp:pseries}). For $x=-1$ the series is
+$\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n}$, which converges (see Section~\ref{sec:alternating-series}). Thus, the interval of
 convergence is $-1 \le x < 1$.
 \end{exmp}
 \begin{exmp}
@@ -1214,7 +1265,7 @@ f'(x) ~=~ \ddx\,\left(\sum_{n=0}^{\infty} \,x^n\right) ~=~
 Since $f(x)$ converges for $-1<x<1$ then so does $f'(x)$. Checking the
 endpoints, at $x=1$ and $x=-1$ the series for $f'(x)$ are
 $\sum_{n=1}^{\infty}\,n$ and $\sum_{n=1}^{\infty} (-1)^{n-1}\,n$, respectively,
-both of which diverge by the n-th Term Test. Thus, the interval of convergence
+both of which diverge by the \CRef{thm:seriestests:n-th-term-test}{n-th Term Test}. Thus, the interval of convergence
 for $f'(x)$ is $-1<x<1$.\vspace{1mm}
 
 \par\noindent Since $f(x)= \displaystyle\sum_{n=0}^{\infty} \,x^n = \frac{1}{1-x}$ for $-1<x<1$ (see Equation~\ref{eqn:1over1minusx}) then
@@ -1248,7 +1299,7 @@ J_0(x) ~=~ \bigsum{n = 0}{\infty}~ (-1)^n\,\frac{x^{2n}}{(n\,!)^2\,\cdot\,2^{2n}
 1 \;-\; \frac{x^2}{2^2} \;+\; \frac{x^4}{2^2 \,\cdot\, 4^2} \;-\;
 \frac{x^6}{2^2 \,\cdot\, 4^2 \,\cdot\, 6^2} \;+\; \cdots
 \end{equation}
-The Ratio Test shows that $J_0(x)$ converges for all $x$, since for any fixed
+The \CRef{thm:seriestests:ratio-test}{Ratio Test} shows that $J_0(x)$ converges for all $x$, since for any fixed
 $x$,
 \[
 r(x) ~=~ \lim_{n \to \infty} \;\left|\dfrac{(-1)^{n+1}\,\dfrac{x^{2n+2}}{((n+1)\,!)^2\,\cdot\,2^{2n+2}}}
@@ -1509,7 +1560,7 @@ Thus, by Taylor's formula with $c=0$
 \frac{x^9}{9 !} ~-~ \cdots\\[4pt]
 &=~ \bigsum{n=0}{\infty}~ (-1)^{n}\,\frac{x^{2n+1}}{(2n+1) !}
 \end{align*}
-By the Ratio Test this series converges for all $x$, since for any fixed $x$,
+By the \CRef{thm:seriestests:ratio-test}{Ratio Test} this series converges for all $x$, since for any fixed $x$,
 \[
 r(x) ~=~ \lim_{n \to \infty} \;\left|\dfrac{(-1)^{n+1}\,\dfrac{x^{2n+3}}{(2n+3) !}}
 {(-1)^{n}\,\dfrac{x^{2n+1}}{(2n+1) !}}\right| ~=~
@@ -1562,7 +1613,7 @@ Thus, by Taylor's formula,
 &=~ x ~-~ \frac{x^2}{2} ~+~ \frac{x^3}{3} ~-~ \frac{x^4}{4} ~+~
 \frac{x^5}{5} ~-~ \cdots
 \end{align*}
-Use the Ratio Test to find the interval of convergence:
+Use the \CRef{thm:seriestests:ratio-test}{Ratio Test} to find the interval of convergence:
 \[
 r(x) ~=~ \lim_{n \to \infty} \;\left|\dfrac{(-1)^{n}\,\dfrac{x^{n+1}}{n+1}}
 {(-1)^{n-1}\,\dfrac{x^{n}}{n}}\right| ~=~
@@ -1571,8 +1622,8 @@ r(x) ~=~ \lim_{n \to \infty} \;\left|\dfrac{(-1)^{n}\,\dfrac{x^{n+1}}{n+1}}
 \]
 So the series converges when $\abs{x} < 1$. Check the cases $r(x)=\abs{x}=1$
 individually. For $x=1$ the series is the alternating harmonic series
-$\sum_{n=1} \frac{(-1)^{n-1}}{n}$, which converges. For $x=-1$ the series is
-$-\sum_{n=1} \frac{1}{n}$, the negative of the harmonic series, which diverges.
+$\sum_{n=1} \frac{(-1)^{n-1}}{n}$, which converges (see Section~\ref{sec:alternating-series}). For $x=-1$ the series is
+$-\sum_{n=1} \frac{1}{n}$, the negative of the harmonic series, which diverges (see Example~\ref{exmp:pseries}).
 Thus, the series converges for $-1<x\le 1$.
 \end{exmp}
 \begin{exmp}\label{exmp:taylorexp2}
@@ -1603,7 +1654,7 @@ P_n(x) ~&=~ \bigsum{k=0}{n}~ \frac{f^{(k)}(c)}{k !}\,(x-c)^k\\
 for $x$ in the interval of convergence for the full Taylor's series. In other
 words, $P_n(x)$ is the $n$-th partial sum of the Taylor's series. Since some of
 the coefficients could be zero, $P_n(x)$ is a polynomial of degree at most
-$n$. Thus, $P_n(x) = O(x^n)$. For that reason $P_n(x)$ is
+$n$. Thus, $P_n(x) = O(x^n)$\footnote{Refer to Page~\ref{defn:bigO} for a review of \CRef{defn:bigO}{\textbf{Big O Notation}}.}. For that reason $P_n(x)$ is
 sometimes called the \textbf{$\bm{O(x^n)}$ approximation} to $f(x)$.
 
 Figure \ref{fig:sinetaylor} shows a comparison of $\sin\,x$ with a few
